@@ -6,7 +6,7 @@ There will be two phases of a day. Daytime and nighttime. You can choose to do o
 
 **Nighttime:** Can be attacked by wolves or other unfriendly animals. Exploring can be done with a torch but not effective.
 
-## Actions That Can Be Done in Phases: ##
+## Actions That Can Be Done in Phases:
 
 **Exploring:** You look for things or places to go. This is going to be one of the first things you are able to do. Rarely you find relics.
 
@@ -30,17 +30,17 @@ There will be two phases of a day. Daytime and nighttime. You can choose to do o
 
 - Possibility of sudden death. The chance of dying will reduce if you have something to protect yourself.
 
-## Unanswered Questions: ##
+## Unanswered Questions:
 
-Does the protagonist have a story?
+- Does the protagonist have a story?
 
-How does the game end? Or will it end at all?
+- How does the game end? Or will it end at all?
 
-What is the name of the game?
+- What is the name of the game?
 
-What are the relics that can be found during exploration?
+- What are the relics that can be found during exploration?
 
-Is cooking possible?
+- Is cooking possible?
 
 Traps. Hunting. Spear. Tent. Fire.
 
