@@ -36,6 +36,8 @@ There will be two phases of a day. Daytime and nighttime. You can choose to do o
 
 ## Unanswered Questions:
 
+- Most important question is why would anyone want to play our game?
+
 - Does the protagonist have a story?
 
 - How does the game end? Or will it end at all?
