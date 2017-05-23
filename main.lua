@@ -16,13 +16,22 @@ local image = display.newImageRect("images/background.png", 1920, 1080)
 image.x = _SCREEN.CENTER.x
 image.y = _SCREEN.CENTER.y
 
-local exploreButton = widget.newButton{
-	left = 50,
+local explore_button = widget.newButton{
+	left = 20,
 	top = 400,
 	width = 127,
 	height = 40,
-	defaultFile = "images/exploreButton.png",
-	overFile = "images/exploreButtonOver.png",
-	label = "Explore Button",
+	defaultFile = "images/explore_button.png",
+	overFile = "images/explore_button_over.png",
+	onEvent = handleButtonEvent
+}
+
+local pickup_button = widget.newButton{
+	left = 180,
+	top = 400,
+	width = 127,
+	height = 40,
+	defaultFile = "images/pickup_button.png",
+	overFile = "images/pickup_button_over.png",
 	onEvent = handleButtonEvent
 }
