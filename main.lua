@@ -17,10 +17,10 @@ image.x = _SCREEN.CENTER.x
 image.y = _SCREEN.CENTER.y
 
 local exploreButton = widget.newButton{
-	left = 150,
-	top = 200,
-	width = 350,
-	height = 150,
+	left = 50,
+	top = 400,
+	width = 127,
+	height = 40,
 	defaultFile = "images/exploreButton.png",
 	overFile = "images/exploreButtonOver.png",
 	label = "Explore Button",
