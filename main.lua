@@ -21,8 +21,8 @@ local exploreButton = widget.newButton{
 	top = 200,
 	width = 350,
 	height = 150,
-	defaultFile = "exploreButton.png",
-	overFile = "exploreButtonOver.png",
+	defaultFile = "images/exploreButton.png",
+	overFile = "images/exploreButtonOver.png",
 	label = "Explore Button",
 	onEvent = handleButtonEvent
 }
