@@ -1,4 +1,4 @@
-require "mechanics"
+local mechanics = require "mechanics"
 
 display.setStatusBar(display.HiddenStatusBar)
 
