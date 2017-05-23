@@ -1,6 +1,6 @@
-display.setStatusBar( display.HiddenStatusBar )
+display.setStatusBar(display.HiddenStatusBar)
 
-local widget = require( "widget" )
+local widget = require("widget")
 
 _SCREEN = {
 	width = display.contentWidth,
