@@ -1,3 +1,5 @@
+require "mechanics"
+
 display.setStatusBar(display.HiddenStatusBar)
 
 local widget = require("widget")
