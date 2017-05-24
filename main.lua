@@ -1,8 +1,7 @@
-local mechanics = require "mechanics"
-
 display.setStatusBar(display.HiddenStatusBar)
 
 local widget = require("widget")
+local mechanics = require("mechanics")
 
 _SCREEN = {
   width = display.contentWidth,
@@ -27,6 +26,16 @@ local explore_button = widget.newButton{
   overFile = "images/explore_button_over.png",
   onEvent = handleButtonEvent
 }
+
+local function handleButtonEvent(event)
+  if (event.phase == "ended") then
+    if (mechanics.time == 1) then
+      mechanics.pickup(1, 5);
+    else
+      mechanics.pickup(0, 3, 3);
+    end
+  end
+end
 
 local pickup_button = widget.newButton{
   left = 180,
