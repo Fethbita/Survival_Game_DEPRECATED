@@ -30,7 +30,7 @@ mechanics.pickup = function (min_object, max_object, prob_power)
   prob_power = prob_power or 4
   for key,value in pairs(inventory) do
     number_found = math.floor(min_object + ((max_object + 1) - min_object) * math.random() ^ prob_power);
-    inventory[key] = number_found;
+    inventory[key] = inventory[key] + number_found;
   end
   print("Wood " .. inventory.Wood .. "   ");
   print("Stone " .. inventory.Stone .. "   ");
