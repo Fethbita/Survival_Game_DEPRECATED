@@ -25,10 +25,10 @@ local logs_text = display.newText("Logs", 0,0, "Bellota-Regular", 24);
 logs_text.x = _SCREEN.CENTER.x;
 logs_text.y = _SCREEN.CENTER.y - 100;
 
-healthBar = display.newRect(160, 3, 320, 6)
+healthBar = display.newRoundedRect(160, 3, 320, 6, 3)
 healthBar:setFillColor(104/255, 159/255, 56/255)
 
-energyBar = display.newRect(160, 9, 320, 6)
+energyBar = display.newRoundedRect(160, 9, 320, 6, 3)
 energyBar:setFillColor(2/255, 136/255, 209/255)
 
 local function handleExploreEvent(event)
@@ -93,5 +93,63 @@ local pickup_button = widget.newButton{
   fontSize = 24,
   labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
   onEvent = handlePickupEvent,
+  pressed = true
+}
+
+local function handleRestEvent(event)
+
+end
+
+
+local rest_button = widget.newButton{
+  left = 10,
+  top = 350,
+  width = 140,
+  height = 52,
+  defaultFile = "images/button.png",
+  overFile = "images/button_over.png",
+  label = "Rest",
+  font = "Bellota-Regular",
+  fontSize = 24,
+  labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
+  onEvent = handleRestEvent,
+  pressed = true
+}
+
+local function handleBuildEvent(event)
+
+end
+
+local build_button = widget.newButton{
+  left = 10,
+  top = 450,
+  width = 140,
+  height = 52,
+  defaultFile = "images/button.png",
+  overFile = "images/button_over.png",
+  label = "Build",
+  font = "Bellota-Regular",
+  fontSize = 24,
+  labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
+  onEvent = handleBuildEvent,
+  pressed = true
+}
+
+local function handleMineEvent(event)
+
+end
+
+local mine_button = widget.newButton{
+  left = 170,
+  top = 450,
+  width = 140,
+  height = 52,
+  defaultFile = "images/button.png",
+  overFile = "images/button_over.png",
+  label = "Mine",
+  font = "Bellota-Regular",
+  fontSize = 24,
+  labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
+  onEvent = handleMineEvent,
   pressed = true
 }
