@@ -25,20 +25,24 @@ local logs_text = display.newText("Logs", 0,0, "Bellota-Regular", 24);
 logs_text.x = _SCREEN.CENTER.x;
 logs_text.y = _SCREEN.CENTER.y - 100;
 
-healthBar = display.newRect(160, 3, 320, 7)
+healthBar = display.newRect(160, 3, 320, 6)
 healthBar:setFillColor(104/255, 159/255, 56/255)
 
-energyBar = display.newRect(160, 10, 320, 7)
+energyBar = display.newRect(160, 9, 320, 6)
 energyBar:setFillColor(2/255, 136/255, 209/255)
 
 local function handleExploreEvent(event)
   if (event.phase == "ended") then
-    mechanics.selected_buttons = mechanics.selected_buttons + 1;
-    if (mechanics.selected_buttons == 2) then
-      mechanics.pass_time();
-      time_text.text = mechanics.time_text[mechanics.time + 1];
+    if (mechanics.energy >= 100) then
+      mechanics.energy = mechanics.energy - 100;
+      mechanics.updateBars(healthBar, energyBar);
+
+      mechanics.selected_buttons = mechanics.selected_buttons + 1;
+      if (mechanics.selected_buttons == 2) then
+        mechanics.pass_time();
+        time_text.text = mechanics.time_text[mechanics.time + 1];
+      end
     end
-    mechanics.energy = mechanics.energy - 100;
   end
 end
 
