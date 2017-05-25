@@ -11,13 +11,25 @@ local inventory = {
 };
 mechanics.inventory = inventory;
 --[[
-1 means daytime
 0 means nigttime
+1 means daytime
 --]]
 local time = 1;
 mechanics.time = time;
+local time_text = {"Nighttime", "Daytime"};
+mechanics.time_text = time_text;
 
-mechanics.explore = function ()
+
+local selected_buttons = 0;
+mechanics.selected_buttons = selected_buttons;
+
+
+function mechanics.pass_time()
+  time = 1 - time;
+  selected_buttons = 0;
+end
+
+function mechanics.explore()
   local random_number = math.random()
   local choice_count = 10
 end
@@ -26,7 +38,7 @@ end
 Pickup function, it generates a random number between min_object and max_object
 then with the prob_power given, creates a distribution.
 --]]
-mechanics.pickup = function (min_object, max_object, prob_power)
+function mechanics.pickup(min_object, max_object, prob_power)
   prob_power = prob_power or 4
   for key,value in pairs(inventory) do
     number_found = math.floor(min_object + ((max_object + 1) - min_object) * math.random() ^ prob_power);
