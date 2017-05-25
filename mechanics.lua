@@ -1,4 +1,5 @@
 local mechanics = {};
+
 local health = 1000;
 mechanics.health = health;
 local energy = 1000;

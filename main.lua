@@ -32,7 +32,7 @@ energyBar = display.newRoundedRect(160, 9, 320, 6, 3)
 energyBar:setFillColor(2/255, 136/255, 209/255)
 
 local function handleExploreEvent(event)
-  if (event.phase == "ended") then
+  --if (event.phase == "ended") then
     if (mechanics.energy >= 100) then
       mechanics.energy = mechanics.energy - 100;
       mechanics.updateBars(healthBar, energyBar);
@@ -43,8 +43,13 @@ local function handleExploreEvent(event)
         time_text.text = mechanics.time_text[mechanics.time + 1];
       end
     end
-  end
+  --end
 end
+
+local explore_button_new = display.newImageRect("images/button.png", 140, 52);
+explore_button_new.x = 100;
+explore_button_new.y = 100;
+explore_button_new:addEventListener("tap", handleExploreEvent);
 
 local explore_button = widget.newButton{
   left = 10,
@@ -97,7 +102,8 @@ local pickup_button = widget.newButton{
 }
 
 local function handleRestEvent(event)
-
+  if (event.phase == "ended") then
+  end
 end
 
 
@@ -117,7 +123,8 @@ local rest_button = widget.newButton{
 }
 
 local function handleBuildEvent(event)
-
+  if (event.phase == "ended") then
+  end
 end
 
 local build_button = widget.newButton{
@@ -136,7 +143,8 @@ local build_button = widget.newButton{
 }
 
 local function handleMineEvent(event)
-
+  if (event.phase == "ended") then
+  end
 end
 
 local mine_button = widget.newButton{
