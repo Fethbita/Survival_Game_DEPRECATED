@@ -14,8 +14,16 @@ _SCREEN.CENTER = {
 }
 
 local image = display.newImageRect("images/background.png", 1920, 1080)
-image.x = _SCREEN.CENTER.x
-image.y = _SCREEN.CENTER.y
+image.x = _SCREEN.CENTER.x - 15
+image.y = _SCREEN.CENTER.y + 50
+
+local time_text = display.newText( "Daytime", 0, 0, "Bellota-Regular", 24 )
+time_text.x = _SCREEN.CENTER.x - 90
+time_text.y = _SCREEN.CENTER.y - 200
+
+local logs_text = display.newText( "Logs", 0,0, "Bellota-Regular", 24 )
+logs_text.x = _SCREEN.CENTER.x
+logs_text.y = _SCREEN.CENTER.y - 100
 
 local explore_button = widget.newButton{
   left = 20,
