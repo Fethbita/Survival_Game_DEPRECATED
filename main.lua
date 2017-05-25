@@ -63,12 +63,16 @@ local function handleExploreEvent(event)
 end
 
 local explore_button = widget.newButton{
-  left = 20,
+  left = 10,
   top = 400,
-  width = 127,
-  height = 40,
-  defaultFile = "images/explore_button.png",
-  overFile = "images/explore_button_over.png",
+  width = 140,
+  height = 52,
+  defaultFile = "images/button.png",
+  overFile = "images/button_over.png",
+  label = "Explore",
+  font = "Bellota-Regular",
+  fontSize = 24,
+  labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
   onEvent = handleExploreEvent
 }
 
@@ -90,11 +94,15 @@ local function handlePickupEvent(event)
 end
 
 local pickup_button = widget.newButton{
-  left = 180,
+  left = 170,
   top = 400,
-  width = 127,
-  height = 40,
-  defaultFile = "images/pickup_button.png",
-  overFile = "images/pickup_button_over.png",
+  width = 140,
+  height = 52,
+  defaultFile = "images/button.png",
+  overFile = "images/button_over.png",
+  label = "Pick Up",
+  font = "Bellota-Regular",
+  fontSize = 24,
+  labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
   onEvent = handlePickupEvent
 }
