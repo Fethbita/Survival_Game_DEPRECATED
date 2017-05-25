@@ -25,11 +25,11 @@ local logs_text = display.newText("Logs", 0,0, "Bellota-Regular", 24);
 logs_text.x = _SCREEN.CENTER.x;
 logs_text.y = _SCREEN.CENTER.y - 100;
 
-healthBar = display.newRect(160, 5, 320, 10)
-healthBar:setFillColor(000/255, 255/255, 0/255)
+healthBar = display.newRect(160, 3, 320, 7)
+healthBar:setFillColor(104/255, 159/255, 56/255)
 
-energyBar = display.newRect(160, 15, 320, 10)
-energyBar:setFillColor(000/255, 0/255, 255/255)
+energyBar = display.newRect(160, 10, 320, 7)
+energyBar:setFillColor(2/255, 136/255, 209/255)
 
 local function handleExploreEvent(event)
   if (event.phase == "ended") then
