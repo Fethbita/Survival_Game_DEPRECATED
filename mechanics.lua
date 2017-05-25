@@ -50,4 +50,13 @@ function mechanics.pickup(min_object, max_object, prob_power)
   print("Branch " .. inventory.Branch .. "   ");
 end
 
+function mechanics.updateBars(healthBar, energyBar)
+  if (mechanics.health > 0) then
+    healthBar.xScale = mechanics.health / 1000;
+  end
+  if (mechanics.energy > 0) then
+    energyBar.xScale = mechanics.energy / 1000;
+  end
+end
+
 return mechanics;
