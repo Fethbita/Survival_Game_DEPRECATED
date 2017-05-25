@@ -25,8 +25,8 @@ mechanics.selected_buttons = selected_buttons;
 
 
 function mechanics.pass_time()
-  time = 1 - time;
-  selected_buttons = 0;
+  mechanics.time = 1 - mechanics.time;
+  mechanics.selected_buttons = 0;
 end
 
 function mechanics.explore()
