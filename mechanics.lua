@@ -52,10 +52,14 @@ end
 
 function mechanics.updateBars(healthBar, energyBar)
   if (mechanics.health > 0) then
-    healthBar.xScale = mechanics.health / 1000;
+    healthBar.width = math.floor(320 * (mechanics.health / 1000));
+  else
+    healthBar.width = 0;
   end
   if (mechanics.energy > 0) then
-    energyBar.xScale = mechanics.energy / 1000;
+    energyBar.width = math.floor(320 * (mechanics.energy / 1000));
+  else
+    energyBar.width = 0;
   end
 end
 
