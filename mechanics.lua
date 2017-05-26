@@ -92,6 +92,7 @@ function mechanics.pass_time(explore_button, explore_button_pressed, pickup_butt
   end
 
   if (rest_button_isPressed) then
+    mechanics.energy = mechanics.energy + 150;
     updateBars(healthBar, energyBar);
 
     transition.cancel(rest_button);

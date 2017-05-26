@@ -116,27 +116,31 @@ local function handleRestEvent(event)
       transition.to(rest, {time=250, delay=250, alpha=1.0, onStart=button_visible_on});
       selected_buttons = selected_buttons - 1;
     else
-      rest_button_isPressed = not rest_button_isPressed;
-      transition.cancel(rest);
-      transition.cancel(rest_pressed);
-      transition.to(rest, {time=250, alpha=0, onComplete=button_visible_off});
-      transition.to(rest_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_on});
-      selected_buttons = selected_buttons + 1;
+      if (mechanics.energy >= 1000) then
+        return;
+      else
+        rest_button_isPressed = not rest_button_isPressed;
+        transition.cancel(rest);
+        transition.cancel(rest_pressed);
+        transition.to(rest, {time=250, alpha=0, onComplete=button_visible_off});
+        transition.to(rest_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_on});
+        selected_buttons = selected_buttons + 1;
 
-      if (selected_buttons == 2) then
-        buttonStates = mechanics.pass_time(explore, explore_pressed,
-        pickup, pickup_pressed,
-        build, build_pressed,
-        mine, mine_pressed,
-        rest, rest_pressed,
-        explore_button_isPressed, pickup_button_isPressed, rest_button_isPressed, build_button_isPressed, mine_button_isPressed);
-        explore_button_isPressed = buttonStates.explore_button_isPressed;
-        pickup_button_isPressed = buttonStates.pickup_button_isPressed;
-        rest_button_isPressed = buttonStates.rest_button_isPressed;
-        build_button_isPressed = buttonStates.build_button_isPressed;
-        mine_button_isPressed = buttonStates.mine_button_isPressed;
+        if (selected_buttons == 2) then
+          buttonStates = mechanics.pass_time(explore, explore_pressed,
+          pickup, pickup_pressed,
+          build, build_pressed,
+          mine, mine_pressed,
+          rest, rest_pressed,
+          explore_button_isPressed, pickup_button_isPressed, rest_button_isPressed, build_button_isPressed, mine_button_isPressed);
+          explore_button_isPressed = buttonStates.explore_button_isPressed;
+          pickup_button_isPressed = buttonStates.pickup_button_isPressed;
+          rest_button_isPressed = buttonStates.rest_button_isPressed;
+          build_button_isPressed = buttonStates.build_button_isPressed;
+          mine_button_isPressed = buttonStates.mine_button_isPressed;
 
-        selected_buttons = 0;
+          selected_buttons = 0;
+        end
       end
     end
   end
