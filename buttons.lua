@@ -2,14 +2,25 @@ local mechanics = require("mechanics");
 
 local explore;
 local explore_pressed;
+local explore_button_isPressed = false;
 local pickup;
 local pickup_pressed;
+local pickup_button_isPressed = false;
 local build;
 local build_pressed;
+local build_button_isPressed = false;
 local mine;
 local mine_pressed;
+local mine_button_isPressed = false;
 local rest;
 local rest_pressed;
+local rest_button_isPressed = false;
+
+
+
+
+
+
 
 local selected_buttons = 0;
 
@@ -19,17 +30,20 @@ end
 
 local function handleExploreEvent(event)
   if (event.phase == "ended") then
-    if (explore_pressed.isVisible) then
+    if (explore_button_isPressed) then
+      explore_button_isPressed = not explore_button_isPressed;
       transition.to(explore_pressed, {time=250, alpha=0, onComplete=button_visible_toggle})
       transition.to(explore, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle})
 
       selected_buttons = selected_buttons - 1;
     else
+      explore_button_isPressed = not explore_button_isPressed;
       transition.to(explore, {time=250, alpha=0, onComplete=button_visible_toggle})
       transition.to(explore_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle})
       selected_buttons = selected_buttons + 1;
 
       if (mechanics.energy < 100) then
+        explore_button_isPressed = not explore_button_isPressed;
         transition.to(explore_pressed, {time=250, alpha=0, onComplete=button_visible_toggle})
         transition.to(explore, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle})
         selected_buttons = selected_buttons - 1;
