@@ -13,20 +13,25 @@ local rest_pressed;
 
 local selected_buttons = 0;
 
+local function button_visible_toggle(button)
+    button.isVisible = not button.isVisible;
+end
+
 local function handleExploreEvent(event)
   if (event.phase == "ended") then
     if (explore_pressed.isVisible) then
-      explore.isVisible = true;
-      explore_pressed.isVisible = false;
+      transition.to(explore_pressed, {time=250, alpha=0, onComplete=button_visible_toggle})
+      transition.to(explore, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle})
+
       selected_buttons = selected_buttons - 1;
     else
-      explore.isVisible = false;
-      explore_pressed.isVisible = true;
+      transition.to(explore, {time=250, alpha=0, onComplete=button_visible_toggle})
+      transition.to(explore_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle})
       selected_buttons = selected_buttons + 1;
 
       if (mechanics.energy < 100) then
-        explore.isVisible = true;
-        explore_pressed.isVisible = false;
+        transition.to(explore_pressed, {time=250, alpha=0, onComplete=button_visible_toggle})
+        transition.to(explore, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle})
         selected_buttons = selected_buttons - 1;
         return;
       end
@@ -167,6 +172,7 @@ explore:addEventListener("touch", handleExploreEvent);
 explore_pressed = display.newImageRect("images/button_over.png", 140, 52);
 explore_pressed:addEventListener("touch", handleExploreEvent);
 explore_pressed.isVisible = false;
+explore_pressed.alpha = 0;
 
 local explore_text = display.newText("Explore", 0, 0, "Bellota-Regular", 24);
 
@@ -184,6 +190,7 @@ rest:addEventListener("touch", handleRestEvent);
 rest_pressed = display.newImageRect("images/button_over.png", 140, 52);
 rest_pressed:addEventListener("touch", handleRestEvent);
 rest_pressed.isVisible = false;
+rest_pressed.alpha = 0;
 
 local rest_text = display.newText("Rest", 0, 0, "Bellota-Regular", 24);
 
@@ -201,6 +208,7 @@ build:addEventListener("touch", handleBuildEvent);
 build_pressed = display.newImageRect("images/button_over.png", 140, 52);
 build_pressed:addEventListener("touch", handleBuildEvent);
 build_pressed.isVisible = false;
+build_pressed.alpha = 0;
 
 local build_text = display.newText("Build", 0, 0, "Bellota-Regular", 24);
 
@@ -218,6 +226,7 @@ pickup:addEventListener("touch", handlePickupEvent);
 pickup_pressed = display.newImageRect("images/button_over.png", 140, 52);
 pickup_pressed:addEventListener("touch", handlePickupEvent);
 pickup_pressed.isVisible = false;
+pickup_pressed.alpha = 0;
 
 local pickup_text = display.newText("Pick Up", 0, 0, "Bellota-Regular", 24);
 
@@ -235,6 +244,7 @@ mine:addEventListener("touch", handleMineEvent);
 mine_pressed = display.newImageRect("images/button_over.png", 140, 52);
 mine_pressed:addEventListener("touch", handleMineEvent);
 mine_pressed.isVisible = false;
+mine_pressed.alpha = 0;
 
 local mine_text = display.newText("Mine", 0, 0, "Bellota-Regular", 24);
 
