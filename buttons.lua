@@ -242,7 +242,7 @@ explore_group:insert(explore);
 explore_group:insert(explore_pressed);
 explore_group:insert(explore_text);
 explore_group.x = _SCREEN.CENTER.x - 80;
-explore_group.y = _SCREEN.CENTER.y + 90;
+explore_group.y = _SCREEN.CENTER.y + 140;
 
 -- Creating rest button
 rest = display.newImageRect("images/button.png", 140, 52);
@@ -260,7 +260,7 @@ rest_group:insert(rest);
 rest_group:insert(rest_pressed);
 rest_group:insert(rest_text);
 rest_group.x = _SCREEN.CENTER.x - 80;
-rest_group.y = _SCREEN.CENTER.y + 140;
+rest_group.y = _SCREEN.CENTER.y + 190;
 
 -- Creating build button
 build = display.newImageRect("images/button.png", 140, 52);
@@ -278,7 +278,7 @@ build_group:insert(build);
 build_group:insert(build_pressed);
 build_group:insert(build_text);
 build_group.x = _SCREEN.CENTER.x - 80;
-build_group.y = _SCREEN.CENTER.y + 190;
+build_group.y = _SCREEN.CENTER.y + 240;
 
 -- Creating pick up button
 pickup = display.newImageRect("images/button.png", 140, 52);
