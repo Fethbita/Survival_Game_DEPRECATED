@@ -46,26 +46,6 @@ local function handleExploreEvent(event)
   --end
 end
 
-local explore_button_new = display.newImageRect("images/button.png", 140, 52);
-explore_button_new.x = 100;
-explore_button_new.y = 100;
-explore_button_new:addEventListener("tap", handleExploreEvent);
-
-local explore_button = widget.newButton{
-  left = 10,
-  top = 400,
-  width = 140,
-  height = 52,
-  defaultFile = "images/button.png",
-  overFile = "images/button_over.png",
-  label = "Explore",
-  font = "Bellota-Regular",
-  fontSize = 24,
-  labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
-  onEvent = handleExploreEvent,
-  pressed = true
-}
-
 local function handlePickupEvent(event)
   if (event.phase == "ended") then
     if (mechanics.energy >= 100) then
@@ -86,78 +66,103 @@ local function handlePickupEvent(event)
   end
 end
 
-local pickup_button = widget.newButton{
-  left = 170,
-  top = 400,
-  width = 140,
-  height = 52,
-  defaultFile = "images/button.png",
-  overFile = "images/button_over.png",
-  label = "Pick Up",
-  font = "Bellota-Regular",
-  fontSize = 24,
-  labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
-  onEvent = handlePickupEvent,
-  pressed = true
-}
 
 local function handleRestEvent(event)
   if (event.phase == "ended") then
   end
 end
 
-
-local rest_button = widget.newButton{
-  left = 10,
-  top = 350,
-  width = 140,
-  height = 52,
-  defaultFile = "images/button.png",
-  overFile = "images/button_over.png",
-  label = "Rest",
-  font = "Bellota-Regular",
-  fontSize = 24,
-  labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
-  onEvent = handleRestEvent,
-  pressed = true
-}
-
 local function handleBuildEvent(event)
   if (event.phase == "ended") then
   end
 end
-
-local build_button = widget.newButton{
-  left = 10,
-  top = 450,
-  width = 140,
-  height = 52,
-  defaultFile = "images/button.png",
-  overFile = "images/button_over.png",
-  label = "Build",
-  font = "Bellota-Regular",
-  fontSize = 24,
-  labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
-  onEvent = handleBuildEvent,
-  pressed = true
-}
 
 local function handleMineEvent(event)
   if (event.phase == "ended") then
   end
 end
 
-local mine_button = widget.newButton{
-  left = 170,
-  top = 450,
-  width = 140,
-  height = 52,
-  defaultFile = "images/button.png",
-  overFile = "images/button_over.png",
-  label = "Mine",
-  font = "Bellota-Regular",
-  fontSize = 24,
-  labelColor = { default={ 1, 1, 1 }, over={ 0, 0, 0, 0.5 } },
-  onEvent = handleMineEvent,
-  pressed = true
-}
+-- Creating explore button
+local explore_button = display.newImageRect("images/button.png", 140, 52);
+explore_button:addEventListener("tap", handleExploreEvent);
+
+local explore_button_pressed = display.newImageRect("images/button_over.png", 140, 52);
+explore_button_pressed:addEventListener("tap", handleExploreEvent);
+explore_button_pressed.isVisible = false;
+
+local explore_button_text = display.newText( "Explore", 0, 0, "Bellota-Regular", 24 );
+
+local explore_button_group = display.newGroup( )
+explore_button_group:insert(explore_button)
+explore_button_group:insert(explore_button_pressed)
+explore_button_group:insert(explore_button_text)
+explore_button_group.x = _SCREEN.CENTER.x - 80
+explore_button_group.y = _SCREEN.CENTER.y + 90
+
+-- Creating rest button
+local rest_button = display.newImageRect("images/button.png", 140, 52);
+rest_button:addEventListener("touch", handleRestEvent);
+
+local rest_button_pressed = display.newImageRect("images/button_over.png", 140, 52);
+rest_button_pressed:addEventListener("touch", handleRestEvent);
+rest_button_pressed.isVisible = false;
+
+local rest_button_text = display.newText( "Rest", 0, 0, "Bellota-Regular", 24 );
+
+local rest_button_group = display.newGroup( )
+rest_button_group:insert(rest_button)
+rest_button_group:insert(rest_button_pressed)
+rest_button_group:insert(rest_button_text)
+rest_button_group.x = _SCREEN.CENTER.x - 80
+rest_button_group.y = _SCREEN.CENTER.y + 140
+
+-- Creating build button
+local build_button = display.newImageRect("images/button.png", 140, 52);
+build_button:addEventListener("touch", handleBuildEvent);
+
+local build_button_pressed = display.newImageRect("images/button_over.png", 140, 52);
+build_button_pressed:addEventListener("touch", handleBuildEvent);
+build_button_pressed.isVisible = false;
+
+local build_button_text = display.newText( "Build", 0, 0, "Bellota-Regular", 24 );
+
+local build_button_group = display.newGroup( )
+build_button_group:insert(build_button)
+build_button_group:insert(build_button_pressed)
+build_button_group:insert(build_button_text)
+build_button_group.x = _SCREEN.CENTER.x - 80
+build_button_group.y = _SCREEN.CENTER.y + 190
+
+-- Creating pick up button
+local pickup_button = display.newImageRect("images/button.png", 140, 52);
+pickup_button:addEventListener("touch", handlePickupEvent);
+
+local pickup_button_pressed = display.newImageRect("images/button_over.png", 140, 52);
+pickup_button_pressed:addEventListener("touch", handlePickupEvent);
+pickup_button_pressed.isVisible = false;
+
+local pickup_button_text = display.newText( "Pick Up", 0, 0, "Bellota-Regular", 24 );
+
+local pickup_button_group = display.newGroup( )
+pickup_button_group:insert(pickup_button)
+pickup_button_group:insert(pickup_button_pressed)
+pickup_button_group:insert(pickup_button_text)
+pickup_button_group.x = _SCREEN.CENTER.x + 80
+pickup_button_group.y = _SCREEN.CENTER.y + 190
+
+-- Creating mine button
+local mine_button = display.newImageRect("images/button.png", 140, 52);
+mine_button:addEventListener("touch", handleMineEvent);
+
+local mine_button_pressed = display.newImageRect("images/button_over.png", 140, 52);
+mine_button_pressed:addEventListener("touch", handleMineEvent);
+mine_button_pressed.isVisible = false;
+
+local mine_button_text = display.newText( "Mine", 0, 0, "Bellota-Regular", 24 );
+
+local mine_button_group = display.newGroup( )
+mine_button_group:insert(mine_button)
+mine_button_group:insert(mine_button_pressed)
+mine_button_group:insert(mine_button_text)
+mine_button_group.x = _SCREEN.CENTER.x + 80
+mine_button_group.y = _SCREEN.CENTER.y + 140
