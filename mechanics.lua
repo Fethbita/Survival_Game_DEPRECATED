@@ -28,7 +28,6 @@ function mechanics.pass_time(healthBar, energyBar, time_text, explore_button, ex
   rest_button, rest_button_pressed)
 
   if (explore_button_pressed.isVisible) then
-
     mechanics.energy = mechanics.energy - 100;
     mechanics.updateBars(healthBar, energyBar);
 
@@ -38,7 +37,6 @@ function mechanics.pass_time(healthBar, energyBar, time_text, explore_button, ex
   end
 
   if (pickup_button_pressed.isVisible) then
-
     mechanics.energy = mechanics.energy - 100;
     mechanics.updateBars(healthBar, energyBar);
     if (mechanics.time == 1) then
@@ -53,7 +51,6 @@ function mechanics.pass_time(healthBar, energyBar, time_text, explore_button, ex
   end
 
   if (rest_button_pressed.isVisible) then
-
     mechanics.updateBars(healthBar, energyBar);
 
     mechanics.rest_button_isPressed = false;
@@ -62,7 +59,6 @@ function mechanics.pass_time(healthBar, energyBar, time_text, explore_button, ex
   end
 
   if (build_button_pressed.isVisible) then
-
     mechanics.energy = mechanics.energy - 100;
     mechanics.updateBars(healthBar, energyBar);
 
@@ -72,7 +68,6 @@ function mechanics.pass_time(healthBar, energyBar, time_text, explore_button, ex
   end
 
   if (mine_button_pressed.isVisible) then
-
     mechanics.energy = mechanics.energy - 100;
     mechanics.updateBars(healthBar, energyBar);
 
@@ -80,6 +75,7 @@ function mechanics.pass_time(healthBar, energyBar, time_text, explore_button, ex
     mine_button.isVisible = true;
     mine_button_pressed.isVisible = false;
   end
+  
   mechanics.time = 1 - mechanics.time;
   mechanics.selected_buttons = 0;
   time_text.text = mechanics.time_text[mechanics.time + 1];
