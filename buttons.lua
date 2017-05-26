@@ -47,7 +47,7 @@ local function handleExploreEvent(event)
         selected_buttons = selected_buttons + 1;
 
         if (selected_buttons == 2) then
-          buttonStates = mechanics.pass_time(explore, explore_pressed,
+          local buttonStates = mechanics.pass_time(explore, explore_pressed,
           pickup, pickup_pressed,
           build, build_pressed,
           mine, mine_pressed,
@@ -87,7 +87,7 @@ local function handlePickupEvent(event)
         selected_buttons = selected_buttons + 1;
 
         if (selected_buttons == 2) then
-          buttonStates = mechanics.pass_time(explore, explore_pressed,
+          local buttonStates = mechanics.pass_time(explore, explore_pressed,
           pickup, pickup_pressed,
           build, build_pressed,
           mine, mine_pressed,
@@ -127,7 +127,7 @@ local function handleRestEvent(event)
         selected_buttons = selected_buttons + 1;
 
         if (selected_buttons == 2) then
-          buttonStates = mechanics.pass_time(explore, explore_pressed,
+          local buttonStates = mechanics.pass_time(explore, explore_pressed,
           pickup, pickup_pressed,
           build, build_pressed,
           mine, mine_pressed,
@@ -167,7 +167,7 @@ local function handleBuildEvent(event)
         selected_buttons = selected_buttons + 1;
 
         if (selected_buttons == 2) then
-          buttonStates = mechanics.pass_time(explore, explore_pressed,
+          local buttonStates = mechanics.pass_time(explore, explore_pressed,
           pickup, pickup_pressed,
           build, build_pressed,
           mine, mine_pressed,
@@ -207,7 +207,7 @@ local function handleMineEvent(event)
         selected_buttons = selected_buttons + 1;
 
         if (selected_buttons == 2) then
-          buttonStates = mechanics.pass_time(explore, explore_pressed,
+          local buttonStates = mechanics.pass_time(explore, explore_pressed,
           pickup, pickup_pressed,
           build, build_pressed,
           mine, mine_pressed,
