@@ -6,21 +6,15 @@ local explore_button_isPressed = false;
 local pickup;
 local pickup_pressed;
 local pickup_button_isPressed = false;
+local rest;
+local rest_pressed;
+local rest_button_isPressed = false;
 local build;
 local build_pressed;
 local build_button_isPressed = false;
 local mine;
 local mine_pressed;
 local mine_button_isPressed = false;
-local rest;
-local rest_pressed;
-local rest_button_isPressed = false;
-
-
-
-
-
-
 
 local selected_buttons = 0;
 
@@ -32,31 +26,33 @@ local function handleExploreEvent(event)
   if (event.phase == "ended") then
     if (explore_button_isPressed) then
       explore_button_isPressed = not explore_button_isPressed;
-      transition.to(explore_pressed, {time=250, alpha=0, onComplete=button_visible_toggle})
-      transition.to(explore, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle})
-
+      transition.to(explore_pressed, {time=250, alpha=0, onComplete=button_visible_toggle});
+      transition.to(explore, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
       selected_buttons = selected_buttons - 1;
     else
-      explore_button_isPressed = not explore_button_isPressed;
-      transition.to(explore, {time=250, alpha=0, onComplete=button_visible_toggle})
-      transition.to(explore_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle})
-      selected_buttons = selected_buttons + 1;
-
       if (mechanics.energy < 100) then
-        explore_button_isPressed = not explore_button_isPressed;
-        transition.to(explore_pressed, {time=250, alpha=0, onComplete=button_visible_toggle})
-        transition.to(explore, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle})
-        selected_buttons = selected_buttons - 1;
         return;
-      end
+      else
+        explore_button_isPressed = not explore_button_isPressed;
+        transition.to(explore, {time=250, alpha=0, onComplete=button_visible_toggle});
+        transition.to(explore_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+        selected_buttons = selected_buttons + 1;
 
-      if (selected_buttons == 2) then
-        mechanics.pass_time(explore, explore_pressed,
-        pickup, pickup_pressed,
-        build, build_pressed,
-        mine, mine_pressed,
-        rest, rest_pressed);
-        selected_buttons = 0;
+        if (selected_buttons == 2) then
+          buttonStates = mechanics.pass_time(explore, explore_pressed,
+          pickup, pickup_pressed,
+          build, build_pressed,
+          mine, mine_pressed,
+          rest, rest_pressed,
+          explore_button_isPressed, pickup_button_isPressed, rest_button_isPressed, build_button_isPressed, mine_button_isPressed);
+          explore_button_isPressed = buttonStates.explore_button_isPressed;
+          pickup_button_isPressed = buttonStates.pickup_button_isPressed;
+          rest_button_isPressed = buttonStates.rest_button_isPressed;
+          build_button_isPressed = buttonStates.build_button_isPressed;
+          mine_button_isPressed = buttonStates.mine_button_isPressed;
+
+          selected_buttons = 0;
+        end
       end
     end
   end
@@ -64,117 +60,140 @@ end
 
 local function handlePickupEvent(event)
   if (event.phase == "ended") then
-    if (pickup_pressed.isVisible) then
-      pickup.isVisible = true;
-      pickup_pressed.isVisible = false;
+    if (pickup_button_isPressed) then
+      pickup_button_isPressed = not pickup_button_isPressed;
+      transition.to(pickup_pressed, {time=250, alpha=0, onComplete=button_visible_toggle});
+      transition.to(pickup, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
       selected_buttons = selected_buttons - 1;
     else
-      pickup.isVisible = false;
-      pickup_pressed.isVisible = true;
-      selected_buttons = selected_buttons + 1;
-
       if (mechanics.energy < 100) then
-        pickup.isVisible = true;
-        pickup_pressed.isVisible = false;
-        selected_buttons = selected_buttons - 1;
         return;
-      end
+      else
+        pickup_button_isPressed = not pickup_button_isPressed;
+        transition.to(pickup, {time=250, alpha=0, onComplete=button_visible_toggle});
+        transition.to(pickup_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+        selected_buttons = selected_buttons + 1;
 
-      if (selected_buttons == 2) then
-        mechanics.pass_time(explore, explore_pressed,
-        pickup, pickup_pressed,
-        build, build_pressed,
-        mine, mine_pressed,
-        rest, rest_pressed);
-        selected_buttons = 0;
-      end
+        if (selected_buttons == 2) then
+          buttonStates = mechanics.pass_time(explore, explore_pressed,
+          pickup, pickup_pressed,
+          build, build_pressed,
+          mine, mine_pressed,
+          rest, rest_pressed,
+          explore_button_isPressed, pickup_button_isPressed, rest_button_isPressed, build_button_isPressed, mine_button_isPressed);
+          explore_button_isPressed = buttonStates.explore_button_isPressed;
+          pickup_button_isPressed = buttonStates.pickup_button_isPressed;
+          rest_button_isPressed = buttonStates.rest_button_isPressed;
+          build_button_isPressed = buttonStates.build_button_isPressed;
+          mine_button_isPressed = buttonStates.mine_button_isPressed;
 
+          selected_buttons = 0;
+        end
+      end
     end
   end
 end
 
 local function handleRestEvent(event)
   if (event.phase == "ended") then
-    if (rest_pressed.isVisible) then
-      rest.isVisible = true;
-      rest_pressed.isVisible = false;
+    if (rest_button_isPressed) then
+      rest_button_isPressed = not rest_button_isPressed;
+      transition.to(rest_pressed, {time=250, alpha=0, onComplete=button_visible_toggle});
+      transition.to(rest, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
       selected_buttons = selected_buttons - 1;
     else
-      rest.isVisible = false;
-      rest_pressed.isVisible = true;
+      rest_button_isPressed = not rest_button_isPressed;
+      transition.to(rest, {time=250, alpha=0, onComplete=button_visible_toggle});
+      transition.to(rest_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
       selected_buttons = selected_buttons + 1;
 
       if (selected_buttons == 2) then
-        mechanics.pass_time(explore, explore_pressed,
+        buttonStates = mechanics.pass_time(explore, explore_pressed,
         pickup, pickup_pressed,
         build, build_pressed,
         mine, mine_pressed,
-        rest, rest_pressed);
+        rest, rest_pressed,
+        explore_button_isPressed, pickup_button_isPressed, rest_button_isPressed, build_button_isPressed, mine_button_isPressed);
+        explore_button_isPressed = buttonStates.explore_button_isPressed;
+        pickup_button_isPressed = buttonStates.pickup_button_isPressed;
+        rest_button_isPressed = buttonStates.rest_button_isPressed;
+        build_button_isPressed = buttonStates.build_button_isPressed;
+        mine_button_isPressed = buttonStates.mine_button_isPressed;
+
         selected_buttons = 0;
       end
-
     end
   end
 end
 
 local function handleBuildEvent(event)
   if (event.phase == "ended") then
-    if (build_pressed.isVisible) then
-      build.isVisible = true;
-      build_pressed.isVisible = false;
+    if (build_button_isPressed) then
+      build_button_isPressed = not build_button_isPressed;
+      transition.to(build_pressed, {time=250, alpha=0, onComplete=button_visible_toggle});
+      transition.to(build, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
       selected_buttons = selected_buttons - 1;
     else
-      build.isVisible = false;
-      build_pressed.isVisible = true;
-      selected_buttons = selected_buttons + 1;
-
       if (mechanics.energy < 100) then
-        build.isVisible = true;
-        build_pressed.isVisible = false;
-        selected_buttons = selected_buttons - 1;
         return;
-      end
+      else
+        build_button_isPressed = not build_button_isPressed;
+        transition.to(build, {time=250, alpha=0, onComplete=button_visible_toggle});
+        transition.to(build_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+        selected_buttons = selected_buttons + 1;
 
-      if (selected_buttons == 2) then
-        mechanics.pass_time(explore, explore_pressed,
-        pickup, pickup_pressed,
-        build, build_pressed,
-        mine, mine_pressed,
-        rest, rest_pressed);
-        selected_buttons = 0;
-      end
+        if (selected_buttons == 2) then
+          buttonStates = mechanics.pass_time(explore, explore_pressed,
+          pickup, pickup_pressed,
+          build, build_pressed,
+          mine, mine_pressed,
+          rest, rest_pressed,
+          explore_button_isPressed, pickup_button_isPressed, rest_button_isPressed, build_button_isPressed, mine_button_isPressed);
+          explore_button_isPressed = buttonStates.explore_button_isPressed;
+          pickup_button_isPressed = buttonStates.pickup_button_isPressed;
+          rest_button_isPressed = buttonStates.rest_button_isPressed;
+          build_button_isPressed = buttonStates.build_button_isPressed;
+          mine_button_isPressed = buttonStates.mine_button_isPressed;
 
+          selected_buttons = 0;
+        end
+      end
     end
   end
 end
 
 local function handleMineEvent(event)
   if (event.phase == "ended") then
-    if (mine_pressed.isVisible) then
-      mine.isVisible = true;
-      mine_pressed.isVisible = false;
+    if (mine_button_isPressed) then
+      mine_button_isPressed = not mine_button_isPressed;
+      transition.to(mine_pressed, {time=250, alpha=0, onComplete=button_visible_toggle});
+      transition.to(mine, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
       selected_buttons = selected_buttons - 1;
     else
-      mine.isVisible = false;
-      mine_pressed.isVisible = true;
-      selected_buttons = selected_buttons + 1;
-
       if (mechanics.energy < 100) then
-        mine.isVisible = true;
-        mine_pressed.isVisible = false;
-        selected_buttons = selected_buttons - 1;
         return;
-      end
+      else
+        mine_button_isPressed = not mine_button_isPressed;
+        transition.to(mine, {time=250, alpha=0, onComplete=button_visible_toggle});
+        transition.to(mine_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+        selected_buttons = selected_buttons + 1;
 
-      if (selected_buttons == 2) then
-        mechanics.pass_time(explore, explore_pressed,
-        pickup, pickup_pressed,
-        build, build_pressed,
-        mine, mine_pressed,
-        rest, rest_pressed);
-        selected_buttons = 0;
-      end
+        if (selected_buttons == 2) then
+          buttonStates = mechanics.pass_time(explore, explore_pressed,
+          pickup, pickup_pressed,
+          build, build_pressed,
+          mine, mine_pressed,
+          rest, rest_pressed,
+          explore_button_isPressed, pickup_button_isPressed, rest_button_isPressed, build_button_isPressed, mine_button_isPressed);
+          explore_button_isPressed = buttonStates.explore_button_isPressed;
+          pickup_button_isPressed = buttonStates.pickup_button_isPressed;
+          rest_button_isPressed = buttonStates.rest_button_isPressed;
+          build_button_isPressed = buttonStates.build_button_isPressed;
+          mine_button_isPressed = buttonStates.mine_button_isPressed;
 
+          selected_buttons = 0;
+        end
+      end
     end
   end
 end

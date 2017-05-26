@@ -50,17 +50,30 @@ local function updateBars(healthBar, energyBar)
 end
 
 function mechanics.pass_time(explore_button, explore_button_pressed, pickup_button, pickup_button_pressed,
-  build_button, build_button_pressed, mine_button, mine_button_pressed, rest_button, rest_button_pressed)
+  build_button, build_button_pressed, mine_button, mine_button_pressed, rest_button, rest_button_pressed,
+  explore_button_isPressed, pickup_button_isPressed, rest_button_isPressed, build_button_isPressed, mine_button_isPressed)
 
-  if (explore_button_pressed.isVisible) then
+  local to_return = {};
+  to_return.explore_button_isPressed = explore_button_isPressed;
+  to_return.pickup_button_isPressed = pickup_button_isPressed;
+  to_return.rest_button_isPressed = rest_button_isPressed;
+  to_return.build_button_isPressed = build_button_isPressed;
+  to_return.mine_button_isPressed = mine_button_isPressed;
+
+  if (explore_button_isPressed) then
     mechanics.energy = mechanics.energy - 100;
     updateBars(healthBar, energyBar);
 
+    transition.cancel(explore_button);
+    transition.cancel(explore_button_pressed);
+    explore_button.alpha = 1.0;
     explore_button.isVisible = true;
+    explore_button_pressed.alpha = 0;
     explore_button_pressed.isVisible = false;
+    to_return.explore_button_isPressed = false;
   end
 
-  if (pickup_button_pressed.isVisible) then
+  if (pickup_button_isPressed) then
     mechanics.energy = mechanics.energy - 100;
     updateBars(healthBar, energyBar);
     if (mechanics.time == 1) then
@@ -69,35 +82,56 @@ function mechanics.pass_time(explore_button, explore_button_pressed, pickup_butt
       pickup(0, 3, 3);
     end
 
+    transition.cancel(pickup_button);
+    transition.cancel(pickup_button_pressed);
+    pickup_button.alpha = 1.0;
     pickup_button.isVisible = true;
+    pickup_button_pressed.alpha = 0;
     pickup_button_pressed.isVisible = false;
+    to_return.pickup_button_isPressed = false;
   end
 
-  if (rest_button_pressed.isVisible) then
+  if (rest_button_isPressed) then
     updateBars(healthBar, energyBar);
 
+    transition.cancel(rest_button);
+    transition.cancel(rest_button_pressed);
+    rest_button.alpha = 1.0;
     rest_button.isVisible = true;
+    rest_button_pressed.alpha = 0;
     rest_button_pressed.isVisible = false;
+    to_return.rest_button_isPressed = false;
   end
 
-  if (build_button_pressed.isVisible) then
+  if (build_button_isPressed) then
     mechanics.energy = mechanics.energy - 100;
     updateBars(healthBar, energyBar);
 
+    transition.cancel(build_button);
+    transition.cancel(build_button_pressed);
+    build_button.alpha = 1.0;
     build_button.isVisible = true;
+    build_button_pressed.alpha = 0;
     build_button_pressed.isVisible = false;
+    to_return.build_button_isPressed = false;
   end
 
-  if (mine_button_pressed.isVisible) then
+  if (mine_button_isPressed) then
     mechanics.energy = mechanics.energy - 100;
     updateBars(healthBar, energyBar);
 
+    transition.cancel(mine_button);
+    transition.cancel(mine_button_pressed);
+    mine_button.alpha = 1.0;
     mine_button.isVisible = true;
+    mine_button_pressed.alpha = 0;
     mine_button_pressed.isVisible = false;
+    to_return.mine_button_isPressed = false;
   end
 
   mechanics.time = 1 - mechanics.time;
   time_text.text = mechanics.time_text[mechanics.time + 1];
+  return to_return;
 end
 
 return mechanics;
