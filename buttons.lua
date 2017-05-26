@@ -18,24 +18,32 @@ local mine_button_isPressed = false;
 
 local selected_buttons = 0;
 
-local function button_visible_toggle(button)
-    button.isVisible = not button.isVisible;
+local function button_visible_on(button)
+    button.isVisible = true;
+end
+
+local function button_visible_off(button)
+    button.isVisible = false;
 end
 
 local function handleExploreEvent(event)
   if (event.phase == "ended") then
     if (explore_button_isPressed) then
       explore_button_isPressed = not explore_button_isPressed;
-      transition.to(explore_pressed, {time=250, alpha=0, onComplete=button_visible_toggle});
-      transition.to(explore, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+      transition.cancel(explore);
+      transition.cancel(explore_pressed);
+      transition.to(explore_pressed, {time=250, alpha=0, onComplete=button_visible_off});
+      transition.to(explore, {time=250, delay=250, alpha=1.0, onStart=button_visible_on});
       selected_buttons = selected_buttons - 1;
     else
       if (mechanics.energy < 100) then
         return;
       else
         explore_button_isPressed = not explore_button_isPressed;
-        transition.to(explore, {time=250, alpha=0, onComplete=button_visible_toggle});
-        transition.to(explore_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+        transition.cancel(explore);
+        transition.cancel(explore_pressed);
+        transition.to(explore, {time=250, alpha=0, onComplete=button_visible_off});
+        transition.to(explore_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_on});
         selected_buttons = selected_buttons + 1;
 
         if (selected_buttons == 2) then
@@ -62,16 +70,20 @@ local function handlePickupEvent(event)
   if (event.phase == "ended") then
     if (pickup_button_isPressed) then
       pickup_button_isPressed = not pickup_button_isPressed;
-      transition.to(pickup_pressed, {time=250, alpha=0, onComplete=button_visible_toggle});
-      transition.to(pickup, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+      transition.cancel(pickup);
+      transition.cancel(pickup_pressed);
+      transition.to(pickup_pressed, {time=250, alpha=0, onComplete=button_visible_off});
+      transition.to(pickup, {time=250, delay=250, alpha=1.0, onStart=button_visible_on});
       selected_buttons = selected_buttons - 1;
     else
       if (mechanics.energy < 100) then
         return;
       else
         pickup_button_isPressed = not pickup_button_isPressed;
-        transition.to(pickup, {time=250, alpha=0, onComplete=button_visible_toggle});
-        transition.to(pickup_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+        transition.cancel(pickup);
+        transition.cancel(pickup_pressed);
+        transition.to(pickup, {time=250, alpha=0, onComplete=button_visible_off});
+        transition.to(pickup_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_on});
         selected_buttons = selected_buttons + 1;
 
         if (selected_buttons == 2) then
@@ -98,13 +110,17 @@ local function handleRestEvent(event)
   if (event.phase == "ended") then
     if (rest_button_isPressed) then
       rest_button_isPressed = not rest_button_isPressed;
-      transition.to(rest_pressed, {time=250, alpha=0, onComplete=button_visible_toggle});
-      transition.to(rest, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+      transition.cancel(rest);
+      transition.cancel(rest_pressed);
+      transition.to(rest_pressed, {time=250, alpha=0, onComplete=button_visible_off});
+      transition.to(rest, {time=250, delay=250, alpha=1.0, onStart=button_visible_on});
       selected_buttons = selected_buttons - 1;
     else
       rest_button_isPressed = not rest_button_isPressed;
-      transition.to(rest, {time=250, alpha=0, onComplete=button_visible_toggle});
-      transition.to(rest_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+      transition.cancel(rest);
+      transition.cancel(rest_pressed);
+      transition.to(rest, {time=250, alpha=0, onComplete=button_visible_off});
+      transition.to(rest_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_on});
       selected_buttons = selected_buttons + 1;
 
       if (selected_buttons == 2) then
@@ -130,16 +146,20 @@ local function handleBuildEvent(event)
   if (event.phase == "ended") then
     if (build_button_isPressed) then
       build_button_isPressed = not build_button_isPressed;
-      transition.to(build_pressed, {time=250, alpha=0, onComplete=button_visible_toggle});
-      transition.to(build, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+      transition.cancel(build);
+      transition.cancel(build_pressed);
+      transition.to(build_pressed, {time=250, alpha=0, onComplete=button_visible_off});
+      transition.to(build, {time=250, delay=250, alpha=1.0, onStart=button_visible_on});
       selected_buttons = selected_buttons - 1;
     else
       if (mechanics.energy < 100) then
         return;
       else
         build_button_isPressed = not build_button_isPressed;
-        transition.to(build, {time=250, alpha=0, onComplete=button_visible_toggle});
-        transition.to(build_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+        transition.cancel(build);
+        transition.cancel(build_pressed);
+        transition.to(build, {time=250, alpha=0, onComplete=button_visible_off});
+        transition.to(build_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_on});
         selected_buttons = selected_buttons + 1;
 
         if (selected_buttons == 2) then
@@ -166,16 +186,20 @@ local function handleMineEvent(event)
   if (event.phase == "ended") then
     if (mine_button_isPressed) then
       mine_button_isPressed = not mine_button_isPressed;
-      transition.to(mine_pressed, {time=250, alpha=0, onComplete=button_visible_toggle});
-      transition.to(mine, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+      transition.cancel(mine);
+      transition.cancel(mine_pressed);
+      transition.to(mine_pressed, {time=250, alpha=0, onComplete=button_visible_off});
+      transition.to(mine, {time=250, delay=250, alpha=1.0, onStart=button_visible_on});
       selected_buttons = selected_buttons - 1;
     else
       if (mechanics.energy < 100) then
         return;
       else
         mine_button_isPressed = not mine_button_isPressed;
-        transition.to(mine, {time=250, alpha=0, onComplete=button_visible_toggle});
-        transition.to(mine_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_toggle});
+        transition.cancel(mine);
+        transition.cancel(mine_pressed);
+        transition.to(mine, {time=250, alpha=0, onComplete=button_visible_off});
+        transition.to(mine_pressed, {time=250, delay=250, alpha=1.0, onStart=button_visible_on});
         selected_buttons = selected_buttons + 1;
 
         if (selected_buttons == 2) then
