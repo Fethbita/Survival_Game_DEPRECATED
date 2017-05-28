@@ -24,7 +24,7 @@ Player can only equip two tools. When the player wears a backpack, he can equip 
 * Possibility of finding interesting stuff related to the story.
 * Possibility of finding something that is already made. Like an axe.
 
-### Pick up: Twigs, small rocks etc. (I am not happy with the naming of this)
+### Pick Up: Twigs, small rocks etc. (I am not happy with the naming of this)
 
 **What does pick up button do?**
 
@@ -35,7 +35,7 @@ Player can only equip two tools. When the player wears a backpack, he can equip 
 
 ~~**Mine:** You try to get some rock. Without tools this is not possible to do.~~ (This will probably get discarded)
 
-**Craft:** You craft stuff that are necessary to survive. This is probably not going to be a button but a page.
+### Craft: You craft stuff that are necessary to survive. This is probably not going to be a button but a page.
 
 **What can be crafted?**
 
