@@ -30,4 +30,4 @@ time_text.y = _SCREEN.CENTER.y - 200;
 
 local logs_text = display.newText("Logs", 0,0, "Bellota-Regular", 24);
 logs_text.x = _SCREEN.CENTER.x;
-logs_text.y = _SCREEN.CENTER.y - 100;
+logs_text.y = _SCREEN.CENTER.y - 150;
