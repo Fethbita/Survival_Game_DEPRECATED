@@ -12,6 +12,17 @@ There will be two phases of a day. Daytime and nighttime. You can choose to do o
 **Equipping Items**
 Player can only equip two tools. When the player wears a backpack, he can equip 2 more items.
 
+**Durability of Items**
+When an item is used, axe for example, it will lose durability. With an axe the player can only gather 10 woods.
+
+---
+
+## Materials That Can Be Found
+
+* Stone
+* Branch
+* Bee Wax
+
 ---
 
 ## Actions That Can Be Done in Phases:
@@ -40,10 +51,21 @@ Player can only equip two tools. When the player wears a backpack, he can equip 
 **What can be crafted?**
 
 Tools:
-* Axe 
-* Spear
-* Fishing rod
-* Torch
+* Axe - Used for gathering wood.
+    * Requirements = 1 Stones, 2 Branches, 1 Fiber
+    * Durability = 10 Woods
+* Spear - Used for killing animals.
+    * Requirements = 2 Stone, 2 Branches, 2 Fiber
+    * Durability = Contact with 4 animals.
+* Knife - Used for killing animals.
+    * Requirements = 1 Stone, 1 Branch, 1 Fiber
+    * Durability = Contact with 4 animals.
+* Fishing rod - Used for catching fish.
+    * Requirements = 3 Branches, 3 Fiber
+    * Durability = 5 Fish
+* Torch - Used for traveling at nighttime.
+    * Requirements = 1 Branch, 1 Bee Wax
+    * Durability = 1 travel at night. 
 * Trap
 * Campfire
 * Tent
