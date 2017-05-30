@@ -1,4 +1,4 @@
-local arg={...}
+local buttons = {};
 local mechanics = require("mechanics");
 
 -- -----------------------------------------------------------------------------------
@@ -171,6 +171,14 @@ local function handlePickupEvent(event)
     end
   end
 end
+
+function buttons.add_buttons_to_scene(displayGroup)
+  displayGroup:insert(explore_group);
+  displayGroup:insert(rest_group);
+  displayGroup:insert(build_group);
+  displayGroup:insert(mine_group);
+  displayGroup:insert(pickup_group);
+end
 -- -----------------------------------------------------------------------------------
 
 -- -----------------------------------------------------------------------------------
@@ -182,3 +190,5 @@ build_group:addEventListener("touch", handleBuildEvent);
 pickup_group:addEventListener("touch", handlePickupEvent);
 mine_group:addEventListener("touch", handleMineEvent);
 -- -----------------------------------------------------------------------------------
+
+return buttons;

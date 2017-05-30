@@ -3,7 +3,7 @@ local mechanics = {};
 --[[
 Returns
 --VAR--
-health, energy, inventory, time, time_text
+health, energy, inventory, time, time_text, day
 --FUNC--
 first_button_off, pass_time
 --]]
@@ -22,6 +22,8 @@ mechanics.inventory = {
 --]]
 mechanics.time = 1;
 mechanics.time_text = {"Nighttime", "Daytime"};
+
+mechanics.day = 1;
 
 local function explore()
   local random_number = math.random();
@@ -44,7 +46,7 @@ local function pickup(min_object, max_object, prob_power)
   print("Branch " .. mechanics.inventory.Branch .. "   ");
 end
 
-local function updateBars()
+local function update_bars()
   if (mechanics.health > 0) then
     HEALTHBAR.width = math.floor(320 * (mechanics.health / 1000));
   else
@@ -55,6 +57,11 @@ local function updateBars()
   else
     ENERGYBAR.width = 0;
   end
+end
+
+local function update_texts()
+  TIMETEXT.text = mechanics.time_text[mechanics.time + 1];
+  DAY.text = "Day " .. mechanics.day;
 end
 
 local function button_visible_on(button)
@@ -75,28 +82,28 @@ end
 function mechanics.pass_time(explore_group, rest_group, build_group, mine_group, pickup_group)
   if (explore_group.is_pressed) then
     mechanics.energy = mechanics.energy - 100;
-    updateBars();
+    update_bars();
     mechanics.first_button_off(explore_group[2], explore_group[1]);
     explore_group.is_pressed = false;
   end
 
   if (rest_group.is_pressed) then
     mechanics.energy = mechanics.energy + 150;
-    updateBars();
+    update_bars();
     mechanics.first_button_off(rest_group[2], rest_group[1]);
     rest_group.is_pressed = false;
   end
 
   if (build_group.is_pressed) then
     mechanics.energy = mechanics.energy - 100;
-    updateBars();
+    update_bars();
     mechanics.first_button_off(build_group[2], build_group[1]);
     build_group.is_pressed = false;
   end
 
   if (mine_group.is_pressed) then
     mechanics.energy = mechanics.energy - 100;
-    updateBars();
+    update_bars();
     mechanics.first_button_off(mine_group[2], mine_group[1]);
     mine_group.is_pressed = false;
   end
@@ -108,13 +115,16 @@ function mechanics.pass_time(explore_group, rest_group, build_group, mine_group,
       pickup(0, 3, 3);
     end
     mechanics.energy = mechanics.energy - 100;
-    updateBars();
+    update_bars();
     mechanics.first_button_off(pickup_group[2], pickup_group[1]);
     pickup_group.is_pressed = false;
   end
 
   mechanics.time = 1 - mechanics.time;
-  TIMETEXT.text = mechanics.time_text[mechanics.time + 1];
+  if (mechanics.time == 1) then
+    mechanics.day = mechanics.day + 1;
+  end
+  update_texts();
 end
 
 return mechanics;
