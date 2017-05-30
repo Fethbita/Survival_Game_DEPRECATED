@@ -1,7 +1,6 @@
 **Name of our game** - I am thinking about the story for now, it should be something according to the story. 
 
-~~Health of the player can be very bad, bad, average, good and very good. We can turn this into a bar as well.~~
-We took care of this with a bar for now.
+Health and energy bar will be at the top of the screen.
 
 There will be two phases of a day. Daytime and nighttime. You can choose to do only two actions in one phase.
 
@@ -10,31 +9,29 @@ There will be two phases of a day. Daytime and nighttime. You can choose to do o
 **Characteristics**
 * Player is able to explore without a torch.
 
-
 ## Nighttime
 
 **Characteristics**
 * Player can be attacked by wolves or other unfriendly animals even when resting. 
 * Exploring can be done with a torch but not effective.
 
-**Equipping Items**
-Player can only equip two tools. When the player wears a backpack, he can equip 2 more items.
+## Items
 
-**Durability of Items**
-When an item is used, axe for example, it will lose durability. With an axe the player can only gather 10 woods.
+Player can only equip two tools. When the player wears a backpack, he can equip 2 more items. Almost every item will have durability to make the gameplay more challenging.
 
 ---
 
 ## Animals
 
-**Unfriendly Animals
+**Unfriendly Animals**
 * Wolf
 * Snake
 * Bear
 
-**Neutral Animals
+**Neutral Animals**
 * Bee
 * Rabbit
+* Turtle
 
 ---
 
@@ -65,8 +62,6 @@ When an item is used, axe for example, it will lose durability. With an axe the 
 * Possibility of finding berries.
 * Possibility of finding flowers.
 * Possibility of finding mushrooms.
-
-~~**Mine:** You try to get some rock. Without tools this is not possible to do.~~ (This will probably be discarded)
 
 ### Craft: You craft stuff that are necessary to survive. This is probably not going to be a button but a page.
 
