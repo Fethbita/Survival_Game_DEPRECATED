@@ -1,5 +1,13 @@
 local mechanics = {};
 
+--[[
+Returns
+--VAR--
+health, energy, inventory, time, time_text
+--FUNC--
+first_button_off, pass_time
+--]]
+
 mechanics.health = 1000;
 mechanics.energy = 1000;
 mechanics.inventory = {
@@ -36,16 +44,16 @@ local function pickup(min_object, max_object, prob_power)
   print("Branch " .. mechanics.inventory.Branch .. "   ");
 end
 
-local function updateBars(healthBar, energyBar)
+local function updateBars()
   if (mechanics.health > 0) then
-    healthBar.width = math.floor(320 * (mechanics.health / 1000));
+    HEALTHBAR.width = math.floor(320 * (mechanics.health / 1000));
   else
-    healthBar.width = 0;
+    HEALTHBAR.width = 0;
   end
   if (mechanics.energy > 0) then
-    energyBar.width = math.floor(320 * (mechanics.energy / 1000));
+    ENERGYBAR.width = math.floor(320 * (mechanics.energy / 1000));
   else
-    energyBar.width = 0;
+    ENERGYBAR.width = 0;
   end
 end
 
@@ -64,60 +72,49 @@ function mechanics.first_button_off(button_to_off, button_to_on)
   transition.to(button_to_on, {delay=250, time=250, alpha=1.0, onStart=button_visible_on});
 end
 
-function mechanics.pass_time(explore_button, explore_button_pressed, pickup_button, pickup_button_pressed,
-  build_button, build_button_pressed, mine_button, mine_button_pressed, rest_button, rest_button_pressed,
-  explore_button_isPressed, pickup_button_isPressed, rest_button_isPressed, build_button_isPressed, mine_button_isPressed)
-
-  local to_return = {};
-  to_return.explore_button_isPressed = explore_button_isPressed;
-  to_return.pickup_button_isPressed = pickup_button_isPressed;
-  to_return.rest_button_isPressed = rest_button_isPressed;
-  to_return.build_button_isPressed = build_button_isPressed;
-  to_return.mine_button_isPressed = mine_button_isPressed;
-
-  if (explore_button_isPressed) then
+function mechanics.pass_time(explore_group, rest_group, build_group, mine_group, pickup_group)
+  if (explore_group.is_pressed) then
     mechanics.energy = mechanics.energy - 100;
-    updateBars(healthBar, energyBar);
-    mechanics.first_button_off(explore_button_pressed, explore_button);
-    to_return.explore_button_isPressed = false;
+    updateBars();
+    mechanics.first_button_off(explore_group[2], explore_group[1]);
+    explore_group.is_pressed = false;
   end
 
-  if (pickup_button_isPressed) then
+  if (rest_group.is_pressed) then
+    mechanics.energy = mechanics.energy + 150;
+    updateBars();
+    mechanics.first_button_off(rest_group[2], rest_group[1]);
+    rest_group.is_pressed = false;
+  end
+
+  if (build_group.is_pressed) then
     mechanics.energy = mechanics.energy - 100;
-    updateBars(healthBar, energyBar);
+    updateBars();
+    mechanics.first_button_off(build_group[2], build_group[1]);
+    build_group.is_pressed = false;
+  end
+
+  if (mine_group.is_pressed) then
+    mechanics.energy = mechanics.energy - 100;
+    updateBars();
+    mechanics.first_button_off(mine_group[2], mine_group[1]);
+    mine_group.is_pressed = false;
+  end
+
+  if (pickup_group.is_pressed) then
     if (mechanics.time == 1) then
       pickup(1, 5);
     else
       pickup(0, 3, 3);
     end
-    mechanics.first_button_off(pickup_button_pressed, pickup_button);
-    to_return.pickup_button_isPressed = false;
-  end
-
-  if (rest_button_isPressed) then
-    mechanics.energy = mechanics.energy + 150;
-    updateBars(healthBar, energyBar);
-    mechanics.first_button_off(rest_button_pressed, rest_button);
-    to_return.rest_button_isPressed = false;
-  end
-
-  if (build_button_isPressed) then
     mechanics.energy = mechanics.energy - 100;
-    updateBars(healthBar, energyBar);
-    mechanics.first_button_off(build_button_pressed, build_button);
-    to_return.build_button_isPressed = false;
-  end
-
-  if (mine_button_isPressed) then
-    mechanics.energy = mechanics.energy - 100;
-    updateBars(healthBar, energyBar);
-    mechanics.first_button_off(mine_button_pressed, mine_button);
-    to_return.mine_button_isPressed = false;
+    updateBars();
+    mechanics.first_button_off(pickup_group[2], pickup_group[1]);
+    pickup_group.is_pressed = false;
   end
 
   mechanics.time = 1 - mechanics.time;
-  time_text.text = mechanics.time_text[mechanics.time + 1];
-  return to_return;
+  TIMETEXT.text = mechanics.time_text[mechanics.time + 1];
 end
 
 return mechanics;
