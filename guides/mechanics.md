@@ -42,7 +42,7 @@ They will have health and they are considered to be armorless.
 
 * Stone
 * Branch
-* Bee Wax
+* Beeswax
 * Leaf
 
 ---
@@ -81,7 +81,7 @@ Tools:
     * Requirements = 1 Stone, 1 Branch, 1 Fiber
     * Durability = Contact with 4 animals.
 * Bow and arrow- Used for killing animals.
-    * Requirements = 5 Branch, 3 Wood
+    * Requirements = 5 Branch, 3 Wood, 1 Beeswax
     * Durability = 10 Damage. 
 * Fishing rod - Used for catching fish.
     * Requirements = 3 Branch, 3 Fiber
