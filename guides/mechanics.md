@@ -8,6 +8,7 @@ There will be two phases of a day. Daytime and nighttime. You can choose to do o
 
 **Characteristics**
 * Player is able to explore without a torch.
+* Either it is daytime or nightime 
 
 ## Nighttime
 
@@ -23,15 +24,17 @@ Player can only equip two tools. When the player wears a backpack, he can equip 
 
 ## Animals
 
+They will have health and they are considered to be armorless.
+
 **Unfriendly Animals**
-* Wolf
-* Snake
-* Bear
+* Wolf - 8 Hit Point - Damage 200 Hit Points
+* Snake - 4 Hit Point - Damage 100 Hit Points - Getting poisoned with 20% chance
+* Bear - 20 Hit Point - Damage 400 Hit Points
 
 **Neutral Animals**
-* Bee
-* Rabbit
-* Turtle
+* Bee - They cannot be cultivated or killed. From their hive, bee wax and honey can be gathered.
+* Rabbit - 2 Hit Point - Don't fight back.
+* Turtle - 1 Hit Point - Don't fight back.
 
 ---
 
@@ -77,6 +80,9 @@ Tools:
 * Knife - Used for killing animals.
     * Requirements = 1 Stone, 1 Branch, 1 Fiber
     * Durability = Contact with 4 animals.
+* Bow and arrow- Used for killing animals.
+    * Requirements = 5 Branch, 3 Wood
+    * Durability = 10 Damage. 
 * Fishing rod - Used for catching fish.
     * Requirements = 3 Branch, 3 Fiber
     * Durability = 5 Fish
