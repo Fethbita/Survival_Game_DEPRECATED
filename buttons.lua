@@ -74,18 +74,14 @@ local function handleRestEvent(event)
       mechanics.first_button_off(event.target[2], event.target[1]);
       selected_buttons = selected_buttons - 1;
     else
-      if (mechanics.energy >= 1000) then
-        return;
-      else
-        event.target.is_pressed = true;
-        mechanics.first_button_off(event.target[1], event.target[2]);
-        selected_buttons = selected_buttons + 1;
+      event.target.is_pressed = true;
+      mechanics.first_button_off(event.target[1], event.target[2]);
+      selected_buttons = selected_buttons + 1;
 
-        if (selected_buttons == 2) then
-          buttons_can_be_pressed = false;
-          timer.performWithDelay(550, pass_time_closure);
-          selected_buttons = 0;
-        end
+      if (selected_buttons == 2 or mechanics.energy < 100) then
+        buttons_can_be_pressed = false;
+        timer.performWithDelay(550, pass_time_closure);
+        selected_buttons = 0;
       end
     end
   end
