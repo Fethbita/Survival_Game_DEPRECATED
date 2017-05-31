@@ -22,7 +22,7 @@ function scene:create(event)
   background.y = _SCREEN.CENTER.y + 50;
   sceneGroup:insert(background);
 
-  TIMETEXT = display.newText(mechanics.time_text[mechanics.time + 1], 0, 0, "Bellota-Regular", 24);
+  TIMETEXT = display.newText(mechanics.time_text[mechanics.time], 0, 0, "Bellota-Regular", 24);
   TIMETEXT.x = _SCREEN.CENTER.x - 90;
   TIMETEXT.y = _SCREEN.CENTER.y - 200;
   sceneGroup:insert(TIMETEXT);
