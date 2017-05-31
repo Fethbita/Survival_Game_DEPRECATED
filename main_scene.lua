@@ -8,14 +8,6 @@ local scene = composer.newScene();
 -- -----------------------------------------------------------------------------------
 local mechanics = require("mechanics");
 
-local function show_inventory()
-  local options = {
-    effect = "fade",
-    time = 500
-  };
-  composer.gotoScene("inventory_scene", options);
-end
-
 -- -----------------------------------------------------------------------------------
 -- Scene event functions
 -- -----------------------------------------------------------------------------------
@@ -62,7 +54,6 @@ function scene:show(event)
 
     elseif (event.phase == "did") then
         -- Code here runs when the scene is entirely on screen
-        timer.performWithDelay(5000, show_inventory);
 
     end
 end

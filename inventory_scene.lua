@@ -6,13 +6,6 @@ local scene = composer.newScene();
 -- Code outside of the scene event functions below will only be executed ONCE unless
 -- the scene is removed entirely (not recycled) via "composer.removeScene()"
 -- -----------------------------------------------------------------------------------
-local function show_main()
-  local options = {
-    effect = "fade",
-    time = 500
-  };
-  composer.gotoScene("main_scene", options);
-end
 
 -- -----------------------------------------------------------------------------------
 -- Scene event functions
@@ -37,7 +30,6 @@ function scene:show(event)
 
     elseif (event.phase == "did") then
         -- Code here runs when the scene is entirely on screen
-        timer.performWithDelay(5000, show_main);
 
     end
 end
