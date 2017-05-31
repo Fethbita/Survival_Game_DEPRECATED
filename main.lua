@@ -25,14 +25,14 @@ local current_scene_no = 2;
 -- touch()
 local function swipe_scene(event)
   if event.phase == "ended" then
-    if (event.xStart < event.x and (event.x - event.xStart) >= 100 and current_scene_no > 1) then
+    if (event.xStart < event.x and (event.x - event.xStart) >= 50 and current_scene_no > 1) then
       local options = {
         effect = "slideRight",
         time = 500
       };
       current_scene_no = current_scene_no - 1;
       composer.gotoScene(scene_list[current_scene_no], options);
-    elseif (event.xStart > event.x and (event.xStart - event.x) >= 100 and current_scene_no < scene_list.count) then
+    elseif (event.xStart > event.x and (event.xStart - event.x) >= 50 and current_scene_no < scene_list.count) then
         local options = {
           effect = "slideLeft",
           time = 500
