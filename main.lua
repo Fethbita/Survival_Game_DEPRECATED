@@ -32,7 +32,6 @@ local function swipe_scene(event)
       };
       current_scene_no = current_scene_no - 1;
       composer.gotoScene(scene_list[current_scene_no], options);
-      --return true;
     elseif (event.xStart > event.x and (event.xStart - event.x) >= 100 and current_scene_no < scene_list.count) then
         local options = {
           effect = "slideLeft",
@@ -40,7 +39,6 @@ local function swipe_scene(event)
         };
         current_scene_no = current_scene_no + 1;
         composer.gotoScene(scene_list[current_scene_no], options);
-      --return true;
     end
   end
   return true;

@@ -13,52 +13,39 @@ local scene = composer.newScene();
 
 -- create()
 function scene:create(event)
+  local sceneGroup = self.view;
+  -- Code here runs when the scene is first created but has not yet appeared on screen
 
-    local sceneGroup = self.view;
-    -- Code here runs when the scene is first created but has not yet appeared on screen
-
-    local example_text = display.newText("Diary", 0,0, "Bellota-Regular", 24);
-    example_text.x = _SCREEN.CENTER.x;
-    example_text.y = _SCREEN.CENTER.y;
-    sceneGroup:insert(example_text);
+  local example_text = display.newText("Diary", 0,0, "Bellota-Regular", 24);
+  example_text.x = _SCREEN.CENTER.x;
+  example_text.y = _SCREEN.CENTER.y;
+  sceneGroup:insert(example_text);
 end
 
-
--- show()
-function scene:show(event)
-
-    local sceneGroup = self.view;
-
-    if (event.phase == "will") then
-        -- Code here runs when the scene is still off screen (but is about to come on screen)
-
-    elseif (event.phase == "did") then
-        -- Code here runs when the scene is entirely on screen
-
-    end
+-- Code here runs when the scene is still off screen (but is about to come on screen)
+function scene:willShow(event)
+  local sceneGroup = self.view;
 end
 
-
--- hide()
-function scene:hide(event)
-
-    local sceneGroup = self.view;
-
-    if (event.phase == "will") then
-        -- Code here runs when the scene is on screen (but is about to go off screen)
-
-    elseif (event.phase == "did") then
-        -- Code here runs immediately after the scene goes entirely off screen
-
-    end
+-- Code here runs when the scene is entirely on screen
+function scene:didShow(event)
+  local sceneGroup = self.view;
 end
 
+-- Code here runs when the scene is on screen (but is about to go off screen)
+function scene:willHide(event)
+  local sceneGroup = self.view;
+end
+
+-- Code here runs immediately after the scene goes entirely off screen
+function scene:didHide(event)
+  local sceneGroup = self.view;
+end
 
 -- destroy()
 function scene:destroy(event)
-
-    local sceneGroup = self.view;
-    -- Code here runs prior to the removal of scene's view
+  local sceneGroup = self.view;
+  -- Code here runs prior to the removal of scene's view
 
 end
 
@@ -66,6 +53,29 @@ end
 -- -----------------------------------------------------------------------------------
 -- Scene event function listeners
 -- -----------------------------------------------------------------------------------
+
+-- This code splits the "show" event into two separate events: willShow and didShow
+-- for ease of coding above.
+function scene:show(event)
+  local sceneGroup  = self.view;
+  if (event.phase == "will") then
+    self:willShow(event);
+  elseif (event.phase == "did") then
+    self:didShow(event);
+  end
+end
+
+-- This code splits the "hide" event into two separate events: willHide and didHide
+-- for ease of coding above.
+function scene:hide(event)
+  local sceneGroup  = self.view;
+  if (event.phase == "will") then
+    self:willHide(event);
+  elseif (event.phase == "did") then
+    self:didHide(event);
+  end
+end
+
 scene:addEventListener("create", scene);
 scene:addEventListener("show", scene);
 scene:addEventListener("hide", scene);
