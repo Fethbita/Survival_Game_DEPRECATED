@@ -17,10 +17,10 @@ mechanics.inventory = {
   Branch = 0
 };
 --[[
-0 means nigttime
-1 means daytime
+1 means nigttime
+2 means daytime
 --]]
-mechanics.time = 1;
+mechanics.time = 2;
 mechanics.time_text = {"Nighttime", "Daytime"};
 
 mechanics.day = 1;
@@ -60,7 +60,7 @@ local function update_bars()
 end
 
 local function update_texts()
-  TIMETEXT.text = mechanics.time_text[mechanics.time + 1];
+  TIMETEXT.text = mechanics.time_text[mechanics.time];
   DAY.text = "Day " .. mechanics.day;
 end
 
@@ -102,7 +102,7 @@ function mechanics.pass_time(explore_group, rest_group, build_group, mine_group,
   end
 
   if (pickup_group.is_pressed) then
-    if (mechanics.time == 1) then
+    if (mechanics.time == 2) then
       pickup(1, 5);
     else
       pickup(0, 3, 3);
@@ -123,8 +123,8 @@ function mechanics.pass_time(explore_group, rest_group, build_group, mine_group,
     rest_group.is_pressed = false;
   end
 
-  mechanics.time = 1 - mechanics.time;
-  if (mechanics.time == 1) then
+  mechanics.time = 3 - mechanics.time;
+  if (mechanics.time == 2) then
     mechanics.day = mechanics.day + 1;
   end
   update_texts();
