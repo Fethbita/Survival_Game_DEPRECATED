@@ -12,6 +12,6 @@
 
 ---
 
-**_Thinkings about the design that will be implemented later. Some changes can be applied or they can be discarded entirely. I am kind of taking notes._**
+**_Thoughts about the design that will be implemented later. Some changes can be applied or they can be discarded entirely. I am kind of taking notes._**
 
 On the left side, there will be a list of things to craft. After crafting something, it will change color. Right side will be logs and inventory. We basically want a simple main screen. Also we need to inform the player about the important stuff in the main screen, like if he doesn't have a campfire, he needs to be warned. We need to inform player about the findings after every phase as well, but the main logs and the story will be kept in the right pane.

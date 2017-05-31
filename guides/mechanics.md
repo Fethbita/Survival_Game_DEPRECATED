@@ -1,4 +1,4 @@
-**Name of our game** - I am thinking about the story for now, it should be something according to the story. 
+**Name of our game** - I am thinking about the story for now, it should be something according to the story.
 
 Health and energy bar will be at the top of the screen.
 
@@ -8,12 +8,12 @@ There will be two phases of a day. Daytime and nighttime. You can choose to do o
 
 **Characteristics**
 * Player is able to explore without a torch.
-* Either it is daytime or nightime 
+* Either it is daytime or nighttime
 
 ## Nighttime
 
 **Characteristics**
-* Player can be attacked by wolves or other unfriendly animals even when resting. 
+* Player can be attacked by wolves or other unfriendly animals even when resting.
 * Exploring can be done with a torch but not effective.
 
 ## Items
@@ -61,7 +61,7 @@ They will have health and they are considered to be armorless.
 
 **What does pick up button do?**
 
-* You find stuff that are necessary to build things. Also when you have an equipped tool, you start to gather extra stuff. For instance, if you have an axe with you, you start to gather wood with every phase you go for picking up things. 
+* You find stuff that are necessary to build things. Also when you have an equipped tool, you start to gather extra stuff. For instance, if you have an axe with you, you start to gather wood with every phase you go for picking up things.
 * Possibility of finding berries.
 * Possibility of finding flowers.
 * Possibility of finding mushrooms.
@@ -82,20 +82,20 @@ Tools:
     * Durability = Contact with 4 animals.
 * Bow and arrow- Used for killing animals.
     * Requirements = 5 Branch, 3 Wood, 1 Beeswax
-    * Durability = 10 Damage. 
+    * Durability = 10 Damage.
 * Fishing rod - Used for catching fish.
     * Requirements = 3 Branch, 3 Fiber
     * Durability = 5 Fish
 * Torch - Used for travelling at nighttime.
     * Requirements = 1 Branch, 1 Bee Wax
-    * Durability = 1 travel at night. 
+    * Durability = 1 travel at night.
 * Trap - Used for catching animals.
     * Requirements = 3 Branch, 2 Leaf
     * Durability = 5 animals
 * Outfit - Resistance to animal attacks.
     * Requirements = 3 Branch, 2 Fiber, 3 Wood
     * Durability = 5 animal attacks.
-* Campfire - Increases chance of animal attack %10, but keeps the player warm. 
+* Campfire - Increases chance of animal attack %10, but keeps the player warm.
     * Requirements = 3 Stone, 3 Woods, 1 Bee Wax
     * Durability = 2 nights
 * Shelter - Decreases chance of animal attack 20%.
@@ -103,7 +103,7 @@ Tools:
     * Durability = 5 nights
 * Backpack - 2 more items can be equipped.
     * Requirements = 4 Branch, 2 Fibers
-    * Durability = 10 Travels. - _We will put a percantage on the main screen so the player will know about the durability of the bag. If durability finishes on the journey, half of the collected stuff will be lost._
+    * Durability = 10 Travels. - _We will put a percentage on the main screen so the player will know about the durability of the bag. If durability finishes on the journey, half of the collected stuff will be lost._
 * Cooking Pot - Requires campfire and is used for cooking animals.
     * Requirements = 2 Shaped Stone, 3 Wood
     * Durability = 6 cooking.
