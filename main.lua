@@ -18,11 +18,9 @@ HEALTHBAR:setFillColor(104/255, 159/255, 56/255);
 ENERGYBAR = display.newRoundedRect(160, 9, 320, 6, 3);
 ENERGYBAR:setFillColor(2/255, 136/255, 209/255);
 
-composer.gotoScene("main_scene");
-
-local scene_list = {"main_scene", "inventory_scene"};
-scene_list.count = 2;
-local current_scene_no = 1;
+local scene_list = {"scenes.diary_scene", "scenes.main_scene", "scenes.inventory_scene"};
+scene_list.count = 3;
+local current_scene_no = 2;
 
 -- touch()
 local function swipe_scene(event)
@@ -34,6 +32,7 @@ local function swipe_scene(event)
       };
       current_scene_no = current_scene_no - 1;
       composer.gotoScene(scene_list[current_scene_no], options);
+      --return true;
     elseif (event.xStart > event.x and (event.xStart - event.x) >= 100 and current_scene_no < scene_list.count) then
         local options = {
           effect = "slideLeft",
@@ -41,9 +40,12 @@ local function swipe_scene(event)
         };
         current_scene_no = current_scene_no + 1;
         composer.gotoScene(scene_list[current_scene_no], options);
+      --return true;
     end
   end
+  return true;
 end
 
-
 Runtime:addEventListener("touch", swipe_scene);
+
+composer.gotoScene("scenes.main_scene");

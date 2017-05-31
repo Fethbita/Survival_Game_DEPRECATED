@@ -43,133 +43,128 @@ end
 -- Button event functions
 -- -----------------------------------------------------------------------------------
 local function handleExploreEvent(event)
-  if (event.phase == "ended") then
-    if (buttons_can_be_pressed) then
-      if (event.target.is_pressed) then
-        event.target.is_pressed = false;
-        mechanics.first_button_off(event.target[2], event.target[1]);
-        selected_buttons = selected_buttons - 1;
+  if (buttons_can_be_pressed) then
+    if (event.target.is_pressed) then
+      event.target.is_pressed = false;
+      mechanics.first_button_off(event.target[2], event.target[1]);
+      selected_buttons = selected_buttons - 1;
+    else
+      if (mechanics.energy < 100) then
+        return;
       else
-        if (mechanics.energy < 100) then
-          return;
-        else
-          event.target.is_pressed = true;
-          mechanics.first_button_off(event.target[1], event.target[2]);
-          selected_buttons = selected_buttons + 1;
+        event.target.is_pressed = true;
+        mechanics.first_button_off(event.target[1], event.target[2]);
+        selected_buttons = selected_buttons + 1;
 
-          if (selected_buttons == 2) then
-            buttons_can_be_pressed = false;
-            timer.performWithDelay(550, pass_time_closure);
-            selected_buttons = 0;
-          end
+        if (selected_buttons == 2) then
+          buttons_can_be_pressed = false;
+          timer.performWithDelay(550, pass_time_closure);
+          selected_buttons = 0;
         end
       end
     end
   end
+  return true;
 end
 
 local function handleRestEvent(event)
-  if (event.phase == "ended") then
-    if (buttons_can_be_pressed) then
-      if (event.target.is_pressed) then
-        event.target.is_pressed = false;
-        mechanics.first_button_off(event.target[2], event.target[1]);
-        selected_buttons = selected_buttons - 1;
+  if (buttons_can_be_pressed) then
+    if (event.target.is_pressed) then
+      event.target.is_pressed = false;
+      mechanics.first_button_off(event.target[2], event.target[1]);
+      selected_buttons = selected_buttons - 1;
+    else
+      if (mechanics.energy >= 1000) then
+        return;
       else
-        if (mechanics.energy >= 1000) then
-          return;
-        else
-          event.target.is_pressed = true;
-          mechanics.first_button_off(event.target[1], event.target[2]);
-          selected_buttons = selected_buttons + 1;
+        event.target.is_pressed = true;
+        mechanics.first_button_off(event.target[1], event.target[2]);
+        selected_buttons = selected_buttons + 1;
 
-          if (selected_buttons == 2) then
-            buttons_can_be_pressed = false;
-            timer.performWithDelay(550, pass_time_closure);
-            selected_buttons = 0;
-          end
+        if (selected_buttons == 2) then
+          buttons_can_be_pressed = false;
+          timer.performWithDelay(550, pass_time_closure);
+          selected_buttons = 0;
         end
       end
     end
   end
+  return true;
 end
 
 local function handleBuildEvent(event)
-  if (event.phase == "ended") then
-    if (buttons_can_be_pressed) then
-      if (event.target.is_pressed) then
-        event.target.is_pressed = false;
-        mechanics.first_button_off(event.target[2], event.target[1]);
-        selected_buttons = selected_buttons - 1;
+  if (buttons_can_be_pressed) then
+    if (event.target.is_pressed) then
+      event.target.is_pressed = false;
+      mechanics.first_button_off(event.target[2], event.target[1]);
+      selected_buttons = selected_buttons - 1;
+    else
+      if (mechanics.energy < 100) then
+        return;
       else
-        if (mechanics.energy < 100) then
-          return;
-        else
-          event.target.is_pressed = true;
-          mechanics.first_button_off(event.target[1], event.target[2]);
-          selected_buttons = selected_buttons + 1;
+        event.target.is_pressed = true;
+        mechanics.first_button_off(event.target[1], event.target[2]);
+        selected_buttons = selected_buttons + 1;
 
-          if (selected_buttons == 2) then
-            buttons_can_be_pressed = false;
-            timer.performWithDelay(550, pass_time_closure);
-            selected_buttons = 0;
-          end
+        if (selected_buttons == 2) then
+          buttons_can_be_pressed = false;
+          timer.performWithDelay(550, pass_time_closure);
+          selected_buttons = 0;
         end
       end
     end
   end
+  return true;
 end
 
 local function handleMineEvent(event)
-  if (event.phase == "ended") then
-    if (buttons_can_be_pressed) then
-      if (event.target.is_pressed) then
-        event.target.is_pressed = false;
-        mechanics.first_button_off(event.target[2], event.target[1]);
-        selected_buttons = selected_buttons - 1;
+  if (buttons_can_be_pressed) then
+    if (event.target.is_pressed) then
+      event.target.is_pressed = false;
+      mechanics.first_button_off(event.target[2], event.target[1]);
+      selected_buttons = selected_buttons - 1;
+    else
+      if (mechanics.energy < 100) then
+        return;
       else
-        if (mechanics.energy < 100) then
-          return;
-        else
-          event.target.is_pressed = true;
-          mechanics.first_button_off(event.target[1], event.target[2]);
-          selected_buttons = selected_buttons + 1;
+        event.target.is_pressed = true;
+        mechanics.first_button_off(event.target[1], event.target[2]);
+        selected_buttons = selected_buttons + 1;
 
-          if (selected_buttons == 2) then
-            buttons_can_be_pressed = false;
-            timer.performWithDelay(550, pass_time_closure);
-            selected_buttons = 0;
-          end
+        if (selected_buttons == 2) then
+          buttons_can_be_pressed = false;
+          timer.performWithDelay(550, pass_time_closure);
+          selected_buttons = 0;
         end
       end
     end
   end
+  return true;
 end
 
 local function handlePickupEvent(event)
-  if (event.phase == "ended") then
-    if (buttons_can_be_pressed) then
-      if (event.target.is_pressed) then
-        event.target.is_pressed = false;
-        mechanics.first_button_off(event.target[2], event.target[1]);
-        selected_buttons = selected_buttons - 1;
+  if (buttons_can_be_pressed) then
+    if (event.target.is_pressed) then
+      event.target.is_pressed = false;
+      mechanics.first_button_off(event.target[2], event.target[1]);
+      selected_buttons = selected_buttons - 1;
+    else
+      if (mechanics.energy < 100) then
+        return;
       else
-        if (mechanics.energy < 100) then
-          return;
-        else
-          event.target.is_pressed = true;
-          mechanics.first_button_off(event.target[1], event.target[2]);
-          selected_buttons = selected_buttons + 1;
+        event.target.is_pressed = true;
+        mechanics.first_button_off(event.target[1], event.target[2]);
+        selected_buttons = selected_buttons + 1;
 
-          if (selected_buttons == 2) then
-            buttons_can_be_pressed = false;
-            timer.performWithDelay(550, pass_time_closure);
-            selected_buttons = 0;
-          end
+        if (selected_buttons == 2) then
+          buttons_can_be_pressed = false;
+          timer.performWithDelay(550, pass_time_closure);
+          selected_buttons = 0;
         end
       end
     end
   end
+  return true;
 end
 
 function buttons.add_buttons_to_scene(displayGroup)
@@ -184,11 +179,11 @@ end
 -- -----------------------------------------------------------------------------------
 -- Button event function listeners
 -- -----------------------------------------------------------------------------------
-explore_group:addEventListener("touch", handleExploreEvent);
-rest_group:addEventListener("touch", handleRestEvent);
-build_group:addEventListener("touch", handleBuildEvent);
-pickup_group:addEventListener("touch", handlePickupEvent);
-mine_group:addEventListener("touch", handleMineEvent);
+explore_group:addEventListener("tap", handleExploreEvent);
+rest_group:addEventListener("tap", handleRestEvent);
+build_group:addEventListener("tap", handleBuildEvent);
+pickup_group:addEventListener("tap", handlePickupEvent);
+mine_group:addEventListener("tap", handleMineEvent);
 -- -----------------------------------------------------------------------------------
 
 return buttons;

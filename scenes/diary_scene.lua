@@ -17,6 +17,10 @@ function scene:create(event)
     local sceneGroup = self.view;
     -- Code here runs when the scene is first created but has not yet appeared on screen
 
+    local example_text = display.newText("Diary", 0,0, "Bellota-Regular", 24);
+    example_text.x = _SCREEN.CENTER.x;
+    example_text.y = _SCREEN.CENTER.y;
+    sceneGroup:insert(example_text);
 end
 
 
