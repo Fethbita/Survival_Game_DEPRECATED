@@ -14,7 +14,7 @@ local slideshow = require("slideshow");
 
 local slideshowObjects = {};
 slideshowObjects[1] = require("scenes.diary_scene");
-slideshowObjects[2] = require("scenes.main_scene");
+slideshowObjects[2] = require("scenes.home_scene");
 slideshowObjects[3] = require("scenes.inventory_scene");
 
 local slideshowParams = {
