@@ -48,14 +48,14 @@ end
 
 local function update_bars()
   if (mechanics.health > 0) then
-    HEALTHBAR.width = math.floor(320 * (mechanics.health / 1000));
+    transition.to(HEALTHBAR, {width = math.floor(320 * (mechanics.health / 1000))});
   else
-    HEALTHBAR.width = 0;
+    transition.to(HEALTHBAR, {width = 0});
   end
   if (mechanics.energy > 0) then
-    ENERGYBAR.width = math.floor(320 * (mechanics.energy / 1000));
+    transition.to(ENERGYBAR, {width = math.floor(320 * (mechanics.energy / 1000))});
   else
-    ENERGYBAR.width = 0;
+    transition.to(ENERGYBAR, {width = 0});
   end
 end
 

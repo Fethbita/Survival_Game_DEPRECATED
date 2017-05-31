@@ -5,4 +5,4 @@
 - [ ] Exploring cannot be done at night without a torch. For this we need to implement equipping system.
 
 **Low priority**
-- [ ] Make energy and health bar more smoother with transitions
+- [x] Make energy and health bar more smoother with transitions
