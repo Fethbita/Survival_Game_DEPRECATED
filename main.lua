@@ -22,7 +22,7 @@ local slideshowParams = {
     startIndex = 2,
     transitionEffect = easing.outCubic,
     transitionEffectTimeMs = 250,
-    swipeSensitivityPixels = 50,
+    swipeSensitivityPixels = 100,
     --onChange = updateThumbnails,
 }
 slideshow.init(slideshowObjects, slideshowParams);
