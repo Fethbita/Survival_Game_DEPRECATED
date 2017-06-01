@@ -7,14 +7,6 @@ background.x = -15;
 background.y = 50;
 home_container:insert(background);
 
-HEALTHBAR = display.newRoundedRect(0, -_SCREEN.CENTER.y + 3, 320, 6, 3);
-HEALTHBAR:setFillColor(104/255, 159/255, 56/255);
-home_container:insert(HEALTHBAR);
-
-ENERGYBAR = display.newRoundedRect(0, -_SCREEN.CENTER.y + 9, 320, 6, 3);
-ENERGYBAR:setFillColor(2/255, 136/255, 209/255);
-home_container:insert(ENERGYBAR);
-
 TIMETEXT = display.newText(mechanics.time_text[mechanics.time], 0, 0, "Bellota-Regular", 24);
 TIMETEXT.x = -90;
 TIMETEXT.y = -200;

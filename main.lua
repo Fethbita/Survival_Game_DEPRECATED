@@ -25,3 +25,10 @@ local slideshowParams = {
     --onChange = updateThumbnails,
 }
 slideshow.init(slideshowObjects, slideshowParams)
+
+
+HEALTHBAR = display.newRoundedRect(_SCREEN.width / 2, 3, 320, 6, 3);
+HEALTHBAR:setFillColor(104/255, 159/255, 56/255);
+
+ENERGYBAR = display.newRoundedRect(_SCREEN.width / 2, 9, 320, 6, 3);
+ENERGYBAR:setFillColor(2/255, 136/255, 209/255);
