@@ -15,8 +15,8 @@ local function create_button_group(button_text, button_group_center_plus_x, butt
   button_group:insert(button);
   button_group:insert(button_pressed);
   button_group:insert(button_text);
-  button_group.x = _SCREEN.CENTER.x + button_group_center_plus_x;
-  button_group.y = _SCREEN.CENTER.y + button_group_center_plus_y;
+  button_group.x = button_group_center_plus_x;
+  button_group.y =  button_group_center_plus_y;
   return button_group;
 end
 
