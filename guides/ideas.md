@@ -9,6 +9,9 @@
 * Possibility of sudden death. The chance of dying will reduce if you have something to protect yourself.
 * If it's an endless game it might be a good idea to include a leader board. Else after the ending, an endless mode might be unlocked.
 * Diary is a good idea, but it has to be short for convenience. Convenience meaning; it shouldn't be a page long 10 font text. Each page might be 10 20 lines at most, 15 font and easy to understand. But since the game is very random, it might be hard to write the script. Have to think about it.
+* Player should be able to choose to attack or run away when facing an animal before the turn starts. Even if he chooses to attack that doesn't mean that he is 100% going to see an animal. Just choosing what to do if that happens.
+* Player should be noticed how many moves he's got left. Like when one of the buttons pushed, maybe a screen popup can say one more action can be chosen.
+* Instead directly processing the chosen two things we will have a button for player to say "I am done. Process it." This button will not be active at first, but when two actions are selected it will become active.
 
 ---
 
