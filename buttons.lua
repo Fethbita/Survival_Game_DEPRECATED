@@ -1,5 +1,10 @@
 local buttons = {};
-local mechanics = require("mechanics");
+
+--[[
+Returns
+--FUNC--
+add_buttons_to_container
+--]]
 
 -- -----------------------------------------------------------------------------------
 
@@ -187,8 +192,9 @@ function buttons.add_buttons_to_container()
   buttons_group:addEventListener("touch", buttons_group_ignore);
 
   local test_box = display.newRect(0, 0, _SCREEN.width, 150);
-  --test_box.isHitTestable = true;
-  test_box:setFillColor(1, 0, 0, 0.8);
+  test_box:setFillColor(1, 0, 0, 0.5);
+  --test_box.isVisible = false;
+  test_box.isHitTestable = true;
   buttons_group:insert(test_box);
 
   buttons_group:insert(explore_group);
