@@ -45,6 +45,30 @@ DAYTEXT.x = _SCREEN.CENTER.x + 90;
 DAYTEXT.y = _SCREEN.CENTER.y - 200;
 main_group:insert(DAYTEXT);
 
+local thoughts_icon = display.newImageRect( "images/thoughts.png", 24, 24 )
+thoughts_icon.x = _SCREEN.CENTER.x - 50;
+thoughts_icon.y = _SCREEN.CENTER.y - 150;
+
+local branch_icon = display.newImageRect( "images/branch.png", 24, 24 )
+branch_icon.x = _SCREEN.CENTER.x - 120;
+branch_icon.y = _SCREEN.CENTER.y - 240;
+
+local leaf_icon = display.newImageRect( "images/leaf.png", 24, 24 )
+leaf_icon.x = _SCREEN.CENTER.x - 70;
+leaf_icon.y = _SCREEN.CENTER.y - 240;
+
+local stone_icon = display.newImageRect( "images/stone.png", 24, 24 )
+stone_icon.x = _SCREEN.CENTER.x - 20;
+stone_icon.y = _SCREEN.CENTER.y - 240;
+
+local beeswax_icon = display.newImageRect( "images/beeswax.png", 24, 24 )
+beeswax_icon.x = _SCREEN.CENTER.x + 30;
+beeswax_icon.y = _SCREEN.CENTER.y - 240;
+
+local food_icon = display.newImageRect( "images/food.png", 24, 24 )
+food_icon.x = _SCREEN.CENTER.x + 80;
+food_icon.y = _SCREEN.CENTER.y - 240;
+
 local logs_text = display.newText("Logs", 0,0, "Bellota-Regular", 24);
 logs_text.x = _SCREEN.CENTER.x;
 logs_text.y = _SCREEN.CENTER.y - 150;
