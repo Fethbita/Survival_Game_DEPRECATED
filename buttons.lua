@@ -11,11 +11,11 @@ add_buttons_to_container
 local function create_button_group(button_text, button_group_center_plus_x, button_group_center_plus_y)
   local button_group = display.newGroup();
 
-  local button = display.newImageRect("images/button.png", 140, 52);
-  local button_pressed = display.newImageRect("images/button_over.png", 140, 52);
+  local button = display.newImageRect("images/button.png", 210, 78);
+  local button_pressed = display.newImageRect("images/button_over.png", 210, 78);
   button_pressed.isVisible = false;
   button_pressed.alpha = 0;
-  local button_text = display.newText(button_text, 0, 0, "Bellota-Regular", 24);
+  local button_text = display.newText(button_text, 0, 0, "Bellota-Regular", 32);
 
   button_group:insert(button);
   button_group:insert(button_pressed);
@@ -25,16 +25,16 @@ local function create_button_group(button_text, button_group_center_plus_x, butt
   return button_group;
 end
 
-local explore_group = create_button_group("Explore", -80, -50);
+local explore_group = create_button_group("Explore", -180, -120);
 explore_group.is_pressed = false;
-local rest_group = create_button_group("Rest", -80, 0);
-rest_group.is_pressed = false;
-local build_group = create_button_group("Build", -80, 50);
-build_group.is_pressed = false;
-local mine_group = create_button_group("Mine", 80, -50);
-mine_group.is_pressed = false;
-local pickup_group = create_button_group("Pick Up", 80, 0);
+local pickup_group = create_button_group("Search", 180, -120);
 pickup_group.is_pressed = false;
+local rest_group = create_button_group("Rest", -180, 0);
+rest_group.is_pressed = false;
+local mine_group = create_button_group("Get Food", 180, 0);
+mine_group.is_pressed = false;
+local build_group = create_button_group("Do It!", 0, 120);
+build_group.is_pressed = false;
 
 local buttons_can_be_pressed = true;
 local selected_buttons = 0;
@@ -183,7 +183,7 @@ local function buttons_group_ignore(event)
 end
 
 function buttons.add_buttons_to_container()
-  local buttons_group = display.newContainer(_SCREEN.width, 150);
+  local buttons_group = display.newContainer(_SCREEN.width, 350);
   buttons_group.anchorX = 0.5;
   buttons_group.x = _SCREEN.CENTER.x;
   buttons_group.anchorY = 1;
@@ -191,8 +191,8 @@ function buttons.add_buttons_to_container()
 
   buttons_group:addEventListener("touch", buttons_group_ignore);
 
-  local test_box = display.newRect(0, 0, _SCREEN.width, 150);
-  test_box:setFillColor(1, 0, 0, 0.5);
+  local test_box = display.newRoundedRect(0, 0, 780, 350, 15);
+  test_box:setFillColor(105/255, 105/255, 105/255, 0.5);
   --test_box.isVisible = false;
   test_box.isHitTestable = true;
   buttons_group:insert(test_box);

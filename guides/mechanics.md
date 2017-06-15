@@ -1,4 +1,6 @@
-**Name of our game** - I am thinking about the story for now, it should be something according to the story.
+## Status Unknown
+
+The name of the game. It is related to the story. Protagonist has no idea how he got lost, nor does he know his status. He is having a memory loss, but in time he will start to remember some things or not. It will be decided according to the storyline. He actually doesn't lose memories, he just doesn't remember what he is doing sometimes. This is called a fugue state. This will give us the chance to use a lot of surprising events within the story.
 
 Health and energy bar will be at the top of the screen.
 
@@ -9,16 +11,34 @@ There will be two phases of a day. Daytime and nighttime. You can choose to do o
 **Characteristics**
 * Player is able to explore without a torch.
 * Either it is daytime or nighttime
+* A chance to get attacked by an animal. For now, let's say 5%.
+* A chance to find the next chapter of the story.
+* A chance to get lost. For now, let's say 5%.
+* If wounded, there is a possiblity of wound infection. Wound infection makes you lose 100 health, every phase. For now, let's say 10% if only you get attacked by an animal.
+* A chance to fall down and cut himself. For now, let's say 5%.
 
 ## Nighttime
 
 **Characteristics**
-* Player can be attacked by wolves or other unfriendly animals even when resting.
 * Exploring can be done with a torch but not effective.
+* A chance to get attacked by an animal. For now, let's say 10%.
+* A chance to get lost. For now, let's say %10. 
+* If wounded, there is a possiblity of wound infection. Wound infection makes you lose 100 health, every phase. For now, let's say 10% if only you get attacked by an animal.
+* A chance to fall down and cut himself. For now, let's say 10%.
 
 ## Items
 
 Player can only equip two tools. When the player wears a backpack, he can equip 2 more items. Almost every item will have durability to make the gameplay more challenging.
+
+---
+
+## Weather
+
+This is no big deal. We won't have certain seasons, but we will have cloudy, rainy, stormy weathers.
+
+* Cloudy weather: This type is the usual, boring weather.
+* Rainy weather: With this type of weather player better have a shelter.
+* Stormy weather: Again player wants to stay in the shelter.
 
 ---
 
@@ -27,14 +47,18 @@ Player can only equip two tools. When the player wears a backpack, he can equip 
 They will have health and they are considered to be armorless.
 
 **Unfriendly Animals**
-* Wolf - 8 Hit Point - Damage 200 Hit Points
+* Wolf - 8 Hit Point - Damage 200 Hit Points 
 * Snake - 4 Hit Point - Damage 100 Hit Points - Getting poisoned with 20% chance
 * Bear - 20 Hit Point - Damage 400 Hit Points
+* Wasp - 4 Hit Point - Damage 50 Hit Points
+* Spider
+* Scorpion
 
 **Neutral Animals**
 * Bee - They cannot be cultivated or killed. From their hive, bee wax and honey can be gathered.
 * Rabbit - 2 Hit Point - Don't fight back.
 * Turtle - 1 Hit Point - Don't fight back.
+
 
 ---
 
@@ -53,13 +77,13 @@ They will have health and they are considered to be armorless.
 
 **What does explore button do?**
 
-* Possibility of finding new places. - _For this, I now have this feeling that we shouldn't create many random places to go. Instead we should have a couple of places to go according to our storyline, that's why we should make them hard to find for the sake of playtime._
+* Possibility of finding new places. - _For this, I now have this feeling that we shouldn't create many random places to go. Instead we should have a couple of places to go according to our storyline, that's why we should make them hard to find for the sake of playtime._ For example, we could increase this chance from 1% to 10% every day and stop increasing it.
 * Possibility of finding interesting stuff related to the story.
-* Possibility of finding something that is already made. Like an axe.
+* Possibility of finding something that is already made. Like an axe. For now, let's say 5%.
 
-### Pick Up: Twigs, small rocks etc. (I am not happy with the naming of this)
+### Search: Twigs, small rocks etc.
 
-**What does pick up button do?**
+**What does search button do?**
 
 * You find stuff that are necessary to build things. Also when you have an equipped tool, you start to gather extra stuff. For instance, if you have an axe with you, you start to gather wood with every phase you go for picking up things.
 * Possibility of finding berries.
@@ -86,7 +110,7 @@ Tools:
 * Fishing rod - Used for catching fish.
     * Requirements = 3 Branch, 3 Fiber
     * Durability = 5 Fish
-* Torch - Used for travelling at nighttime.
+* Torch - Used for protection from animals. Used for travelling at nighttime. Also reduces the chance of falling down at night 5%.
     * Requirements = 1 Branch, 1 Bee Wax
     * Durability = 1 travel at night.
 * Trap - Used for catching animals.
@@ -95,10 +119,13 @@ Tools:
 * Outfit - Resistance to animal attacks.
     * Requirements = 3 Branch, 2 Fiber, 3 Wood
     * Durability = 5 animal attacks.
+* Camouflage Outfit - Reduces the chance of animal attacks by 3%.
+    * Requirements = 3 Branch, 2 Fiber, 5 Leaf, 3 Wood
+    * Durability = 5 animal attacks.
 * Campfire - Increases chance of animal attack %10, but keeps the player warm.
     * Requirements = 3 Stone, 3 Woods, 1 Bee Wax
     * Durability = 2 nights
-* Shelter - Decreases chance of animal attack 20%.
+* Shelter - Decreases chance of animal attack 5%.
     * Requirements = 5 Wood, 5 Branch, 1 Shaped Stone _(Created with 2 Stones and 2 Branches)_
     * Durability = 5 nights
 * Backpack - 2 more items can be equipped.

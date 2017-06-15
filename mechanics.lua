@@ -48,12 +48,12 @@ end
 
 local function update_bars()
   if (mechanics.health > 0) then
-    transition.to(HEALTHBAR, {width = math.floor(320 * (mechanics.health / 1000))});
+    transition.to(HEALTHBAR, {width = math.floor(800 * (mechanics.health / 1000))});
   else
     transition.to(HEALTHBAR, {width = 0});
   end
   if (mechanics.energy > 0) then
-    transition.to(ENERGYBAR, {width = math.floor(320 * (mechanics.energy / 1000))});
+    transition.to(ENERGYBAR, {width = math.floor(800 * (mechanics.energy / 1000))});
   else
     transition.to(ENERGYBAR, {width = 0});
   end
@@ -61,7 +61,8 @@ end
 
 local function update_texts()
   TIMETEXT.text = mechanics.time_text[mechanics.time];
-  DAYTEXT.text = "Day " .. mechanics.day;
+  -- DAYTEXT.text = "Day " .. mechanics.day;
+     DAYTEXT.text = mechanics.day;
 end
 
 local function button_visible_on(button)
