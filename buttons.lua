@@ -11,11 +11,11 @@ add_buttons_to_container
 local function create_button_group(button_text, button_group_center_plus_x, button_group_center_plus_y)
   local button_group = display.newGroup();
 
-  local button = display.newImageRect("images/button.png", 210, 78);
-  local button_pressed = display.newImageRect("images/button_over.png", 210, 78);
+  local button = display.newImageRect("images/button.png", 340, 100);
+  local button_pressed = display.newImageRect("images/button_over.png", 340, 100);
   button_pressed.isVisible = false;
   button_pressed.alpha = 0;
-  local button_text = display.newText(button_text, 0, 0, "Bellota-Regular", 32);
+  local button_text = display.newText(button_text, 0, 0, "Bellota-Regular", 40);
 
   button_group:insert(button);
   button_group:insert(button_pressed);
@@ -25,16 +25,18 @@ local function create_button_group(button_text, button_group_center_plus_x, butt
   return button_group;
 end
 
-local explore_group = create_button_group("Explore", -180, -120);
+local explore_group = create_button_group("Explore", -185, -120);
 explore_group.is_pressed = false;
 local pickup_group = create_button_group("Search", 180, -120);
 pickup_group.is_pressed = false;
-local rest_group = create_button_group("Rest", -180, 0);
+local rest_group = create_button_group("Cook & Eat", -185, 0);
 rest_group.is_pressed = false;
 local mine_group = create_button_group("Get Food", 180, 0);
 mine_group.is_pressed = false;
-local build_group = create_button_group("Do It!", 0, 120);
+local build_group = create_button_group("Build", -185, 120);
 build_group.is_pressed = false;
+local run_group = create_button_group("I'm Ready!", 180, 120);
+run_group.is_pressed = false;
 
 local buttons_can_be_pressed = true;
 local selected_buttons = 0;
@@ -202,6 +204,7 @@ function buttons.add_buttons_to_container()
   buttons_group:insert(build_group);
   buttons_group:insert(mine_group);
   buttons_group:insert(pickup_group);
+  buttons_group:insert(run_group);
 
   return buttons_group;
 end

@@ -61,8 +61,7 @@ end
 
 local function update_texts()
   TIMETEXT.text = mechanics.time_text[mechanics.time];
-  -- DAYTEXT.text = "Day " .. mechanics.day;
-     DAYTEXT.text = mechanics.day;
+  DAYTEXT.text = "Day " .. mechanics.day;
 end
 
 local function button_visible_on(button)

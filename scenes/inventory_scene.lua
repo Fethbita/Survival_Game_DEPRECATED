@@ -9,14 +9,38 @@ local inventory_box = display.newRoundedRect( 0, -42, 780, 780, 15 )
 inventory_box:setFillColor(105/255, 105/255, 105/255, 0.5);
 inventory_container:insert(inventory_box);
 
-local inventory_icon = display.newImageRect( "images/inventory.png", 32, 32 )
-inventory_icon.x = - 150;
+local inventory_icon = display.newImageRect( "images/inventory.png", 40, 40 )
+inventory_icon.x = - 130;
 inventory_icon.y = - 390;
 inventory_container:insert(inventory_icon);
 
-local inventory_text = display.newText("Inventory", 0,0, "Bellota-Regular", 32);
+local inventory_text = display.newText("Inventory", 0,0, "Bellota-Regular", 40);
 inventory_text.x = 0;
 inventory_text.y = - 390;
 inventory_container:insert(inventory_text);
+
+local inventory_item = display.newText("Axe x 2", 0,0, "Bellota-Regular", 32);
+inventory_item.x = - 340;
+inventory_item.y = - 290;
+inventory_item.anchorX = 0;
+inventory_container:insert(inventory_item);
+
+local inventory_item2 = display.newText("Fishing Rod", 0,0, "Bellota-Regular", 32);
+inventory_item2.x = - 340;
+inventory_item2.y = - 220;
+inventory_item2.anchorX = 0;
+inventory_container:insert(inventory_item2);
+
+local inventory_item3 = display.newText("Shaped Stone x 2", 0,0, "Bellota-Regular", 32);
+inventory_item3.x = - 340;
+inventory_item3.y = - 150;
+inventory_item3.anchorX = 0;
+inventory_container:insert(inventory_item3);
+
+local inventory_item4 = display.newText("Spear", 0,0, "Bellota-Regular", 32);
+inventory_item4.x = - 340;
+inventory_item4.y = - 80;
+inventory_item4.anchorX = 0;
+inventory_container:insert(inventory_item4);
 
 return inventory_container;

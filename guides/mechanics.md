@@ -55,7 +55,7 @@ They will have health and they are considered to be armorless.
 * Scorpion
 
 **Neutral Animals**
-* Bee - They cannot be cultivated or killed. From their hive, bee wax and honey can be gathered.
+* Bee - They cannot be cultivated or killed. From their hive, beeswax and honey can be gathered.
 * Rabbit - 2 Hit Point - Don't fight back.
 * Turtle - 1 Hit Point - Don't fight back.
 
@@ -64,10 +64,11 @@ They will have health and they are considered to be armorless.
 
 ## Raw Materials
 
-* Stone
 * Branch
-* Beeswax
 * Leaf
+* Stone
+* Beeswax
+* Hemp
 
 ---
 
@@ -96,19 +97,19 @@ They will have health and they are considered to be armorless.
 
 Tools:
 * Axe - Used for gathering wood.
-    * Requirements = 1 Stone, 2 Branch, 1 Fiber
+    * Requirements = 1 Stone, 2 Branch, 1 Hemp
     * Durability = 10 Woods
 * Spear - Used for killing animals.
-    * Requirements = 2 Stone, 2 Branch, 2 Fiber
+    * Requirements = 2 Stone, 2 Branch, 2 Hemp
     * Durability = Contact with 4 animals.
 * Knife - Used for killing animals.
-    * Requirements = 1 Stone, 1 Branch, 1 Fiber
+    * Requirements = 1 Stone, 1 Branch, 1 Hemp
     * Durability = Contact with 4 animals.
 * Bow and arrow- Used for killing animals.
     * Requirements = 5 Branch, 3 Wood, 1 Beeswax
     * Durability = 10 Damage.
 * Fishing rod - Used for catching fish.
-    * Requirements = 3 Branch, 3 Fiber
+    * Requirements = 3 Branch, 3 Hemp
     * Durability = 5 Fish
 * Torch - Used for protection from animals. Used for travelling at nighttime. Also reduces the chance of falling down at night 5%.
     * Requirements = 1 Branch, 1 Bee Wax
@@ -117,19 +118,21 @@ Tools:
     * Requirements = 3 Branch, 2 Leaf
     * Durability = 5 animals
 * Outfit - Resistance to animal attacks.
-    * Requirements = 3 Branch, 2 Fiber, 3 Wood
+    * Requirements = 3 Branch, 2 Hemp, 3 Wood
     * Durability = 5 animal attacks.
 * Camouflage Outfit - Reduces the chance of animal attacks by 3%.
-    * Requirements = 3 Branch, 2 Fiber, 5 Leaf, 3 Wood
+    * Requirements = 3 Branch, 2 Hemp, 5 Leaf, 3 Wood
     * Durability = 5 animal attacks.
-* Campfire - Increases chance of animal attack %10, but keeps the player warm.
-    * Requirements = 3 Stone, 3 Woods, 1 Bee Wax
+* Campfire - Increases the chance of animal attack %10, but keeps the player warm.
+    * Requirements = 3 Stone, 3 Woods, 1 Beeswax
     * Durability = 2 nights
-* Shelter - Decreases chance of animal attack 5%.
+* Compass - Decreases the chance of getting lost.
+    * Requirements = 4 Branch, 4 Hemp, 4 Beeswax
+* Shelter - Decreases the chance of animal attack 5%.
     * Requirements = 5 Wood, 5 Branch, 1 Shaped Stone _(Created with 2 Stones and 2 Branches)_
     * Durability = 5 nights
 * Backpack - 2 more items can be equipped.
-    * Requirements = 4 Branch, 2 Fibers
+    * Requirements = 4 Branch, 2 Hemp
     * Durability = 10 Travels. - _We will put a percentage on the main screen so the player will know about the durability of the bag. If durability finishes on the journey, half of the collected stuff will be lost._
 * Cooking Pot - Requires campfire and is used for cooking animals.
     * Requirements = 2 Shaped Stone, 3 Wood
