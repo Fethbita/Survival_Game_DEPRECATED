@@ -185,15 +185,18 @@ local function buttons_group_ignore(event)
 end
 
 function buttons.add_buttons_to_container()
-  local buttons_group = display.newContainer(_SCREEN.width, 350);
+  local buttons_group = display.newContainer(0, 0);
   buttons_group.anchorX = 0.5;
   buttons_group.x = _SCREEN.CENTER.x;
   buttons_group.anchorY = 1;
   buttons_group.y = _SCREEN.height;
+  buttons_group.width = _SCREEN.width;
+  buttons_group.height = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 350);
 
   buttons_group:addEventListener("touch", buttons_group_ignore);
 
   local test_box = display.newRoundedRect(0, 0, 780, 350, 15);
+  test_box.width = _SCREEN.width - 20;
   test_box:setFillColor(105/255, 105/255, 105/255, 0.5);
   --test_box.isVisible = false;
   test_box.isHitTestable = true;
