@@ -1,4 +1,4 @@
-diary_container = display.newContainer(_SCREEN.width, _SCREEN.height);
+local diary_container = display.newContainer(_SCREEN.width, _SCREEN.height);
 
 -- local background = display.newImageRect("images/fbg.png", 800, 1200);
 -- -- background.x = -15;

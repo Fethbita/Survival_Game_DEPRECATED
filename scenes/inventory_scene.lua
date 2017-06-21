@@ -1,4 +1,4 @@
-inventory_container = display.newContainer(_SCREEN.width, _SCREEN.height);
+local inventory_container = display.newContainer(_SCREEN.width, _SCREEN.height);
 
 -- local background = display.newImageRect("images/lbg.png", 800, 1200);
 -- -- background.x = -15;

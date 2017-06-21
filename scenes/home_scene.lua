@@ -1,4 +1,4 @@
-home_container = display.newContainer(_SCREEN.width, _SCREEN.height);
+local home_container = display.newContainer(_SCREEN.width, _SCREEN.height);
 
 -- local background = display.newImageRect("images/background.png", 800, 1200);
 -- -- background.x = -15;
