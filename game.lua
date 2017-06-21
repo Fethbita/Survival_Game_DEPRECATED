@@ -37,16 +37,16 @@ TIMEICON.x = (_SCREEN.width / 2) - 330;
 TIMEICON.y = 66;
 main_group:insert(TIMEICON);
 
-local TIMETEXT_options =
+local options =
 {
 	text = mechanics.time_text[mechanics.time],
 	x = (_SCREEN.width / 2) - 290,
 	y = 66,
 	font = "Bellota-Regular",
 	fontSize = 40
-}
+};
 
-TIMETEXT = display.newText(TIMETEXT_options);
+TIMETEXT = display.newText(options);
 TIMETEXT.anchorX = 0;
 main_group:insert(TIMETEXT);
 
@@ -55,7 +55,7 @@ calendar_icon.x = (_SCREEN.width / 2) + 150;
 calendar_icon.y = 66;
 main_group:insert(calendar_icon);
 
-local DAYTEXT_options =
+options =
 {
 	text = "Day " .. mechanics.day,
 	x = (_SCREEN.width / 2) + 250,
@@ -64,7 +64,7 @@ local DAYTEXT_options =
 	fontSize = 40
 };
 
-DAYTEXT = display.newText(DAYTEXT_options);
+DAYTEXT = display.newText(options);
 main_group:insert(DAYTEXT);
 
 local materials_box = display.newRoundedRect( 0, 0, 0, 0, 15 )
@@ -80,7 +80,7 @@ branch_icon.x = _SCREEN.CENTER.x - 320;
 branch_icon.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 161);
 main_group:insert(branch_icon);
 
-local branch_count_options =
+options =
 {
 	text = "152",
 	x = _SCREEN.CENTER.x - 320,
@@ -89,7 +89,7 @@ local branch_count_options =
 	fontSize = 40
 };
 
-local branch_count = display.newText(branch_count_options);
+local branch_count = display.newText(options);
 main_group:insert(branch_count);
 
 local leaf_icon = display.newImageRect( "images/leaf.png", 40, 40 )
@@ -97,7 +97,7 @@ leaf_icon.x = _SCREEN.CENTER.x - 200;
 leaf_icon.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 161);
 main_group:insert(leaf_icon);
 
-local leaf_count_options =
+options =
 {
 	text = "2839",
 	x = _SCREEN.CENTER.x - 200,
@@ -106,7 +106,7 @@ local leaf_count_options =
 	fontSize = 40
 };
 
-local leaf_count = display.newText(leaf_count_options);
+local leaf_count = display.newText(options);
 main_group:insert(leaf_count);
 
 local stone_icon = display.newImageRect( "images/stone.png", 40, 40 )
@@ -114,7 +114,7 @@ stone_icon.x = _SCREEN.CENTER.x - 80;
 stone_icon.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 161);
 main_group:insert(stone_icon);
 
-local stone_count_options =
+options =
 {
 	text = "8227",
 	x = _SCREEN.CENTER.x - 80,
@@ -123,7 +123,7 @@ local stone_count_options =
 	fontSize = 40
 };
 
-local stone_count = display.newText(stone_count_options);
+local stone_count = display.newText(options);
 stone_count.x = _SCREEN.CENTER.x - 80;
 stone_count.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 211);
 main_group:insert(stone_count);
@@ -133,7 +133,7 @@ beeswax_icon.x = _SCREEN.CENTER.x + 40;
 beeswax_icon.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 161);
 main_group:insert(beeswax_icon);
 
-local beeswax_count_options =
+options =
 {
 	text = "8227",
 	x = _SCREEN.CENTER.x + 40,
@@ -142,7 +142,7 @@ local beeswax_count_options =
 	fontSize = 40
 };
 
-local beeswax_count = display.newText(beeswax_count_options);
+local beeswax_count = display.newText(options);
 main_group:insert(beeswax_count);
 
 local hemp_icon = display.newImageRect( "images/hemp.png", 40, 40 )
@@ -150,7 +150,7 @@ hemp_icon.x = _SCREEN.CENTER.x + 160;
 hemp_icon.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 161);
 main_group:insert(hemp_icon);
 
-local hemp_count_options =
+options =
 {
 	text = "529",
 	x = _SCREEN.CENTER.x + 160,
@@ -159,7 +159,7 @@ local hemp_count_options =
 	fontSize = 40
 };
 
-local hemp_count = display.newText(hemp_count_options);
+local hemp_count = display.newText(options);
 main_group:insert(hemp_count);
 
 local food_icon = display.newImageRect( "images/food.png", 40, 40 )
@@ -167,7 +167,7 @@ food_icon.x = _SCREEN.CENTER.x + 280;
 food_icon.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 161);
 main_group:insert(food_icon);
 
-local food_count_options =
+options =
 {
 	text = "972",
 	x = _SCREEN.CENTER.x + 280,
@@ -176,7 +176,7 @@ local food_count_options =
 	fontSize = 40
 };
 
-local food_count = display.newText(food_count_options);
+local food_count = display.newText(options);
 main_group:insert(food_count);
 
 buttons = require("buttons");
