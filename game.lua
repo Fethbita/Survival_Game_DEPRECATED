@@ -76,107 +76,38 @@ options =
 DAYTEXT = display.newText(options);
 top_container:insert(DAYTEXT);
 
-local branch_icon = display.newImageRect("images/branch.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size);
-branch_icon.x = -320;
-branch_icon.y = (TIMEICON.y + TIMEICON.height / 2) + (G_second_empty_space * _SCREEN.height) + branch_icon.height / 2;
-top_container:insert(branch_icon);
 
-options =
-{
-	text = "152",
-	x = -320,
-	y = (branch_icon.y + branch_icon.height / 2) + branch_icon.height / 2,
-	font = "Bellota-Regular",
-	fontSize = 40
-};
+local function create_icon(icon_path, icon_width, icon_height, icon_x, icon_y, icon_text_font_size)
+  local icon = display.newImageRect(icon_path, icon_width, icon_height);
+  icon.x = icon_x;
+  icon.y = icon_y;
+  top_container:insert(icon);
 
-local branch_count = display.newText(options);
-top_container:insert(branch_count);
+  local options =
+  {
+  	text = "9999",
+  	x = icon_x,
+  	y = (icon.y + icon.height / 2) + icon.height / 2,
+  	font = "Bellota-Regular",
+  	fontSize = icon_text_font_size
+  };
 
-local leaf_icon = display.newImageRect("images/leaf.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size);
-leaf_icon.x = -200;
-leaf_icon.y = (TIMEICON.y + TIMEICON.height / 2) + (G_second_empty_space * _SCREEN.height) + leaf_icon.height / 2;
-top_container:insert(leaf_icon);
+  local icon_text = display.newText(options);
+  top_container:insert(icon_text);
+end
 
-options =
-{
-	text = "2839",
-	x = -200,
-	y = (leaf_icon.y + leaf_icon.height / 2) + leaf_icon.height / 2,
-	font = "Bellota-Regular",
-	fontSize = 40
-};
-
-local leaf_count = display.newText(options);
-top_container:insert(leaf_count);
-
-local stone_icon = display.newImageRect("images/stone.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size);
-stone_icon.x = -80;
-stone_icon.y = (TIMEICON.y + TIMEICON.height / 2) + (G_second_empty_space * _SCREEN.height) + stone_icon.height / 2;
-top_container:insert(stone_icon);
-
-options =
-{
-	text = "8227",
-	x = -80,
-	y = (stone_icon.y + stone_icon.height / 2) + stone_icon.height / 2,
-	font = "Bellota-Regular",
-	fontSize = 40
-};
-
-local stone_count = display.newText(options);
-top_container:insert(stone_count);
-
-local beeswax_icon = display.newImageRect("images/beeswax.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size);
-beeswax_icon.x = 40;
-beeswax_icon.y = (TIMEICON.y + TIMEICON.height / 2) + (G_second_empty_space * _SCREEN.height) + beeswax_icon.height / 2;
-top_container:insert(beeswax_icon);
-
-options =
-{
-	text = "8227",
-	x = 40,
-	y = (beeswax_icon.y + beeswax_icon.height / 2) + beeswax_icon.height / 2,
-	font = "Bellota-Regular",
-	fontSize = 40
-};
-
-local beeswax_count = display.newText(options);
-top_container:insert(beeswax_count);
-
-local hemp_icon = display.newImageRect("images/hemp.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size);
-hemp_icon.x = 160;
-hemp_icon.y = (TIMEICON.y + TIMEICON.height / 2) + (G_second_empty_space * _SCREEN.height) + hemp_icon.height / 2;
-top_container:insert(hemp_icon);
-
-options =
-{
-	text = "529",
-	x = 160,
-	y = (hemp_icon.y + hemp_icon.height / 2) + hemp_icon.height / 2,
-	font = "Bellota-Regular",
-	fontSize = 40
-};
-
-local hemp_count = display.newText(options);
-top_container:insert(hemp_count);
-
-local food_icon = display.newImageRect("images/food.png", 40, 40);
-food_icon.x = 280;
-food_icon.y = (TIMEICON.y + TIMEICON.height / 2) + (G_second_empty_space * _SCREEN.height) + food_icon.height / 2;
-top_container:insert(food_icon);
-
-options =
-{
-	text = "972",
-	x = 280,
-	y = (food_icon.y + food_icon.height / 2) + food_icon.height / 2,
-	font = "Bellota-Regular",
-	fontSize = 40
-};
-
-local food_count = display.newText(options);
-top_container:insert(food_count);
+create_icon("images/branch.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
+            -320, (TIMEICON.y + TIMEICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, 40);
+create_icon("images/leaf.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
+            -200, (TIMEICON.y + TIMEICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, 40);
+create_icon("images/stone.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
+            -80, (TIMEICON.y + TIMEICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, 40);
+create_icon("images/beeswax.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
+            40, (TIMEICON.y + TIMEICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, 40);
+create_icon("images/hemp.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
+            160, (TIMEICON.y + TIMEICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, 40);
+create_icon("images/food.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
+            280, (TIMEICON.y + TIMEICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, 40);
 
 buttons = require("buttons");
 local buttons_group = buttons.add_buttons_to_container();
