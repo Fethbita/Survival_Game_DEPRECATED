@@ -15,7 +15,15 @@ local function create_button_group(button_text, button_group_center_plus_x, butt
   local button_pressed = display.newImageRect("images/button_over.png", 340, 100);
   button_pressed.isVisible = false;
   button_pressed.alpha = 0;
-  local button_text = display.newText(button_text, 0, 0, "Bellota-Regular", 40);
+  local options =
+  {
+    text = button_text,
+    x = 0,
+    y = 0,
+    font = "Bellota-Regular",
+    fontSize = 40
+  };
+  local button_text = display.newText(options);
 
   button_group:insert(button);
   button_group:insert(button_pressed);

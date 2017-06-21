@@ -80,9 +80,16 @@ branch_icon.x = _SCREEN.CENTER.x - 320;
 branch_icon.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 161);
 main_group:insert(branch_icon);
 
-local branch_count = display.newText("152", 0,0, "Bellota-Regular", 40);
-branch_count.x = _SCREEN.CENTER.x - 320;
-branch_count.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 211);
+local branch_count_options =
+{
+	text = "152",
+	x = _SCREEN.CENTER.x - 320,
+	y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 211),
+	font = "Bellota-Regular",
+	fontSize = 40
+};
+
+local branch_count = display.newText(branch_count_options);
 main_group:insert(branch_count);
 
 local leaf_icon = display.newImageRect( "images/leaf.png", 40, 40 )
@@ -90,9 +97,16 @@ leaf_icon.x = _SCREEN.CENTER.x - 200;
 leaf_icon.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 161);
 main_group:insert(leaf_icon);
 
-local leaf_count = display.newText("2839", 0,0, "Bellota-Regular", 40);
-leaf_count.x = _SCREEN.CENTER.x - 200;
-leaf_count.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 211);
+local leaf_count_options =
+{
+	text = "2839",
+	x = _SCREEN.CENTER.x - 200,
+	y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 211),
+	font = "Bellota-Regular",
+	fontSize = 40
+};
+
+local leaf_count = display.newText(leaf_count_options);
 main_group:insert(leaf_count);
 
 local stone_icon = display.newImageRect( "images/stone.png", 40, 40 )
@@ -100,7 +114,16 @@ stone_icon.x = _SCREEN.CENTER.x - 80;
 stone_icon.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 161);
 main_group:insert(stone_icon);
 
-local stone_count = display.newText("8227", 0,0, "Bellota-Regular", 40);
+local stone_count_options =
+{
+	text = "8227",
+	x = _SCREEN.CENTER.x - 80,
+	y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 211),
+	font = "Bellota-Regular",
+	fontSize = 40
+};
+
+local stone_count = display.newText(stone_count_options);
 stone_count.x = _SCREEN.CENTER.x - 80;
 stone_count.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 211);
 main_group:insert(stone_count);
@@ -110,9 +133,16 @@ beeswax_icon.x = _SCREEN.CENTER.x + 40;
 beeswax_icon.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 161);
 main_group:insert(beeswax_icon);
 
-local beeswax_count = display.newText("432", 0,0, "Bellota-Regular", 40);
-beeswax_count.x = _SCREEN.CENTER.x + 40;
-beeswax_count.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 211);
+local beeswax_count_options =
+{
+	text = "8227",
+	x = _SCREEN.CENTER.x + 40,
+	y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 211),
+	font = "Bellota-Regular",
+	fontSize = 40
+};
+
+local beeswax_count = display.newText(beeswax_count_options);
 main_group:insert(beeswax_count);
 
 local hemp_icon = display.newImageRect( "images/hemp.png", 40, 40 )
@@ -120,9 +150,16 @@ hemp_icon.x = _SCREEN.CENTER.x + 160;
 hemp_icon.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 161);
 main_group:insert(hemp_icon);
 
-local hemp_count = display.newText("529", 0,0, "Bellota-Regular", 40);
-hemp_count.x = _SCREEN.CENTER.x + 160;
-hemp_count.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 211);
+local hemp_count_options =
+{
+	text = "529",
+	x = _SCREEN.CENTER.x + 160,
+	y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 211),
+	font = "Bellota-Regular",
+	fontSize = 40
+};
+
+local hemp_count = display.newText(hemp_count_options);
 main_group:insert(hemp_count);
 
 local food_icon = display.newImageRect( "images/food.png", 40, 40 )
@@ -130,9 +167,16 @@ food_icon.x = _SCREEN.CENTER.x + 280;
 food_icon.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 161);
 main_group:insert(food_icon);
 
-local food_count = display.newText("972", 0,0, "Bellota-Regular", 40);
-food_count.x = _SCREEN.CENTER.x + 280;
-food_count.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 211);
+local food_count_options =
+{
+	text = "972",
+	x = _SCREEN.CENTER.x + 280,
+	y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 211),
+	font = "Bellota-Regular",
+	fontSize = 40
+};
+
+local food_count = display.newText(food_count_options);
 main_group:insert(food_count);
 
 buttons = require("buttons");
