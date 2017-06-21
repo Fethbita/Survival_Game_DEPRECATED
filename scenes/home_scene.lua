@@ -18,7 +18,7 @@ if (aspect_ratio > 1.5) then
 else
 	thoughts_box.height = _SCREEN.height - (_SCREEN.height - (_SCREEN.height / 2 - 32));
 end
-thoughts_box:setFillColor(105/255, 105/255, 105/255, 0.5);
+thoughts_box:setFillColor(23/255, 23/255, 23/255, 0.5);
 home_container:insert(thoughts_box);
 
 local thoughts_icon = display.newImageRect( "images/thoughts.png", 40, 40 )

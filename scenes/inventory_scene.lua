@@ -16,7 +16,7 @@ if (aspect_ratio > 1.5) then
 else
 	inventory_box.height = _SCREEN.height - (_SCREEN.height - (_SCREEN.height / 2 - 32));
 end
-inventory_box:setFillColor(105/255, 105/255, 105/255, 0.5);
+inventory_box:setFillColor(23/255, 23/255, 23/255, 0.5);
 inventory_container:insert(inventory_box);
 
 local inventory_icon = display.newImageRect( "images/inventory.png", 40, 40 )

@@ -6,6 +6,8 @@ Health and energy bar will be at the top of the screen.
 
 There will be two phases of a day. Daytime and nighttime. You can choose to do only two actions in one phase.
 
+There is a chance eating berries or mushrooms gets you 
+
 ## Daytime
 
 **Characteristics**
@@ -128,6 +130,10 @@ Tools:
     * Durability = 2 nights
 * Compass - Decreases the chance of getting lost.
     * Requirements = 4 Branch, 4 Hemp, 4 Beeswax
+    * Durability - None
+* Bed - Increases energy restoration by each turn.
+    * Requirements = 10 Leaf, 5 Hemp, 8 Branch
+    * Durability = Can be used 10 times.
 * Shelter - Decreases the chance of animal attack 5%.
     * Requirements = 5 Wood, 5 Branch, 1 Shaped Stone _(Created with 2 Stones and 2 Branches)_
     * Durability = 5 nights

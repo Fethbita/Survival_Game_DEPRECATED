@@ -197,7 +197,7 @@ function buttons.add_buttons_to_container()
 
   local test_box = display.newRoundedRect(0, 0, 780, 350, 15);
   test_box.width = _SCREEN.width - 20;
-  test_box:setFillColor(105/255, 105/255, 105/255, 0.5);
+  test_box:setFillColor(23/255, 23/255, 23/255, 0.5);
   --test_box.isVisible = false;
   test_box.isHitTestable = true;
   buttons_group:insert(test_box);

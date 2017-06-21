@@ -7,3 +7,5 @@ If I ignore the voices inside my head, the only thing I hear is the song of bird
 I was able to find some stuff. Now I only have one purpose. Yes. I need to figure out how to get rid of this place and go to my family. Did I tell you that I have two kids and a beautiful wife? You should see her eyes. They are just as bright as the sun. God, I started talking to myself now. Great! Okay, breathe Jason. Calm down. You know already know that there is always hope.
 
 Let's start with some small steps. I don't have much time to think right now. Looking at the sun's position, I need to find a way to make fire.
+
+It's quiet tonight. Quieter than usual. The feeling I had when the forest is living is missing. It is like every living creature just stopped moving and turned their eyes on me. I couldn't help but looked around. After a few steps from my camp site, it was all darkness and there seems to be nothing at all among the trees. The question is, what do I expect to see? 

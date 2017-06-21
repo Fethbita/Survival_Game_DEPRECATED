@@ -32,8 +32,7 @@ HEALTHBAR = display.newRoundedRect(0, 0, 0, 0, 6);
 HEALTHBAR.x = _SCREEN.width / 2;
 HEALTHBAR.y = 6;
 HEALTHBAR.width = _SCREEN.width - 20;
--- We want its height to be 12 pixels, so we adjust it according to the screen height. I used the same system with every one of them.
-HEALTHBAR.height = _SCREEN.height - (_SCREEN.height - 12);
+HEALTHBAR.height = 12;
 HEALTHBAR:setFillColor(255/255, 255/255, 255/255);
 main_group:insert(HEALTHBAR);
 
@@ -41,29 +40,43 @@ ENERGYBAR = display.newRoundedRect(0, 0, 0, 0, 6);
 ENERGYBAR.x = _SCREEN.width / 2;
 ENERGYBAR.y = 18;
 ENERGYBAR.width = _SCREEN.width - 20;
-ENERGYBAR.height = _SCREEN.height - (_SCREEN.height - 12);
+ENERGYBAR.height = 12;
 ENERGYBAR:setFillColor(105/255, 105/255, 105/255);
 main_group:insert(ENERGYBAR);
 
 TIMEICON = display.newImageRect( "images/daytime.png", 40, 40 )
 TIMEICON.x = (_SCREEN.width / 2) - 330;
-TIMEICON.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 66);
+TIMEICON.y = 66;
 main_group:insert(TIMEICON);
 
-TIMETEXT = display.newText(mechanics.time_text[mechanics.time], 0, 0, "Bellota-Regular", 40);
-TIMETEXT.x = (_SCREEN.width / 2) - 290;
-TIMETEXT.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 66);
+local TIMETEXT_options = 
+{
+	text = mechanics.time_text[mechanics.time],
+	x = (_SCREEN.width / 2) - 290,
+	y = 66,
+	font = "Bellota-Regular",
+	fontSize = 40
+}
+
+TIMETEXT = display.newText(TIMETEXT_options);
 TIMETEXT.anchorX = 0;
 main_group:insert(TIMETEXT);
 
 local calendar_icon = display.newImageRect( "images/calendar.png", 40, 40 )
 calendar_icon.x = (_SCREEN.width / 2) + 150;
-calendar_icon.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 66);
+calendar_icon.y = 66;
 main_group:insert(calendar_icon);
 
-DAYTEXT = display.newText("Day " .. mechanics.day, 0, 0, "Bellota-Regular", 40);
-DAYTEXT.x = (_SCREEN.width / 2) + 250;
-DAYTEXT.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 66);
+local DAYTEXT_options = 
+{
+	text = "Day " .. mechanics.day,
+	x = (_SCREEN.width / 2) + 250,
+	y = (_SCREEN.height / 2) - ((_SCREEN.height / 2) - 66),
+	font = "Bellota-Regular",
+	fontSize = 40
+};
+
+DAYTEXT = display.newText(DAYTEXT_options);
 main_group:insert(DAYTEXT);
 
 local materials_box = display.newRoundedRect( 0, 0, 0, 0, 15 )
@@ -71,7 +84,7 @@ materials_box.width = _SCREEN.width - 20;
 materials_box.height = 150;
 materials_box.x = (_SCREEN.width / 2);
 materials_box.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 191);
-materials_box:setFillColor(105/255, 105/255, 105/255, 0.5);
+materials_box:setFillColor(23/255, 23/255, 23/255, 0.5);
 main_group:insert(materials_box);
 
 local branch_icon = display.newImageRect( "images/branch.png", 40, 40 )

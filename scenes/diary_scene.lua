@@ -16,7 +16,7 @@ if (aspect_ratio > 1.5) then
 else
 	diary_box.height = _SCREEN.height - (_SCREEN.height - (_SCREEN.height / 2 - 32));
 end
-diary_box:setFillColor(105/255, 105/255, 105/255, 0.5);
+diary_box:setFillColor(23/255, 23/255, 23/255, 0.5);
 diary_container:insert(diary_box);
 
 local diary_icon = display.newImageRect( "images/diary.png", 40, 40 )
