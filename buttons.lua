@@ -11,8 +11,8 @@ add_buttons_to_container
 local function create_button_group(button_text, button_group_center_plus_x, button_group_center_plus_y)
   local button_group = display.newGroup();
 
-  local button = display.newImageRect("images/button.png", 340, 100);
-  local button_pressed = display.newImageRect("images/button_over.png", 340, 100);
+  local button = display.newImageRect("images/button.png", 340, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+  local button_pressed = display.newImageRect("images/button_over.png", 340, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
   button_pressed.isVisible = false;
   button_pressed.alpha = 0;
   local options =
@@ -33,17 +33,18 @@ local function create_button_group(button_text, button_group_center_plus_x, butt
   return button_group;
 end
 
-local explore_group = create_button_group("Explore", -185, -120);
+
+local explore_group = create_button_group("Explore", -185, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space));
 explore_group.is_pressed = false;
-local pickup_group = create_button_group("Search", 180, -120);
+local pickup_group = create_button_group("Search", 180, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space));
 pickup_group.is_pressed = false;
 local rest_group = create_button_group("Cook & Eat", -185, 0);
 rest_group.is_pressed = false;
 local mine_group = create_button_group("Get Food", 180, 0);
 mine_group.is_pressed = false;
-local build_group = create_button_group("Build", -185, 120);
+local build_group = create_button_group("Build", -185, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
 build_group.is_pressed = false;
-local run_group = create_button_group("I'm Ready!", 180, 120);
+local run_group = create_button_group("I'm Ready!", 180, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
 run_group.is_pressed = false;
 
 local buttons_can_be_pressed = true;
@@ -199,11 +200,11 @@ function buttons.add_buttons_to_container()
   buttons_group.anchorY = 1;
   buttons_group.y = _SCREEN.height;
   buttons_group.width = _SCREEN.width;
-  buttons_group.height = 350;
+  buttons_group.height = G_button_container_size * _SCREEN.height;
 
   buttons_group:addEventListener("touch", buttons_group_ignore);
 
-  local test_box = display.newRoundedRect(0, 0, 780, 350, 15);
+  local test_box = display.newRoundedRect(0, 0, buttons_group.width - 20, buttons_group.height, 15);
   test_box.width = _SCREEN.width - 20;
   test_box:setFillColor(200/255, 0/255, 0/255, 0.5);
   --test_box.isVisible = false;

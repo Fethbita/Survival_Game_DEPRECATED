@@ -1,4 +1,8 @@
-local inventory_container = display.newContainer(_SCREEN.width, _SCREEN.height);
+local inventory_container = display.newContainer(_SCREEN.width, _SCREEN.height * G_main_container_size);
+
+local test_box = display.newRoundedRect(0, 0, _SCREEN.width - 20, _SCREEN.height * G_main_container_size, 15);
+test_box:setFillColor(0/255, 255/255, 0/255, 0.5);
+inventory_container:insert(test_box);
 
 -- local background = display.newImageRect("images/lbg.png", 800, 1200);
 -- -- background.x = -15;
@@ -7,17 +11,9 @@ local inventory_container = display.newContainer(_SCREEN.width, _SCREEN.height);
 
 local aspect_ratio = display.pixelHeight / display.pixelWidth;
 
-local inventory_box = display.newRoundedRect( 0, 0, 0, 0, 15 )
-inventory_box.x = _SCREEN.width - _SCREEN.width;
-inventory_box.y = 255 + (_SCREEN.height - 605) / 2 - _SCREEN.CENTER.y;
-inventory_box.width = _SCREEN.width - 20;
-inventory_box.height = _SCREEN.height - 625;
-inventory_box:setFillColor(150/255, 150/255, 150/255, 0.5);
-inventory_container:insert(inventory_box);
-
-local inventory_icon = display.newImageRect( "images/inventory.png", 40, 40 )
-inventory_icon.x = - 130;
-inventory_icon.y = - 390;
+local inventory_icon = display.newImageRect("images/inventory.png", 40, 40);
+inventory_icon.x = -130;
+inventory_icon.y = -390;
 inventory_container:insert(inventory_icon);
 
 local options =
