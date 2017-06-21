@@ -18,7 +18,7 @@ if (aspect_ratio > 1.5) then
 else
 	thoughts_box.height = _SCREEN.height - (_SCREEN.height - (_SCREEN.height / 2 - 32));
 end
-thoughts_box:setFillColor(23/255, 23/255, 23/255, 0.5);
+thoughts_box:setFillColor(150/255, 150/255, 150/255, 0.5);
 home_container:insert(thoughts_box);
 
 local thoughts_icon = display.newImageRect( "images/thoughts.png", 40, 40 )
@@ -26,9 +26,16 @@ thoughts_icon.x = - 130;
 thoughts_icon.y = - 390;
 home_container:insert(thoughts_icon);
 
-local logs_text = display.newText("Thoughts", 0,0, "Bellota-Regular", 40);
-logs_text.x = 0;
-logs_text.y = - 390;
+local options =
+{
+	text = "Thoughts",
+	x = 0,
+	y = -390,
+	font = "Bellota-Regular",
+	fontSize = 40
+};
+
+local logs_text = display.newText(options);
 home_container:insert(logs_text);
 
 local logs_context = display.newText( "I need to make a fire." , 0, 0, "Bellota-Regular", 32 )

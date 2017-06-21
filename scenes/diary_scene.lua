@@ -20,13 +20,20 @@ diary_box:setFillColor(150/255, 150/255, 150/255, 0.5);
 diary_container:insert(diary_box);
 
 local diary_icon = display.newImageRect( "images/diary.png", 40, 40 )
-diary_icon.x = - 100;
-diary_icon.y = - 390;
+diary_icon.x = -100;
+diary_icon.y = -390;
 diary_container:insert(diary_icon);
 
-local diary_text = display.newText("Diary", 0,0, "Bellota-Regular", 40);
-diary_text.x = 0;
-diary_text.y = - 390;
+local options =
+{
+	text = "Diary",
+	x = 0,
+	y = -390,
+	font = "Bellota-Regular",
+	fontSize = 40
+};
+
+local diary_text = display.newText(options);
 diary_container:insert(diary_text);
 
 return diary_container;

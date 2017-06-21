@@ -16,7 +16,7 @@ if (aspect_ratio > 1.5) then
 else
 	inventory_box.height = _SCREEN.height - (_SCREEN.height - (_SCREEN.height / 2 - 32));
 end
-inventory_box:setFillColor(23/255, 23/255, 23/255, 0.5);
+inventory_box:setFillColor(150/255, 150/255, 150/255, 0.5);
 inventory_container:insert(inventory_box);
 
 local inventory_icon = display.newImageRect( "images/inventory.png", 40, 40 )
@@ -24,9 +24,16 @@ inventory_icon.x = - 130;
 inventory_icon.y = - 390;
 inventory_container:insert(inventory_icon);
 
-local inventory_text = display.newText("Inventory", 0,0, "Bellota-Regular", 40);
-inventory_text.x = 0;
-inventory_text.y = - 390;
+local options =
+{
+	text = "Inventory",
+	x = 0,
+	y = -390,
+	font = "Bellota-Regular",
+	fontSize = 40
+};
+
+local inventory_text = display.newText(options);
 inventory_container:insert(inventory_text);
 
 local inventory_item = display.newText("Axe x2", 0,0, "Bellota-Regular", 32);
