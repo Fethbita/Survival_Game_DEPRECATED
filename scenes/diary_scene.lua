@@ -8,14 +8,10 @@ local diary_container = display.newContainer(_SCREEN.width, _SCREEN.height);
 local aspect_ratio = display.pixelHeight / display.pixelWidth;
 
 local diary_box = display.newRoundedRect( 0, 0, 0, 0, 15 )
-diary_box.x = _SCREEN.width - _SCREEN.width;
-diary_box.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) + 42);
+diary_box.x = 0;
+diary_box.y = 255 + (_SCREEN.height - 605) / 2 - _SCREEN.CENTER.y;
 diary_box.width = _SCREEN.width - 20;
-if (aspect_ratio > 1.5) then
-	diary_box.height = _SCREEN.height - (_SCREEN.height - (_SCREEN.height / 2 + 69));
-else
-	diary_box.height = _SCREEN.height - (_SCREEN.height - (_SCREEN.height / 2 - 32));
-end
+diary_box.height = _SCREEN.height - 625;
 diary_box:setFillColor(150/255, 150/255, 150/255, 0.5);
 diary_container:insert(diary_box);
 

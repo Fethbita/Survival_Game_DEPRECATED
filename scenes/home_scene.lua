@@ -11,13 +11,9 @@ local aspect_ratio = display.pixelHeight / display.pixelWidth;
 
 local thoughts_box = display.newRoundedRect( 0, 0, 0, 0, 15 )
 thoughts_box.x = _SCREEN.width - _SCREEN.width;
-thoughts_box.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) + 41);
+thoughts_box.y = 255 + (_SCREEN.height - 605) / 2 - _SCREEN.CENTER.y;
 thoughts_box.width = _SCREEN.width - 20;
-if (aspect_ratio > 1.5) then
-	thoughts_box.height = _SCREEN.height - (_SCREEN.height - (_SCREEN.height / 2 + 69));
-else
-	thoughts_box.height = _SCREEN.height - (_SCREEN.height - (_SCREEN.height / 2 - 32));
-end
+thoughts_box.height = _SCREEN.height - 625;
 thoughts_box:setFillColor(150/255, 150/255, 150/255, 0.5);
 home_container:insert(thoughts_box);
 

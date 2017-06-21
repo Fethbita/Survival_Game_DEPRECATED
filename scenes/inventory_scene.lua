@@ -9,13 +9,9 @@ local aspect_ratio = display.pixelHeight / display.pixelWidth;
 
 local inventory_box = display.newRoundedRect( 0, 0, 0, 0, 15 )
 inventory_box.x = _SCREEN.width - _SCREEN.width;
-inventory_box.y = (_SCREEN.height / 2) - ((_SCREEN.height/2) + 42);
+inventory_box.y = 255 + (_SCREEN.height - 605) / 2 - _SCREEN.CENTER.y;
 inventory_box.width = _SCREEN.width - 20;
-if (aspect_ratio > 1.5) then
-	inventory_box.height = _SCREEN.height - (_SCREEN.height - (_SCREEN.height / 2 + 69));
-else
-	inventory_box.height = _SCREEN.height - (_SCREEN.height - (_SCREEN.height / 2 - 32));
-end
+inventory_box.height = _SCREEN.height - 625;
 inventory_box:setFillColor(150/255, 150/255, 150/255, 0.5);
 inventory_container:insert(inventory_box);
 

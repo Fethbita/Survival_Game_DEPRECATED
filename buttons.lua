@@ -199,13 +199,13 @@ function buttons.add_buttons_to_container()
   buttons_group.anchorY = 1;
   buttons_group.y = _SCREEN.height;
   buttons_group.width = _SCREEN.width;
-  buttons_group.height = (_SCREEN.height / 2) - ((_SCREEN.height/2) - 350);
+  buttons_group.height = 350;
 
   buttons_group:addEventListener("touch", buttons_group_ignore);
 
   local test_box = display.newRoundedRect(0, 0, 780, 350, 15);
   test_box.width = _SCREEN.width - 20;
-  test_box:setFillColor(23/255, 23/255, 23/255, 0.5);
+  test_box:setFillColor(200/255, 0/255, 0/255, 0.5);
   --test_box.isVisible = false;
   test_box.isHitTestable = true;
   buttons_group:insert(test_box);

@@ -11,4 +11,6 @@ _SCREEN.CENTER = {
   y = display.contentCenterY
 };
 
-require("menu");
+require("dimensions");
+
+require("game");
