@@ -11,22 +11,27 @@ home_container:insert(test_box);
 
 local aspect_ratio = display.pixelHeight / display.pixelWidth;
 
-local thoughts_icon = display.newImageRect("images/thoughts.png", 40, 40);
-thoughts_icon.x = -130;
-thoughts_icon.y = -390;
-home_container:insert(thoughts_icon);
+local heading_group = display.newGroup();
+heading_group.anchorChildren = true;
+heading_group.x = 0;
+heading_group.y = -(_SCREEN.height * G_main_container_size / 2) + _SCREEN.height * G_icon_size / 2;
+home_container:insert(heading_group);
+
+local thoughts_icon = display.newImageRect("images/thoughts.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size);
+heading_group:insert(thoughts_icon);
 
 local options =
 {
 	text = "Thoughts",
-	x = 0,
-	y = -390,
+	x = _SCREEN.height * G_icon_size / 2 + 10,
+	y = 0,
 	font = "Bellota-Regular",
 	fontSize = 40
 };
 
 local logs_text = display.newText(options);
-home_container:insert(logs_text);
+logs_text.anchorX = 0;
+heading_group:insert(logs_text);
 
 local logs_context = display.newText("I need to make a fire." , 0, 0, "Bellota-Regular", 32);
 logs_context.x = -190;
