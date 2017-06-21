@@ -1,4 +1,5 @@
 display.setStatusBar(display.HiddenStatusBar);
+native.setProperty("androidSystemUiVisibility", "immersiveSticky");
 
 _SCREEN = {
   width = display.contentWidth,
@@ -49,7 +50,7 @@ TIMEICON.x = (_SCREEN.width / 2) - 330;
 TIMEICON.y = 66;
 main_group:insert(TIMEICON);
 
-local TIMETEXT_options = 
+local TIMETEXT_options =
 {
 	text = mechanics.time_text[mechanics.time],
 	x = (_SCREEN.width / 2) - 290,
@@ -67,7 +68,7 @@ calendar_icon.x = (_SCREEN.width / 2) + 150;
 calendar_icon.y = 66;
 main_group:insert(calendar_icon);
 
-local DAYTEXT_options = 
+local DAYTEXT_options =
 {
 	text = "Day " .. mechanics.day,
 	x = (_SCREEN.width / 2) + 250,
