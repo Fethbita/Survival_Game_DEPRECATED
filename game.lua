@@ -76,14 +76,6 @@ options =
 DAYTEXT = display.newText(options);
 top_container:insert(DAYTEXT);
 
---[[local materials_box = display.newRoundedRect(0, 0, 0, 0, 15);
-materials_box.width = _SCREEN.width - 20;
-materials_box.height = 130;
-materials_box.x = (_SCREEN.width / 2);
-materials_box.y = 190;
-materials_box:setFillColor(150/255, 150/255, 150/255, 0.5);
-top_container:insert(materials_box);--]]
-
 local branch_icon = display.newImageRect("images/branch.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size);
 branch_icon.x = -320;
 branch_icon.y = (TIMEICON.y + TIMEICON.height / 2) + (G_second_empty_space * _SCREEN.height) + branch_icon.height / 2;
