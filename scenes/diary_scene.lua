@@ -9,23 +9,26 @@ diary_container:insert(test_box);
 -- -- background.y = 50;
 -- diary_container:insert(background);
 
-local aspect_ratio = display.pixelHeight / display.pixelWidth;
+local heading_group = display.newGroup();
+heading_group.anchorChildren = true;
+heading_group.x = 0;
+heading_group.y = -(_SCREEN.height * G_main_container_size / 2) + _SCREEN.height * G_icon_size / 2;
+diary_container:insert(heading_group);
 
-local diary_icon = display.newImageRect("images/diary.png", 40, 40);
-diary_icon.x = -100;
-diary_icon.y = -390;
-diary_container:insert(diary_icon);
+local diary_icon = display.newImageRect("images/diary.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size);
+heading_group:insert(diary_icon);
 
 local options =
 {
 	text = "Diary",
-	x = 0,
-	y = -390,
+	x = _SCREEN.height * G_icon_size / 2 + 10,
+	y = 0,
 	font = "Bellota-Regular",
 	fontSize = 40
 };
 
 local diary_text = display.newText(options);
-diary_container:insert(diary_text);
+diary_text.anchorX = 0;
+heading_group:insert(diary_text);
 
 return diary_container;

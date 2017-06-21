@@ -9,8 +9,6 @@ home_container:insert(test_box);
 -- -- background.y = 50;
 -- home_container:insert(background);
 
-local aspect_ratio = display.pixelHeight / display.pixelWidth;
-
 local heading_group = display.newGroup();
 heading_group.anchorChildren = true;
 heading_group.x = 0;
