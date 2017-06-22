@@ -55,7 +55,7 @@ local function handle_button_event(event)
       mechanics.first_button_off(event.target[2], event.target[1]);
       selected_buttons = selected_buttons - 1;
       run_group.can_be_pressed = false;
-    -- If energy is less than 100 or two buttons are not selected, do nothing  
+    -- If energy is less than 100 or two buttons are not selected, do nothing
     elseif (selected_buttons == 2 or mechanics.energy < 100) then
       return true;
     -- If button is not pressed, make it pressed
