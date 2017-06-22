@@ -43,6 +43,14 @@ local function pickup(min_object, max_object, prob_power)
   end
 end
 
+local function bad_luck(chance_to_get_hit, hit_lower_bound, hit_upper_bound, text_to_print)
+  local random_number = math.random(1,100);
+  if (random_number <= chance_to_get_hit) then
+    mechanics.health = mechanics.health - math.random(hit_lower_bound, hit_upper_bound);
+    print(text_to_print);
+  end
+end
+
 local function update_bars()
   if (mechanics.health > 0) then
     transition.to(HEALTHBAR, {width = math.floor(780 * (mechanics.health / 1000))});
@@ -83,22 +91,31 @@ end
 
 function mechanics.pass_time(explore_group, rest_group, build_group, mine_group, pickup_group)
   if (explore_group.is_pressed) then
-    mechanics.energy = mechanics.energy - 100;
-    update_bars();
+    if (mechanics.energy < 100) then
+      mechanics.energy = 0;
+    else
+      mechanics.energy = mechanics.energy - 100;
+    end
     mechanics.first_button_off(explore_group[2], explore_group[1]);
     explore_group.is_pressed = false;
   end
 
   if (build_group.is_pressed) then
-    mechanics.energy = mechanics.energy - 100;
-    update_bars();
+    if (mechanics.energy < 100) then
+      mechanics.energy = 0;
+    else
+      mechanics.energy = mechanics.energy - 100;
+    end
     mechanics.first_button_off(build_group[2], build_group[1]);
     build_group.is_pressed = false;
   end
 
   if (mine_group.is_pressed) then
-    mechanics.energy = mechanics.energy - 100;
-    update_bars();
+    if (mechanics.energy < 100) then
+      mechanics.energy = 0;
+    else
+      mechanics.energy = mechanics.energy - 100;
+    end
     mechanics.first_button_off(mine_group[2], mine_group[1]);
     mine_group.is_pressed = false;
   end
@@ -109,32 +126,41 @@ function mechanics.pass_time(explore_group, rest_group, build_group, mine_group,
     else
       pickup(0, 3, 3);
     end
-    mechanics.energy = mechanics.energy - 100;
-    update_bars();
+    if (mechanics.energy < 100) then
+      mechanics.energy = 0;
+    else
+      mechanics.energy = mechanics.energy - 100;
+    end
     mechanics.first_button_off(pickup_group[2], pickup_group[1]);
     pickup_group.is_pressed = false;
   end
 
   if (rest_group.is_pressed) then
-    mechanics.energy = mechanics.energy + 150;
-    if (mechanics.energy >= 1000) then
+    if (mechanics.energy > 850) then
       mechanics.energy = 1000;
+    else
+      mechanics.energy = mechanics.energy + 150;
     end
-    update_bars();
     mechanics.first_button_off(rest_group[2], rest_group[1]);
     rest_group.is_pressed = false;
   end
 
-  if (mechanics.time == 2) then
-    mechanics.first_button_off(DAYICON, NIGHTICON);
-  else
+
+  if (mechanics.time == 1) then  -- If it's nighttime
+    bad_luck(10, 100, 200, "You have been attacked by an animal");
+    bad_luck(10, 100, 200, "You have had an accident");
+    mechanics.day = mechanics.day + 1;
     mechanics.first_button_off(NIGHTICON, DAYICON);
+  else
+    bad_luck(5, 100, 200, "You have been attacked by an animal");
+    bad_luck(5, 100, 200, "You have had an accident");
+    mechanics.first_button_off(DAYICON, NIGHTICON);
   end
 
+
   mechanics.time = 3 - mechanics.time;
-  if (mechanics.time == 2) then
-    mechanics.day = mechanics.day + 1;
-  end
+
+  update_bars();
   update_texts();
 end
 
