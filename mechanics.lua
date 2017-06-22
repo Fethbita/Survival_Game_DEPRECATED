@@ -60,11 +60,11 @@ end
 local function update_texts()
   TIMETEXT.text = mechanics.time_text[mechanics.time];
   DAYTEXT.text = "Day " .. mechanics.day;
-  TOP_CONTAINER[9].text = mechanics.inventory.Branch;
-  TOP_CONTAINER[11].text = mechanics.inventory.Leaf;
-  TOP_CONTAINER[13].text = mechanics.inventory.Stone;
-  TOP_CONTAINER[15].text = mechanics.inventory.Beeswax;
-  TOP_CONTAINER[17].text = mechanics.inventory.Hemp;
+  TOP_CONTAINER[10].text = mechanics.inventory.Branch;
+  TOP_CONTAINER[12].text = mechanics.inventory.Leaf;
+  TOP_CONTAINER[14].text = mechanics.inventory.Stone;
+  TOP_CONTAINER[16].text = mechanics.inventory.Beeswax;
+  TOP_CONTAINER[18].text = mechanics.inventory.Hemp;
 end
 
 local function button_visible_on(button)
@@ -126,6 +126,12 @@ function mechanics.pass_time(explore_group, rest_group, build_group, mine_group,
     rest_group.is_pressed = false;
   end
 
+  if (mechanics.time == 2) then
+    mechanics.first_button_off(DAYICON, NIGHTICON);
+  else
+    mechanics.first_button_off(NIGHTICON, DAYICON);
+  end
+  
   mechanics.time = 3 - mechanics.time;
   if (mechanics.time == 2) then
     mechanics.day = mechanics.day + 1;
