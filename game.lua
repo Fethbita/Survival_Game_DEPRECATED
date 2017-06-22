@@ -6,11 +6,56 @@ slideshowObjects[1] = require("scenes.diary_scene");
 slideshowObjects[2] = require("scenes.home_scene");
 slideshowObjects[3] = require("scenes.inventory_scene");
 
+--[[
+Create and return a display group containing a thumbnail for each of the slideshow objects
+--]]
+function createThumbnails()
+    local group = display.newGroup();
+    local thumbSize = 15;
+    local thumbMargin = 10;
+
+    for i = 1, 3 do
+        local thumb = display.newCircle((i - 1) * (thumbSize + thumbMargin), 0, thumbSize / 2, thumbSize / 2);
+        thumb:setFillColor(0/255, 0/255, 255/255, 0.5);
+        thumb:setStrokeColor(1, 1, 1, 1.0);
+        thumb.strokeWidth = 0;
+        thumb.anchorX = 0;
+
+        -- Setup a tap handler for each thumb that will quick jump to selected object index
+        thumb:addEventListener("tap", function()
+            local disableTransition = false;
+            slideshow.showObjectAtIndex(i, disableTransition);
+        end)
+
+        group:insert(thumb);
+    end
+
+    group.x = _SCREEN.CENTER.x - (3 / 2 * (thumbSize + thumbMargin));
+    group.y = _SCREEN.height - (_SCREEN.height * G_button_container_size) - (_SCREEN.height * G_fourth_empty_space) -
+              (_SCREEN.height * G_thumbnail_space_from_main_bottom);
+
+    return group;
+end
+
+local thumbnailsGroup = createThumbnails();
+
+local function updateThumbnails(selectedObjectIndex)
+    -- Highlight the stroke of the selected object's corresponding thumbnail
+    for i = 1, thumbnailsGroup.numChildren do
+        local thumb = thumbnailsGroup[i];
+        if (i == selectedObjectIndex) then
+            thumb.strokeWidth = 3;
+        else
+            thumb.strokeWidth = 0;
+        end
+    end
+end
+
 local slideshowParams = {
     startIndex = 2,
     swipeSensitivityPixels = 75,
-    y = (G_top_container_size * _SCREEN.height) + (_SCREEN.height * G_main_container_size) / 2 + (G_third_empty_space * _SCREEN.height);
-    --onChange = updateThumbnails,
+    y = (G_top_container_size * _SCREEN.height) + (_SCREEN.height * G_main_container_size) / 2 + (G_third_empty_space * _SCREEN.height),
+    onChange = updateThumbnails,
 }
 slideshow.init(slideshowObjects, slideshowParams);
 
@@ -19,6 +64,7 @@ local main_group = display.newGroup();
 TOP_CONTAINER = display.newContainer(main_group, _SCREEN.width, G_top_container_size * _SCREEN.height);
 TOP_CONTAINER.x = _SCREEN.CENTER.x;
 TOP_CONTAINER.y = G_top_container_size * _SCREEN.height / 2;
+
 local test_box = display.newRoundedRect(0, 0, TOP_CONTAINER.width - 20, TOP_CONTAINER.height, 15);
 test_box.width = _SCREEN.width - 20;
 test_box:setFillColor(200/255, 0/255, 0/255, 0.5);

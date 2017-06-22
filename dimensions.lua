@@ -17,3 +17,5 @@ G_main_container_size = 1 - (G_top_container_size + G_third_empty_space + G_four
 G_button_height = 0.090;
 
 G_button_space = 0.1;
+
+G_thumbnail_space_from_main_bottom = 0.015;
