@@ -53,12 +53,12 @@ end
 
 local function update_bars()
   if (mechanics.health > 0) then
-    transition.to(HEALTHBAR, {width = math.floor(780 * (mechanics.health / 1000))});
+    transition.to(HEALTHBAR, {width = math.floor((_SCREEN.width - _SCREEN.width * G_empty_space_from_sides) * (mechanics.health / 1000))});
   else
     transition.to(HEALTHBAR, {width = 0});
   end
   if (mechanics.energy > 0) then
-    transition.to(ENERGYBAR, {width = math.floor(780 * (mechanics.energy / 1000))});
+    transition.to(ENERGYBAR, {width = math.floor((_SCREEN.width - _SCREEN.width * G_empty_space_from_sides) * (mechanics.energy / 1000))});
   else
     transition.to(ENERGYBAR, {width = 0});
   end
@@ -67,11 +67,11 @@ end
 local function update_texts()
   TIMETEXT.text = mechanics.time_text[mechanics.time];
   DAYTEXT.text = "Day " .. mechanics.day;
-  TOP_CONTAINER[10].text = mechanics.inventory.Branch;
-  TOP_CONTAINER[12].text = mechanics.inventory.Leaf;
-  TOP_CONTAINER[14].text = mechanics.inventory.Stone;
-  TOP_CONTAINER[16].text = mechanics.inventory.Beeswax;
-  TOP_CONTAINER[18].text = mechanics.inventory.Hemp;
+  TOP_CONTAINER[9].text = mechanics.inventory.Branch;
+  TOP_CONTAINER[11].text = mechanics.inventory.Leaf;
+  TOP_CONTAINER[13].text = mechanics.inventory.Stone;
+  TOP_CONTAINER[15].text = mechanics.inventory.Beeswax;
+  TOP_CONTAINER[17].text = mechanics.inventory.Hemp;
 end
 
 local function button_visible_on(button)

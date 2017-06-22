@@ -23,21 +23,34 @@ local function create_button_group(button_text, button_group_center_plus_x, butt
   button_group:insert(button_text);
   button_group.x = button_group_center_plus_x;
   button_group.y = button_group_center_plus_y;
+  button_group.anchorChildren = true;
   return button_group;
 end
 
 -- Creating buttons
-local explore_group = create_button_group("Explore", -185, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space), 340, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+local explore_group = create_button_group("Explore", -_SCREEN.width / 2 + G_offsets_from_sides * _SCREEN.width, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space),
+                                          _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+explore_group.anchorX = 0;
 explore_group.is_pressed = false;
-local pickup_group = create_button_group("Search", 180, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space), 340, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+local pickup_group = create_button_group("Search", _SCREEN.width / 2 - G_offsets_from_sides * _SCREEN.width, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space),
+                                         _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+pickup_group.anchorX = 1;
 pickup_group.is_pressed = false;
-local rest_group = create_button_group("Cook & Eat", -185, 0, 340, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+local rest_group = create_button_group("Cook & Eat", -_SCREEN.width / 2 + G_offsets_from_sides * _SCREEN.width, 0, _SCREEN.width * G_button_width,
+                                       (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+rest_group.anchorX = 0;
 rest_group.is_pressed = false;
-local mine_group = create_button_group("Get Food", 180, 0, 340, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+local mine_group = create_button_group("Get Food", _SCREEN.width / 2 - G_offsets_from_sides * _SCREEN.width, 0, _SCREEN.width * G_button_width,
+                                       (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+mine_group.anchorX = 1;
 mine_group.is_pressed = false;
-local build_group = create_button_group("Build", -185, (G_button_container_size * _SCREEN.height) / (3 + G_button_space), 340, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+local build_group = create_button_group("Build", -_SCREEN.width / 2 + G_offsets_from_sides * _SCREEN.width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space),
+                                        _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+build_group.anchorX = 0;
 build_group.is_pressed = false;
-local run_group = create_button_group("I'm Ready!", 180, (G_button_container_size * _SCREEN.height) / (3 + G_button_space), 340, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+local run_group = create_button_group("I'm Ready!", _SCREEN.width / 2 - G_offsets_from_sides * _SCREEN.width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space),
+                                      _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+run_group.anchorX = 1;
 run_group.is_pressed = false;
 run_group.can_be_pressed = false;
 
@@ -90,18 +103,15 @@ local function buttons_group_ignore(event)
 end
 
 function buttons.add_buttons_to_container()
-  local buttons_group = display.newContainer(0, 0);
+  local buttons_group = display.newContainer(_SCREEN.width, G_button_container_size * _SCREEN.height);
   buttons_group.anchorX = 0.5;
   buttons_group.x = _SCREEN.CENTER.x;
   buttons_group.anchorY = 1;
   buttons_group.y = _SCREEN.height;
-  buttons_group.width = _SCREEN.width;
-  buttons_group.height = G_button_container_size * _SCREEN.height;
 
   buttons_group:addEventListener("touch", buttons_group_ignore);
 
-  local test_box = display.newRoundedRect(0, 0, buttons_group.width - 20, buttons_group.height, 15);
-  test_box.width = _SCREEN.width - 20;
+  local test_box = display.newRoundedRect(0, 0, _SCREEN.width - _SCREEN.width * G_empty_space_from_sides, buttons_group.height, 15);
   test_box:setFillColor(200/255, 0/255, 0/255, 0.5);
   test_box.isHitTestable = true;
   buttons_group:insert(test_box);
