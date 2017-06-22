@@ -84,21 +84,21 @@ end
 
 function mechanics.pass_time(explore_group, rest_group, build_group, mine_group, pickup_group)
   if (explore_group.is_pressed) then
-    mechanics.energy = mechanics.energy - 200;
+    mechanics.energy = mechanics.energy - 100;
     update_bars();
     mechanics.first_button_off(explore_group[2], explore_group[1]);
     explore_group.is_pressed = false;
   end
 
   if (build_group.is_pressed) then
-    mechanics.energy = mechanics.energy - 200;
+    mechanics.energy = mechanics.energy - 100;
     update_bars();
     mechanics.first_button_off(build_group[2], build_group[1]);
     build_group.is_pressed = false;
   end
 
   if (mine_group.is_pressed) then
-    mechanics.energy = mechanics.energy - 200;
+    mechanics.energy = mechanics.energy - 100;
     update_bars();
     mechanics.first_button_off(mine_group[2], mine_group[1]);
     mine_group.is_pressed = false;
@@ -110,14 +110,14 @@ function mechanics.pass_time(explore_group, rest_group, build_group, mine_group,
     else
       pickup(0, 3, 3);
     end
-    mechanics.energy = mechanics.energy - 200;
+    mechanics.energy = mechanics.energy - 100;
     update_bars();
     mechanics.first_button_off(pickup_group[2], pickup_group[1]);
     pickup_group.is_pressed = false;
   end
 
   if (rest_group.is_pressed) then
-    mechanics.energy = mechanics.energy + 200;
+    mechanics.energy = mechanics.energy + 150;
     if (mechanics.energy >= 1000) then
       mechanics.energy = 1000;
     end

@@ -51,47 +51,39 @@ run_group.can_be_pressed = false;
 local buttons_can_be_pressed = true;
 local selected_buttons = 0;
 
-local function pass_time_closure()
-  mechanics.pass_time(explore_group, rest_group, build_group, mine_group, pickup_group);
-  buttons_can_be_pressed = true;
-end
-
 -- -----------------------------------------------------------------------------------
 -- Button event functions
 -- -----------------------------------------------------------------------------------
 local function handle_button_event(event)
---if (event.phase == "ended") then
-    if (buttons_can_be_pressed) then
-      if (event.target.is_pressed) then
-        event.target.is_pressed = false;
-        mechanics.first_button_off(event.target[2], event.target[1]);
-        selected_buttons = selected_buttons - 1;
-        run_group.can_be_pressed = false;
-      elseif (selected_buttons == 2) then
-        return true;
-      elseif (mechanics.energy < 100) then
-        return true;
-      else
-        event.target.is_pressed = true;
-        mechanics.first_button_off(event.target[1], event.target[2]);
-        selected_buttons = selected_buttons + 1;
+  if (buttons_can_be_pressed) then
+    if (event.target.is_pressed) then
+      event.target.is_pressed = false;
+      mechanics.first_button_off(event.target[2], event.target[1]);
+      selected_buttons = selected_buttons - 1;
+      run_group.can_be_pressed = false;
+    elseif (selected_buttons == 2 or mechanics.energy < 100) then
+      return true;
+    else
+      event.target.is_pressed = true;
+      mechanics.first_button_off(event.target[1], event.target[2]);
+      selected_buttons = selected_buttons + 1;
 
-        if (selected_buttons == 2) then
-          run_group.can_be_pressed = true;
-        end
-
+      if (selected_buttons == 2) then
+        run_group.can_be_pressed = true;
       end
+
     end
---end
+  end
   return true;
 end
 
 local function run_it(event)
   if (buttons_can_be_pressed and run_group.can_be_pressed) then
     buttons_can_be_pressed = false;
-    pass_time_closure();
+    mechanics.pass_time(explore_group, rest_group, build_group, mine_group, pickup_group);
     selected_buttons = 0;
     run_group.can_be_pressed = false;
+    buttons_can_be_pressed = true;
   end
   return true;
 end
@@ -114,7 +106,6 @@ function buttons.add_buttons_to_container()
   local test_box = display.newRoundedRect(0, 0, buttons_group.width - 20, buttons_group.height, 15);
   test_box.width = _SCREEN.width - 20;
   test_box:setFillColor(200/255, 0/255, 0/255, 0.5);
-  --test_box.isVisible = false;
   test_box.isHitTestable = true;
   buttons_group:insert(test_box);
 
