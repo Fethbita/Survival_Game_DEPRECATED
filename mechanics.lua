@@ -46,12 +46,12 @@ end
 
 local function update_bars()
   if (mechanics.health > 0) then
-    transition.to(HEALTHBAR, {width = math.floor(800 * (mechanics.health / 1000))});
+    transition.to(HEALTHBAR, {width = math.floor(780 * (mechanics.health / 1000))});
   else
     transition.to(HEALTHBAR, {width = 0});
   end
   if (mechanics.energy > 0) then
-    transition.to(ENERGYBAR, {width = math.floor(800 * (mechanics.energy / 1000))});
+    transition.to(ENERGYBAR, {width = math.floor(780 * (mechanics.energy / 1000))});
   else
     transition.to(ENERGYBAR, {width = 0});
   end
@@ -131,7 +131,7 @@ function mechanics.pass_time(explore_group, rest_group, build_group, mine_group,
   else
     mechanics.first_button_off(NIGHTICON, DAYICON);
   end
-  
+
   mechanics.time = 3 - mechanics.time;
   if (mechanics.time == 2) then
     mechanics.day = mechanics.day + 1;
