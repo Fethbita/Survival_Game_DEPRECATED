@@ -11,10 +11,11 @@ first_button_off, pass_time
 mechanics.health = 1000;
 mechanics.energy = 1000;
 mechanics.inventory = {
-  Wood = 0,
+  Branch = 0,
+  Leaf = 0,
   Stone = 0,
-  Berry = 0,
-  Branch = 0
+  Beeswax = 0,
+  Hemp = 0
 };
 --[[
 1 means nigttime
@@ -39,11 +40,8 @@ local function pickup(min_object, max_object, prob_power)
   for key,value in pairs(mechanics.inventory) do
     number_found = math.floor(min_object + ((max_object + 1) - min_object) * math.random() ^ prob_power);
     mechanics.inventory[key] = mechanics.inventory[key] + number_found;
+    print(key .. " " .. mechanics.inventory[key] .. "  ");
   end
-  print("Wood " .. mechanics.inventory.Wood .. "   ");
-  print("Stone " .. mechanics.inventory.Stone .. "   ");
-  print("Berry " .. mechanics.inventory.Berry .. "   ");
-  print("Branch " .. mechanics.inventory.Branch .. "   ");
 end
 
 local function update_bars()
@@ -62,6 +60,11 @@ end
 local function update_texts()
   TIMETEXT.text = mechanics.time_text[mechanics.time];
   DAYTEXT.text = "Day " .. mechanics.day;
+  TOP_CONTAINER[9].text = mechanics.inventory.Branch;
+  TOP_CONTAINER[11].text = mechanics.inventory.Leaf;
+  TOP_CONTAINER[13].text = mechanics.inventory.Stone;
+  TOP_CONTAINER[15].text = mechanics.inventory.Beeswax;
+  TOP_CONTAINER[17].text = mechanics.inventory.Hemp;
 end
 
 local function button_visible_on(button)
@@ -81,21 +84,21 @@ end
 
 function mechanics.pass_time(explore_group, rest_group, build_group, mine_group, pickup_group)
   if (explore_group.is_pressed) then
-    mechanics.energy = mechanics.energy - 100;
+    mechanics.energy = mechanics.energy - 200;
     update_bars();
     mechanics.first_button_off(explore_group[2], explore_group[1]);
     explore_group.is_pressed = false;
   end
 
   if (build_group.is_pressed) then
-    mechanics.energy = mechanics.energy - 100;
+    mechanics.energy = mechanics.energy - 200;
     update_bars();
     mechanics.first_button_off(build_group[2], build_group[1]);
     build_group.is_pressed = false;
   end
 
   if (mine_group.is_pressed) then
-    mechanics.energy = mechanics.energy - 100;
+    mechanics.energy = mechanics.energy - 200;
     update_bars();
     mechanics.first_button_off(mine_group[2], mine_group[1]);
     mine_group.is_pressed = false;
@@ -107,14 +110,14 @@ function mechanics.pass_time(explore_group, rest_group, build_group, mine_group,
     else
       pickup(0, 3, 3);
     end
-    mechanics.energy = mechanics.energy - 100;
+    mechanics.energy = mechanics.energy - 200;
     update_bars();
     mechanics.first_button_off(pickup_group[2], pickup_group[1]);
     pickup_group.is_pressed = false;
   end
 
   if (rest_group.is_pressed) then
-    mechanics.energy = mechanics.energy + 150;
+    mechanics.energy = mechanics.energy + 200;
     if (mechanics.energy >= 1000) then
       mechanics.energy = 1000;
     end
