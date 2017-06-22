@@ -18,16 +18,7 @@ home_container:insert(heading_group);
 local thoughts_icon = display.newImageRect("images/thoughts.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size);
 heading_group:insert(thoughts_icon);
 
-local options =
-{
-	text = "Thoughts",
-	x = _SCREEN.height * G_icon_size / 2 + 10,
-	y = 0,
-	font = "Bellota-Regular",
-	fontSize = 40
-};
-
-local logs_text = display.newText(options);
+local logs_text = display.newText("Thoughts", _SCREEN.height * G_icon_size / 2 + 10, 0, "Bellota-Regular", _SCREEN.height * G_font_size);
 logs_text.anchorX = 0;
 heading_group:insert(logs_text);
 

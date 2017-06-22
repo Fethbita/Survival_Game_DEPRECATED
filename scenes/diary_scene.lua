@@ -18,16 +18,7 @@ diary_container:insert(heading_group);
 local diary_icon = display.newImageRect("images/diary.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size);
 heading_group:insert(diary_icon);
 
-local options =
-{
-	text = "Diary",
-	x = _SCREEN.height * G_icon_size / 2 + 10,
-	y = 0,
-	font = "Bellota-Regular",
-	fontSize = 40
-};
-
-local diary_text = display.newText(options);
+local diary_text = display.newText("Diary", _SCREEN.height * G_icon_size / 2 + 10, 0, "Bellota-Regular", _SCREEN.height * G_font_size);
 diary_text.anchorX = 0;
 heading_group:insert(diary_text);
 

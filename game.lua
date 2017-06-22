@@ -14,9 +14,7 @@ local slideshowParams = {
 }
 slideshow.init(slideshowObjects, slideshowParams);
 
-local main_group = display.newGroup();
-
-TOP_CONTAINER = display.newContainer(main_group, _SCREEN.width, G_top_container_size * _SCREEN.height);
+TOP_CONTAINER = display.newContainer(_SCREEN.width, G_top_container_size * _SCREEN.height);
 TOP_CONTAINER.x = _SCREEN.CENTER.x;
 TOP_CONTAINER.y = G_top_container_size * _SCREEN.height / 2;
 local test_box = display.newRoundedRect(0, 0, TOP_CONTAINER.width - 20, TOP_CONTAINER.height, 15);
@@ -25,7 +23,6 @@ test_box:setFillColor(200/255, 0/255, 0/255, 0.5);
 TOP_CONTAINER:insert(test_box);
 
 HEALTHBAR = display.newRoundedRect(0, 0, 0, 0, 6);
--- We want it in the middle, so considering anchor point is in the middle, we divide screen witdh to 2.
 HEALTHBAR.width = _SCREEN.width - 20;
 HEALTHBAR.height = _SCREEN.height * G_health_energy_bar_percentage;
 HEALTHBAR.x = 0;
@@ -52,16 +49,8 @@ NIGHTICON.y = (ENERGYBAR.y + ENERGYBAR.height / 2) + (_SCREEN.height * G_first_e
 NIGHTICON.isVisible = false;
 TOP_CONTAINER:insert(NIGHTICON);
 
-local options =
-{
-	text = mechanics.time_text[mechanics.time],
-	x = -290,
-	y = (ENERGYBAR.y + ENERGYBAR.height / 2) + (_SCREEN.height * G_first_empty_space) + DAYICON.height / 2,
-	font = "Bellota-Regular",
-	fontSize = _SCREEN.height * G_font_size
-};
-
-TIMETEXT = display.newText(options);
+TIMETEXT = display.newText("Daytime", -290,(ENERGYBAR.y + ENERGYBAR.height / 2) + (_SCREEN.height * G_first_empty_space) + DAYICON.height / 2,
+                           "Bellota-Regular", _SCREEN.height * G_font_size);
 TIMETEXT.anchorX = 0;
 TOP_CONTAINER:insert(TIMETEXT);
 
@@ -70,52 +59,33 @@ calendar_icon.x = 150;
 calendar_icon.y = (ENERGYBAR.y + ENERGYBAR.height / 2) + (_SCREEN.height * G_first_empty_space) + calendar_icon.height / 2;
 TOP_CONTAINER:insert(calendar_icon);
 
-options =
-{
-	text = "Day " .. mechanics.day,
-	x = 250,
-	y = (ENERGYBAR.y + ENERGYBAR.height / 2) + (_SCREEN.height * G_first_empty_space) + calendar_icon.height / 2,
-	font = "Bellota-Regular",
-	fontSize = 40
-};
-
-DAYTEXT = display.newText(options);
+DAYTEXT = display.newText("Day 1", 250, (ENERGYBAR.y + ENERGYBAR.height / 2) + (_SCREEN.height * G_first_empty_space) + calendar_icon.height / 2,
+                          "Bellota-Regular", _SCREEN.height * G_font_size);
 TOP_CONTAINER:insert(DAYTEXT);
-
 
 local function create_icon(icon_path, icon_width, icon_height, icon_x, icon_y, icon_text_font_size)
   local icon = display.newImageRect(icon_path, icon_width, icon_height);
   icon.x = icon_x;
   icon.y = icon_y;
   TOP_CONTAINER:insert(icon);
-
-  local options =
-  {
-  	text = "0",
-  	x = icon_x,
-  	y = (icon.y + icon.height / 2) + icon.height / 2,
-  	font = "Bellota-Regular",
-  	fontSize = icon_text_font_size
-  };
-
-  local icon_text = display.newText(options);
+  
+  local icon_text = display.newText("0", icon_x, (icon.y + icon.height / 2) + icon.height / 2,
+                                    "Bellota-Regular", icon_text_font_size);
   TOP_CONTAINER:insert(icon_text);
 end
 
 create_icon("images/branch.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
-            -320, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, 40);
+            -320, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
 create_icon("images/leaf.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
-            -200, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, 40);
+            -200, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
 create_icon("images/stone.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
-            -80, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, 40);
+            -80, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
 create_icon("images/beeswax.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
-            40, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, 40);
+            40, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
 create_icon("images/hemp.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
-            160, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, 40);
+            160, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
 create_icon("images/food.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
-            280, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, 40);
+            280, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
 
 buttons = require("buttons");
-local buttons_group = buttons.add_buttons_to_container();
-
-main_group:insert(buttons_group);
+buttons.add_buttons_to_container();

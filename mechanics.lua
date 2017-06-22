@@ -40,7 +40,6 @@ local function pickup(min_object, max_object, prob_power)
   for key,value in pairs(mechanics.inventory) do
     number_found = math.floor(min_object + ((max_object + 1) - min_object) * math.random() ^ prob_power);
     mechanics.inventory[key] = mechanics.inventory[key] + number_found;
-    print(key .. " " .. mechanics.inventory[key] .. "  ");
   end
 end
 

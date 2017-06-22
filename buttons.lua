@@ -8,6 +8,7 @@ add_buttons_to_container
 
 -- -----------------------------------------------------------------------------------
 
+-- Button function
 local function create_button_group(button_text, button_group_center_plus_x, button_group_center_plus_y, button_width, button_height)
   local button_group = display.newGroup();
 
@@ -15,15 +16,7 @@ local function create_button_group(button_text, button_group_center_plus_x, butt
   local button_pressed = display.newImageRect("images/button_over.png", button_width, button_height);
   button_pressed.isVisible = false;
   button_pressed.alpha = 0;
-  local options =
-  {
-    text = button_text,
-    x = 0,
-    y = 0,
-    font = "Bellota-Regular",
-    fontSize = 40
-  };
-  local button_text = display.newText(options);
+  local button_text = display.newText(button_text, 0, 0, "Bellota-Regular", _SCREEN.height * G_font_size);
 
   button_group:insert(button);
   button_group:insert(button_pressed);
@@ -33,7 +26,7 @@ local function create_button_group(button_text, button_group_center_plus_x, butt
   return button_group;
 end
 
-
+-- Creating buttons
 local explore_group = create_button_group("Explore", -185, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space), 340, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
 explore_group.is_pressed = false;
 local pickup_group = create_button_group("Search", 180, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space), 340, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
@@ -56,18 +49,21 @@ local selected_buttons = 0;
 -- -----------------------------------------------------------------------------------
 local function handle_button_event(event)
   if (buttons_can_be_pressed) then
+    -- If button is pressed, make it not pressed
     if (event.target.is_pressed) then
       event.target.is_pressed = false;
       mechanics.first_button_off(event.target[2], event.target[1]);
       selected_buttons = selected_buttons - 1;
       run_group.can_be_pressed = false;
+    -- If energy is less than 100 or two buttons are not selected, do nothing  
     elseif (selected_buttons == 2 or mechanics.energy < 100) then
       return true;
+    -- If button is not pressed, make it pressed
     else
       event.target.is_pressed = true;
       mechanics.first_button_off(event.target[1], event.target[2]);
       selected_buttons = selected_buttons + 1;
-
+      -- If two buttons are selected, make I am Ready button pressable
       if (selected_buttons == 2) then
         run_group.can_be_pressed = true;
       end
@@ -88,6 +84,7 @@ local function run_it(event)
   return true;
 end
 
+-- Make it not swipable
 local function buttons_group_ignore(event)
   return true;
 end
