@@ -6,7 +6,7 @@ Health and energy bar will be at the top of the screen.
 
 There will be two phases of a day. Daytime and nighttime. You can choose to do only two actions in one phase.
 
-There is a chance eating berries or mushrooms gets you 
+There is a chance eating berries or mushrooms gets you
 
 ## Daytime
 
@@ -16,7 +16,7 @@ There is a chance eating berries or mushrooms gets you
 * A chance to get attacked by an animal. For now, let's say 5%.
 * A chance to find the next chapter of the story.
 * A chance to get lost. For now, let's say 5%.
-* If wounded, there is a possiblity of wound infection. Wound infection makes you lose 100 health, every phase. For now, let's say 10% if only you get attacked by an animal.
+* If wounded, there is a possibility of wound infection. Wound infection makes you lose 100 health, every phase. For now, let's say 10% if only you get attacked by an animal.
 * A chance to fall down and cut himself. For now, let's say 5%.
 
 ## Nighttime
@@ -24,8 +24,8 @@ There is a chance eating berries or mushrooms gets you
 **Characteristics**
 * Exploring can be done with a torch but not effective.
 * A chance to get attacked by an animal. For now, let's say 10%.
-* A chance to get lost. For now, let's say %10. 
-* If wounded, there is a possiblity of wound infection. Wound infection makes you lose 100 health, every phase. For now, let's say 10% if only you get attacked by an animal.
+* A chance to get lost. For now, let's say %10.
+* If wounded, there is a possibility of wound infection. Wound infection makes you lose 100 health, every phase. For now, let's say 10% if only you get attacked by an animal.
 * A chance to fall down and cut himself. For now, let's say 10%.
 
 ## Items
@@ -49,7 +49,7 @@ This is no big deal. We won't have certain seasons, but we will have cloudy, rai
 They will have health and they are considered to be armorless.
 
 **Unfriendly Animals**
-* Wolf - 8 Hit Point - Damage 200 Hit Points 
+* Wolf - 8 Hit Point - Damage 200 Hit Points
 * Snake - 4 Hit Point - Damage 100 Hit Points - Getting poisoned with 20% chance
 * Bear - 20 Hit Point - Damage 400 Hit Points
 * Wasp - 4 Hit Point - Damage 50 Hit Points
