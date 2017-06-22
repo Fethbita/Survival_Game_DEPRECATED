@@ -86,12 +86,12 @@ ENERGYBAR:setFillColor(105/255, 105/255, 105/255);
 TOP_CONTAINER:insert(ENERGYBAR);
 
 DAYICON = display.newImageRect("images/daytime.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size);
-DAYICON.x = -_SCREEN.width / 2 + _SCREEN.width * G_icon_space_from_each_other;
+DAYICON.x = -_SCREEN.width / 2 + _SCREEN.width * G_offsets_from_sides_for_icons;
 DAYICON.y = (ENERGYBAR.y + ENERGYBAR.height / 2) + (_SCREEN.height * G_first_empty_space) + DAYICON.height / 2;
 TOP_CONTAINER:insert(DAYICON);
 
 NIGHTICON = display.newImageRect("images/nighttime.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size);
-NIGHTICON.x = -_SCREEN.width / 2 + _SCREEN.width * G_icon_space_from_each_other;
+NIGHTICON.x = -_SCREEN.width / 2 + _SCREEN.width * G_offsets_from_sides_for_icons;
 NIGHTICON.y = DAYICON.y;
 NIGHTICON.isVisible = false;
 TOP_CONTAINER:insert(NIGHTICON);
@@ -105,7 +105,7 @@ TOP_CONTAINER:insert(TIMETEXT);
 local calendar_group = display.newGroup();
 calendar_group.anchorChildren = true;
 calendar_group.anchorX = 1;
-calendar_group.x = -_SCREEN.width / 2 + _SCREEN.width * G_icon_space_from_each_other * 6 + _SCREEN.height * G_icon_size / 2;
+calendar_group.x = _SCREEN.width / 2 - _SCREEN.width * G_offsets_from_sides_for_icons;
 calendar_group.y = (ENERGYBAR.y + ENERGYBAR.height / 2) + (_SCREEN.height * G_first_empty_space) + NIGHTICON.height / 2;
 TOP_CONTAINER:insert(calendar_group);
 
@@ -117,28 +117,28 @@ DAYTEXT = display.newText("Day 1", calendar_icon.x + calendar_icon.width / 2 + _
 DAYTEXT.anchorX = 0;
 calendar_group:insert(DAYTEXT);
 
-local function create_icon(icon_path, icon_width, icon_height, icon_x, icon_y, icon_text_font_size)
+local function create_icon(icon_path, icon_width, icon_height, icon_text_x, icon_y, icon_text_font_size)
   local icon = display.newImageRect(icon_path, icon_width, icon_height);
-  icon.x = icon_x;
+  icon.x = icon_text_x;
   icon.y = icon_y;
   TOP_CONTAINER:insert(icon);
 
-  local icon_text = display.newText("9999", icon_x, (icon.y + icon.height / 2) + icon.height / 2, "Bellota-Regular", icon_text_font_size);
+  local icon_text = display.newText("0", icon_text_x, (icon.y + icon.height / 2) + icon.height / 2, "Bellota-Regular", icon_text_font_size);
   TOP_CONTAINER:insert(icon_text);
 end
 
 create_icon("images/branch.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
-            -_SCREEN.width / 2 + _SCREEN.width * G_icon_space_from_each_other * 1, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
+            -_SCREEN.width / 2 + _SCREEN.width * G_offsets_from_sides_for_icons, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
 create_icon("images/leaf.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
-            -_SCREEN.width / 2 + _SCREEN.width * G_icon_space_from_each_other * 2, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
+            -_SCREEN.width / 2 + _SCREEN.width * G_offsets_from_sides_for_icons + _SCREEN.width * G_space_between_icons, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
 create_icon("images/stone.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
-            -_SCREEN.width / 2 + _SCREEN.width * G_icon_space_from_each_other * 3, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
+            -_SCREEN.width / 2 + _SCREEN.width * G_offsets_from_sides_for_icons + _SCREEN.width * G_space_between_icons * 2, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
 create_icon("images/beeswax.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
-            -_SCREEN.width / 2 + _SCREEN.width * G_icon_space_from_each_other * 4, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
+            -_SCREEN.width / 2 + _SCREEN.width * G_offsets_from_sides_for_icons + _SCREEN.width * G_space_between_icons * 3, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
 create_icon("images/hemp.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
-            -_SCREEN.width / 2 + _SCREEN.width * G_icon_space_from_each_other * 5, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
+            -_SCREEN.width / 2 + _SCREEN.width * G_offsets_from_sides_for_icons + _SCREEN.width * G_space_between_icons * 4, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
 create_icon("images/food.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size,
-            -_SCREEN.width / 2 + _SCREEN.width * G_icon_space_from_each_other * 6, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
+            _SCREEN.width / 2 - _SCREEN.width * G_offsets_from_sides_for_icons, (DAYICON.y + DAYICON.height / 2) + (G_second_empty_space * _SCREEN.height) + _SCREEN.height * G_icon_size / 2, _SCREEN.height * G_font_size);
 
 buttons = require("buttons");
 local buttons_group = buttons.add_buttons_to_container();

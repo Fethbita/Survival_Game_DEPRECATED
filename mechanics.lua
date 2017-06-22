@@ -157,7 +157,6 @@ function mechanics.pass_time(explore_group, rest_group, build_group, mine_group,
     mechanics.first_button_off(DAYICON, NIGHTICON);
   end
 
-
   mechanics.time = 3 - mechanics.time;
 
   update_bars();

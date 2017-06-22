@@ -23,14 +23,16 @@ G_thumbnail_space_from_main_bottom = 0.015;
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 
-G_empty_space_from_sides = 0.020;
+G_empty_space_from_sides = 0.020; -- Black empty space from sides
 
 G_text_space_from_object = 0.030;
 
 G_calendar_offset = 0.600;
 
-G_icon_space_from_each_other = 0.142;
-
 G_button_width = 0.450;
 
-G_offsets_from_sides = 0.040;
+G_offsets_from_sides_for_buttons = 0.040;
+
+G_offsets_from_sides_for_icons = 0.100;
+
+G_space_between_icons = (1 - 2 * G_offsets_from_sides_for_icons) / 5;

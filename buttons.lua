@@ -28,27 +28,27 @@ local function create_button_group(button_text, button_group_center_plus_x, butt
 end
 
 -- Creating buttons
-local explore_group = create_button_group("Explore", -_SCREEN.width / 2 + G_offsets_from_sides * _SCREEN.width, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space),
+local explore_group = create_button_group("Explore", -_SCREEN.width / 2 + G_offsets_from_sides_for_buttons * _SCREEN.width, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space),
                                           _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
 explore_group.anchorX = 0;
 explore_group.is_pressed = false;
-local pickup_group = create_button_group("Search", _SCREEN.width / 2 - G_offsets_from_sides * _SCREEN.width, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space),
+local pickup_group = create_button_group("Search", _SCREEN.width / 2 - G_offsets_from_sides_for_buttons * _SCREEN.width, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space),
                                          _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
 pickup_group.anchorX = 1;
 pickup_group.is_pressed = false;
-local rest_group = create_button_group("Cook & Eat", -_SCREEN.width / 2 + G_offsets_from_sides * _SCREEN.width, 0, _SCREEN.width * G_button_width,
+local rest_group = create_button_group("Cook & Eat", -_SCREEN.width / 2 + G_offsets_from_sides_for_buttons * _SCREEN.width, 0, _SCREEN.width * G_button_width,
                                        (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
 rest_group.anchorX = 0;
 rest_group.is_pressed = false;
-local mine_group = create_button_group("Get Food", _SCREEN.width / 2 - G_offsets_from_sides * _SCREEN.width, 0, _SCREEN.width * G_button_width,
+local mine_group = create_button_group("Get Food", _SCREEN.width / 2 - G_offsets_from_sides_for_buttons * _SCREEN.width, 0, _SCREEN.width * G_button_width,
                                        (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
 mine_group.anchorX = 1;
 mine_group.is_pressed = false;
-local build_group = create_button_group("Build", -_SCREEN.width / 2 + G_offsets_from_sides * _SCREEN.width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space),
+local build_group = create_button_group("Build", -_SCREEN.width / 2 + G_offsets_from_sides_for_buttons * _SCREEN.width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space),
                                         _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
 build_group.anchorX = 0;
 build_group.is_pressed = false;
-local run_group = create_button_group("I'm Ready!", _SCREEN.width / 2 - G_offsets_from_sides * _SCREEN.width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space),
+local run_group = create_button_group("I'm Ready!", _SCREEN.width / 2 - G_offsets_from_sides_for_buttons * _SCREEN.width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space),
                                       _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
 run_group.anchorX = 1;
 run_group.is_pressed = false;
