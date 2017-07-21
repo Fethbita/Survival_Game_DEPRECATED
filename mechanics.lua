@@ -82,11 +82,15 @@ local function button_visible_off(button)
     button.isVisible = false;
 end
 
+local function buttons_can_be_pressed()
+  buttons.buttons_can_be_pressed = true;
+end
+
 function mechanics.first_button_off(button_to_off, button_to_on)
   transition.cancel(button_to_off);
   transition.cancel(button_to_on);
   transition.to(button_to_off, {time=250, alpha=0, onComplete=button_visible_off});
-  transition.to(button_to_on, {delay=250, time=250, alpha=1.0, onStart=button_visible_on});
+  transition.to(button_to_on, {delay=250, time=250, alpha=1.0, onStart=button_visible_on, onComplete=buttons_can_be_pressed});
 end
 
 function mechanics.pass_time(explore_group, rest_group, build_group, mine_group, pickup_group)

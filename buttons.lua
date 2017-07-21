@@ -2,6 +2,8 @@ local buttons = {};
 
 --[[
 Returns
+--VAR--
+buttons.buttons_can_be_pressed
 --FUNC--
 add_buttons_to_container
 --]]
@@ -28,43 +30,49 @@ local function create_button_group(button_text, button_group_center_plus_x, butt
 end
 
 -- Creating buttons
-local explore_group = create_button_group("Explore", -_SCREEN.width / 2 + G_offsets_from_sides_for_buttons * _SCREEN.width, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space),
-                                          _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+local explore_group = create_button_group("Explore", -_SCREEN.width / 2 + G_offsets_from_sides_for_buttons * _SCREEN.width, -(G_button_container_size * _SCREEN.height) / 3,
+                                          _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / 3 - (G_button_space * _SCREEN.height));
 explore_group.anchorX = 0;
 explore_group.is_pressed = false;
-local pickup_group = create_button_group("Search", _SCREEN.width / 2 - G_offsets_from_sides_for_buttons * _SCREEN.width, -(G_button_container_size * _SCREEN.height) / (3 + G_button_space),
-                                         _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+
+local pickup_group = create_button_group("Search", _SCREEN.width / 2 - G_offsets_from_sides_for_buttons * _SCREEN.width, -(G_button_container_size * _SCREEN.height) / 3,
+                                         _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / 3 - (G_button_space * _SCREEN.height));
 pickup_group.anchorX = 1;
 pickup_group.is_pressed = false;
+
 local rest_group = create_button_group("Cook & Eat", -_SCREEN.width / 2 + G_offsets_from_sides_for_buttons * _SCREEN.width, 0, _SCREEN.width * G_button_width,
-                                       (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+                                       (G_button_container_size * _SCREEN.height) / 3 - (G_button_space * _SCREEN.height));
 rest_group.anchorX = 0;
 rest_group.is_pressed = false;
+
 local mine_group = create_button_group("Get Food", _SCREEN.width / 2 - G_offsets_from_sides_for_buttons * _SCREEN.width, 0, _SCREEN.width * G_button_width,
-                                       (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+                                       (G_button_container_size * _SCREEN.height) / 3 - (G_button_space * _SCREEN.height));
 mine_group.anchorX = 1;
 mine_group.is_pressed = false;
-local build_group = create_button_group("Build", -_SCREEN.width / 2 + G_offsets_from_sides_for_buttons * _SCREEN.width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space),
-                                        _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+
+local build_group = create_button_group("Build", -_SCREEN.width / 2 + G_offsets_from_sides_for_buttons * _SCREEN.width, (G_button_container_size * _SCREEN.height) / 3,
+                                        _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / 3 - (G_button_space * _SCREEN.height));
 build_group.anchorX = 0;
 build_group.is_pressed = false;
-local run_group = create_button_group("I'm Ready!", _SCREEN.width / 2 - G_offsets_from_sides_for_buttons * _SCREEN.width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space),
-                                      _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / (3 + G_button_space));
+
+local run_group = create_button_group("I'm Ready!", _SCREEN.width / 2 - G_offsets_from_sides_for_buttons * _SCREEN.width, (G_button_container_size * _SCREEN.height) / 3,
+                                      _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / 3 - (G_button_space * _SCREEN.height));
 run_group.anchorX = 1;
 run_group.is_pressed = false;
 run_group.can_be_pressed = false;
 
-local buttons_can_be_pressed = true;
+buttons.buttons_can_be_pressed = true;
 local selected_buttons = 0;
 
 -- -----------------------------------------------------------------------------------
 -- Button event functions
 -- -----------------------------------------------------------------------------------
 local function handle_button_event(event)
-  if (buttons_can_be_pressed) then
+  if (buttons.buttons_can_be_pressed) then
     -- If button is pressed, make it not pressed
     if (event.target.is_pressed) then
       event.target.is_pressed = false;
+      buttons.buttons_can_be_pressed = false;
       mechanics.first_button_off(event.target[2], event.target[1]);
       selected_buttons = selected_buttons - 1;
       run_group.can_be_pressed = false;
@@ -74,6 +82,7 @@ local function handle_button_event(event)
     -- If button is not pressed, make it pressed
     else
       event.target.is_pressed = true;
+      buttons.buttons_can_be_pressed = false;
       mechanics.first_button_off(event.target[1], event.target[2]);
       selected_buttons = selected_buttons + 1;
       -- If two buttons are selected, make I am Ready button pressable
@@ -87,12 +96,12 @@ local function handle_button_event(event)
 end
 
 local function run_it(event)
-  if (buttons_can_be_pressed and run_group.can_be_pressed) then
-    buttons_can_be_pressed = false;
+  if (buttons.buttons_can_be_pressed and run_group.can_be_pressed) then
+    buttons.buttons_can_be_pressed = false;
     mechanics.pass_time(explore_group, rest_group, build_group, mine_group, pickup_group);
     selected_buttons = 0;
     run_group.can_be_pressed = false;
-    buttons_can_be_pressed = true;
+    buttons.buttons_can_be_pressed = true;
   end
   return true;
 end

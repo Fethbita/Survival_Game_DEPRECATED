@@ -14,9 +14,7 @@ G_button_container_size = 0.250;
 
 G_main_container_size = 1 - (G_top_container_size + G_third_empty_space + G_fourth_empty_space + G_button_container_size);
 
-G_button_height = 0.090;
-
-G_button_space = 0.1;
+G_button_space = 0.004;
 
 G_thumbnail_space_from_main_bottom = 0.015;
 
@@ -26,8 +24,6 @@ G_thumbnail_space_from_main_bottom = 0.015;
 G_empty_space_from_sides = 0.020; -- Black empty space from sides
 
 G_text_space_from_object = 0.030;
-
-G_calendar_offset = 0.600;
 
 G_button_width = 0.450;
 

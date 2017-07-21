@@ -11,6 +11,8 @@ _SCREEN.CENTER = {
   y = display.contentCenterY
 };
 
+math.randomseed(os.time());
+
 require("dimensions");
 
 require("game");
