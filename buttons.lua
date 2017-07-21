@@ -3,7 +3,7 @@ local buttons = {};
 --[[
 Returns
 --VAR--
-buttons.buttons_can_be_pressed
+buttons_can_be_pressed
 --FUNC--
 add_buttons_to_container
 --]]
