@@ -8,4 +8,4 @@ I was able to find some stuff. Now I only have one purpose. Yes. I need to figur
 
 Let's start with some small steps. I don't have much time to think right now. Looking at the sun's position, I need to find a way to make fire.
 
-It's quiet tonight. Quieter than usual. The feeling I had when the forest is living is missing. It is like every living creature just stopped moving and turned their eyes on me. I couldn't help but looked around. After a few steps from my camp site, it was all darkness and there seems to be nothing at all among the trees. The question is, what do I expect to see? 
+It's quiet tonight. Quieter than usual. The feeling I had when the forest is living is missing. It is like every living creature just stopped moving and turned their eyes on me. I couldn't help but looked around. After a few steps from my camp site, it was all darkness and there seems to be nothing at all among the trees. The question is, what do I expect to see?
