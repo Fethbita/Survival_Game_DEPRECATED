@@ -16,8 +16,8 @@ local function scrollListener(event)
     if (not lock_controlled) then
       local dx = math.abs((event.x - event.xStart));
       local dy = math.abs((event.y - event.yStart));
-      if (dx + dy > 15) then
-        if (dx > 10) then
+      if (dx + dy > 2) then
+        if (dx > 0) then
           diary_container.i_am_special = true;
           display.getCurrentStage():setFocus(diary_container);
         end
