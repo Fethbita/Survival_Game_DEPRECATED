@@ -60,8 +60,9 @@ local scrollView = widget.newScrollView(
 
 diary_container:insert(scrollView);
 
-local test_box = display.newRoundedRect((_SCREEN.width - _SCREEN.width * G_empty_space_from_sides) / 2, _SCREEN.height * G_main_container_size / 2,
-                                        _SCREEN.width - _SCREEN.width * G_empty_space_from_sides, _SCREEN.height, 15);
+local test_box = display.newRoundedRect(0, 0, _SCREEN.width - _SCREEN.width * G_empty_space_from_sides, _SCREEN.height, 15);
+test_box.anchorX = 0;
+test_box.anchorY = 0;
 test_box:setFillColor(0/255, 255/255, 0/255, 0.5);
 scrollView:insert(test_box);
 
