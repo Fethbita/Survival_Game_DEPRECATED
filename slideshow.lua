@@ -50,17 +50,14 @@ local function handleSwipe( event )
     local swipedObject = event.target
     local swipeDistanceX = event.x - event.xStart
 
-    swipedObject.hasFocus = true
-
     if (event.phase == "began") then
         -- Set a focus flag on the object, so that we don't handle touch events that weren't started on the same object
-        -- swipedObject.hasFocus = true
+        swipedObject.hasFocus = true
         -- This redirects all futre touch events to the swiped object, even when touch moves outside of its bounds
         display.getCurrentStage():setFocus( swipedObject )
     elseif ( event.phase == "moved" ) then
 
-        if (swipedObject.hasFocus) then
-
+        if (swipedObject.hasFocus or swipedObject.i_am_special) then
             -- Move all objects according to swipe gesture
             for i = 1, #_slideshowObjects do
                 local object = _slideshowObjects[i]
@@ -77,22 +74,30 @@ local function handleSwipe( event )
         end
     elseif( event.phase == "ended" ) then
         -- Reset touch event focus
-        swipedObject.hasFocus = false
-        display.getCurrentStage():setFocus( nil )
+        if (swipedObject.hasFocus or swipedObject.i_am_special) then
+            if (swipedObject.i_am_special) then
+                swipedObject.i_am_special = false;
+            end
+            swipedObject.hasFocus = false
+            display.getCurrentStage():setFocus( nil )
 
-        -- Calculate which object to show next, preventing swiping too far left or right
-        local nextObjectIndex = _currentObjectIndex
-        if((swipeDistanceX >= _swipeSensitivityPixels) and (_currentObjectIndex > 1)) then
-            nextObjectIndex = _currentObjectIndex - 1
-        elseif((swipeDistanceX <= -_swipeSensitivityPixels) and (_currentObjectIndex < #_slideshowObjects)) then
-            nextObjectIndex = _currentObjectIndex + 1
+            -- Calculate which object to show next, preventing swiping too far left or right
+            local nextObjectIndex = _currentObjectIndex
+            if((swipeDistanceX >= _swipeSensitivityPixels) and (_currentObjectIndex > 1)) then
+                nextObjectIndex = _currentObjectIndex - 1
+            elseif((swipeDistanceX <= -_swipeSensitivityPixels) and (_currentObjectIndex < #_slideshowObjects)) then
+                nextObjectIndex = _currentObjectIndex + 1
+            end
+
+            -- Finally, show the selected object in the slideshow
+            showObject(nextObjectIndex)
         end
-
-        -- Finally, show the selected object in the slideshow
-        showObject(nextObjectIndex)
 
     elseif( event.phase == "cancelled" ) then
         -- Reset touch event focus
+        if (swipedObject.i_am_special) then
+            swipedObject.i_am_special = false;
+        end
         swipedObject.hasFocus = false
         display.getCurrentStage():setFocus( nil )
     end

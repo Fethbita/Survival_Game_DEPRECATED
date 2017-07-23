@@ -1,8 +1,9 @@
 local diary_container = display.newContainer(_SCREEN.width, _SCREEN.height * G_main_container_size);
+diary_container.i_am_special = false;
 
 local widget = require("widget");
 
-local lock_controlled = nil;
+local lock_controlled = true;
 -- ScrollView listener
 local function scrollListener(event)
   --print(lock_controlled);
@@ -18,6 +19,8 @@ local function scrollListener(event)
       local dy = math.abs((event.y - event.yStart));
       if (dx + dy > 15) then
         if (dx > 10) then
+          print("a")
+          diary_container.i_am_special = true;
           display.getCurrentStage():setFocus(diary_container);
         end
         lock_controlled = true;
