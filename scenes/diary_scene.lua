@@ -6,7 +6,6 @@ local widget = require("widget");
 local lock_controlled = true;
 -- ScrollView listener
 local function scrollListener(event)
-  --print(lock_controlled);
   local phase = event.phase;
   if (phase == "began") then
     -- -----------------------------------------------------------------------------------
@@ -19,7 +18,6 @@ local function scrollListener(event)
       local dy = math.abs((event.y - event.yStart));
       if (dx + dy > 15) then
         if (dx > 10) then
-          print("a")
           diary_container.i_am_special = true;
           display.getCurrentStage():setFocus(diary_container);
         end
