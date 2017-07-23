@@ -1,30 +1,30 @@
 local diary_container = display.newContainer(_SCREEN.width, _SCREEN.height * G_main_container_size);
 
-local widget = require( "widget" )
+local widget = require("widget");
 
 local lock_controlled = nil;
 -- ScrollView listener
-local function scrollListener( event )
+local function scrollListener(event)
   --print(lock_controlled);
-  local phase = event.phase
-  if ( phase == "began" ) then
+  local phase = event.phase;
+  if (phase == "began") then
     -- -----------------------------------------------------------------------------------
     lock_controlled = false;
     -- -----------------------------------------------------------------------------------
-  elseif ( phase == "moved" ) then
+  elseif (phase == "moved") then
     -- -----------------------------------------------------------------------------------
     if (not lock_controlled) then
-      local dx = math.abs((event.x - event.xStart))
-      local dy = math.abs((event.y - event.yStart))
+      local dx = math.abs((event.x - event.xStart));
+      local dy = math.abs((event.y - event.yStart));
       if (dx + dy > 15) then
         if (dx > 10) then
-          display.getCurrentStage():setFocus(diary_container)
+          display.getCurrentStage():setFocus(diary_container);
         end
         lock_controlled = true;
       end
     end
     -- -----------------------------------------------------------------------------------
-  elseif ( phase == "ended" ) then
+  elseif (phase == "ended") then
   -- -----------------------------------------------------------------------------------
   -- -----------------------------------------------------------------------------------
   end
@@ -38,7 +38,7 @@ local function scrollListener( event )
     end
   end
 
-  return true
+  return true;
 end
 
 -- Create the widget
