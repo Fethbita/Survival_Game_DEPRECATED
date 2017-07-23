@@ -50,9 +50,11 @@ local function handleSwipe( event )
     local swipedObject = event.target
     local swipeDistanceX = event.x - event.xStart
 
+    swipedObject.hasFocus = true
+
     if (event.phase == "began") then
         -- Set a focus flag on the object, so that we don't handle touch events that weren't started on the same object
-        swipedObject.hasFocus = true
+        -- swipedObject.hasFocus = true
         -- This redirects all futre touch events to the swiped object, even when touch moves outside of its bounds
         display.getCurrentStage():setFocus( swipedObject )
     elseif ( event.phase == "moved" ) then
