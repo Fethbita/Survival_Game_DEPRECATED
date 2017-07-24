@@ -75,7 +75,8 @@ scrollView:insert(heading_group);
 local diary_icon = display.newImageRect("images/diary.png", _SCREEN.height * G_icon_size, _SCREEN.height * G_icon_size);
 heading_group:insert(diary_icon);
 
-local diary_text = display.newText("Diary", _SCREEN.height * G_icon_size / 2 + 10, 0, "Bellota-Regular", _SCREEN.height * G_font_size);
+local diary_text = display.newText("Diary", diary_icon.x + diary_icon.width / 2 + _SCREEN.width * G_text_space_from_object, 0,
+                                   "Bellota-Regular", _SCREEN.height * G_font_size);
 diary_text.anchorX = 0;
 heading_group:insert(diary_text);
 

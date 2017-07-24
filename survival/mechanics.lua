@@ -8,6 +8,8 @@ health, energy, inventory, time, time_text, day
 first_button_off, pass_time
 --]]
 
+mechanics.thoughts = List.new();
+
 mechanics.health = 1000;
 mechanics.energy = 1000;
 mechanics.inventory = {
@@ -37,9 +39,17 @@ then with the prob_power given, creates a distribution.
 --]]
 local function pickup(min_object, max_object, prob_power)
   prob_power = prob_power or 4;
-  for key,value in pairs(mechanics.inventory) do
+  for key, value in pairs(mechanics.inventory) do
     number_found = math.floor(min_object + ((max_object + 1) - min_object) * math.random() ^ prob_power);
     mechanics.inventory[key] = mechanics.inventory[key] + number_found;
+  end
+end
+
+local function update_thoughts()
+  for key, value in pairs(mechanics.thoughts) do
+    if (key ~= "first" and key ~= "last" and key ~= "n") then
+      SLIDESHOW_OBJECTS[2].texts[mechanics.thoughts.last - key].text = mechanics.thoughts.last - key .. "-) " .. value;
+    end
   end
 end
 
@@ -47,7 +57,10 @@ local function bad_luck(chance_to_get_hit, hit_lower_bound, hit_upper_bound, tex
   local random_number = math.random(1,100);
   if (random_number <= chance_to_get_hit) then
     mechanics.health = mechanics.health - math.random(hit_lower_bound, hit_upper_bound);
-    print(text_to_print);
+    while (mechanics.thoughts.n >= 10) do
+      List.popleft(mechanics.thoughts);
+    end
+    List.pushright(mechanics.thoughts, text_to_print);
   end
 end
 
@@ -163,6 +176,7 @@ function mechanics.pass_time(explore_group, rest_group, build_group, mine_group,
 
   mechanics.time = 3 - mechanics.time;
 
+  update_thoughts();
   update_bars();
   update_texts();
 end

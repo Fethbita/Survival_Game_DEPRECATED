@@ -18,7 +18,8 @@ inventory_container:insert(heading_group);
 local inventory_icon = display.newImageRect("images/inventory.png", 40, 40);
 heading_group:insert(inventory_icon);
 
-local inventory_text = display.newText("Inventory", _SCREEN.height * G_icon_size / 2 + 10, 0, "Bellota-Regular", _SCREEN.height * G_font_size);
+local inventory_text = display.newText("Inventory", inventory_icon.x + inventory_icon.width / 2 + _SCREEN.width * G_text_space_from_object, 0,
+                                       "Bellota-Regular", _SCREEN.height * G_font_size);
 inventory_text.anchorX = 0;
 heading_group:insert(inventory_text);
 

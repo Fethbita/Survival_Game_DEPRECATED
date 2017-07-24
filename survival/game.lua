@@ -1,10 +1,10 @@
 slideshow = require("slideshow");
 mechanics = require("mechanics");
 
-local slideshowObjects = {};
-slideshowObjects[1] = require("scenes.diary_scene");
-slideshowObjects[2] = require("scenes.home_scene");
-slideshowObjects[3] = require("scenes.inventory_scene");
+SLIDESHOW_OBJECTS = {};
+SLIDESHOW_OBJECTS[1] = require("scenes.diary_scene");
+SLIDESHOW_OBJECTS[2] = require("scenes.home_scene");
+SLIDESHOW_OBJECTS[3] = require("scenes.inventory_scene");
 
 --[[
 Create and return a display group containing a thumbnail for each of the slideshow objects
@@ -57,7 +57,7 @@ local slideshowParams = {
     y = (G_top_container_size * _SCREEN.height) + (_SCREEN.height * G_main_container_size) / 2 + (G_third_empty_space * _SCREEN.height),
     onChange = updateThumbnails,
 }
-slideshow.init(slideshowObjects, slideshowParams);
+slideshow.init(SLIDESHOW_OBJECTS, slideshowParams);
 
 local main_group = display.newGroup();
 

@@ -13,6 +13,8 @@ _SCREEN.CENTER = {
 
 math.randomseed(os.time());
 
+require("list");
+
 require("dimensions");
 
 require("game");

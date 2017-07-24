@@ -2,6 +2,11 @@ G_health_energy_bar_percentage = 0.008;
 G_first_empty_space = 0.020; -- Between health bars and daytime
 G_icon_size = 0.030;
 G_font_size = 0.030;
+
+G_little_font_size = 0.025; -- For little texts
+
+G_little_text_gap = 0.050;
+
 G_second_empty_space = 0.020; -- Between daytime and icons
 
 G_top_container_size = 0.160;
@@ -20,6 +25,8 @@ G_thumbnail_space_from_main_bottom = 0.015;
 
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
+
+G_indentation_for_little_font = 0.055;
 
 G_empty_space_from_sides = 0.020; -- Black empty space from sides
 
