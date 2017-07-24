@@ -48,7 +48,7 @@ end
 local function update_thoughts()
   for key, value in pairs(mechanics.thoughts) do
     if (key ~= "first" and key ~= "last" and key ~= "n") then
-      SLIDESHOW_OBJECTS[2].texts[mechanics.thoughts.last - key].text = mechanics.thoughts.last - key .. "-) " .. value;
+      SLIDESHOW_OBJECTS[2].texts[mechanics.thoughts.last - key].text = mechanics.thoughts.last - key + 1 .. "-) " .. value;
     end
   end
 end
