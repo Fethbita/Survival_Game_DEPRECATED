@@ -23,10 +23,9 @@ local logs_text = display.newText("Thoughts", thoughts_icon.x + thoughts_icon.wi
 logs_text.anchorX = 0;
 heading_group:insert(logs_text);
 
-
 home_container.texts = {};
 for var = 0, 9, 1 do
-  home_container.texts[var] = display.newText("asd" , 0, 0, "Bellota-Regular", _SCREEN.height * G_little_font_size);
+  home_container.texts[var] = display.newText("" , 0, 0, "Bellota-Regular", _SCREEN.height * G_little_font_size);
   home_container.texts[var].anchorX = 0;
   home_container.texts[var].x = -(_SCREEN.width - _SCREEN.width * G_empty_space_from_sides) / 2 + G_indentation_for_little_font * _SCREEN.width;
   if (var == 0) then

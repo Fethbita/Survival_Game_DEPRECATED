@@ -3,20 +3,17 @@ diary_container.i_am_special = false;
 
 local widget = require("widget");
 
-local lock_controlled = true;
 -- ScrollView listener
+local lock_controlled = true;
 local function scrollListener(event)
   local phase = event.phase;
   if (phase == "began") then
-    -- -----------------------------------------------------------------------------------
     lock_controlled = false;
-    -- -----------------------------------------------------------------------------------
   elseif (phase == "moved") then
-    -- -----------------------------------------------------------------------------------
     if (not lock_controlled) then
       local dx = math.abs((event.x - event.xStart));
       local dy = math.abs((event.y - event.yStart));
-      if (dx + dy > 16) then
+      if (dx + dy > _SCREEN.height * G_scrollView_swipyness) then
         if (dx > dy) then
           diary_container.i_am_special = true;
           display.getCurrentStage():setFocus(diary_container);
@@ -24,13 +21,13 @@ local function scrollListener(event)
         lock_controlled = true;
       end
     end
-    -- -----------------------------------------------------------------------------------
+  --[[
   elseif (phase == "ended") then
-  -- -----------------------------------------------------------------------------------
-  -- -----------------------------------------------------------------------------------
+  --]]
   end
 
   -- In the event a scroll limit is reached...
+  --[[
   if (event.limitReached) then
     if (event.direction == "up") then
     elseif (event.direction == "down") then
@@ -38,6 +35,7 @@ local function scrollListener(event)
     elseif (event.direction == "right") then
     end
   end
+  --]]
 
   return true;
 end
