@@ -40,5 +40,5 @@ function List.popright(list)
   list[last] = nil;         -- to allow garbage collection
   list.last = last - 1;
   list.n = list.n - 1;
-  return value
+  return value;
 end
