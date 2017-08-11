@@ -85,6 +85,7 @@ local function update_texts()
   TOP_CONTAINER[13].text = mechanics.inventory.Stone;
   TOP_CONTAINER[15].text = mechanics.inventory.Beeswax;
   TOP_CONTAINER[17].text = mechanics.inventory.Hemp;
+  TOP_CONTAINER[17].size = _SCREEN.height * G_emphasized_font_size;
 end
 
 local function button_visible_on(button)

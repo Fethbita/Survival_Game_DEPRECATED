@@ -11,6 +11,8 @@ G_font_size = 0.030;
 
 G_little_font_size = 0.025; -- For little texts
 
+G_emphasized_font_size = 0.060; -- Text for emphasized numbers
+
 G_little_text_gap = 0.050;
 
 G_second_empty_space = 0.020; -- Between daytime and icons
