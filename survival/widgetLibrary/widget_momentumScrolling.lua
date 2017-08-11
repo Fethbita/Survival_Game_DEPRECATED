@@ -343,7 +343,7 @@ function lib._touch( view, event )
 
 					-- If the view is more than the limits
 					if view.y < lib.upperLimit or view.y > lib.bottomLimit then
-						view.y = view.y + view._delta * 0.1
+						view.y = view.y + (view._delta * 0.1)
 						-- shrink the scrollbar if the view is out of bounds
 						if view._scrollBar then
 							--view._scrollBar.yScale = 0.1 * - ( view.y - lib.bottomLimit )
