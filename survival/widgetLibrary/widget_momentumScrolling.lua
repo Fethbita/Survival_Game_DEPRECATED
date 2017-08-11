@@ -78,7 +78,7 @@ local function handleSnapBackVertical( self, view, snapBack )
 	setLimits( lib, view )
 
 	local limitHit = "none"
-	local bounceTime = 400
+	local bounceTime = 100
 	if not view.isBounceEnabled then
 	    bounceTime = 0
 	end
@@ -133,7 +133,7 @@ local function handleSnapBackHorizontal( self, view, snapBack )
 	setLimits( lib, view )
 
 	local limitHit = "none"
-	local bounceTime = 400
+	local bounceTime = 100
 	if not view.isBounceEnabled then
 	    bounceTime = 0
 	end
