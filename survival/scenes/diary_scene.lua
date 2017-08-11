@@ -1,7 +1,7 @@
 local diary_container = display.newContainer(_SCREEN.width, _SCREEN.height * G_main_container_size);
 diary_container.i_am_special = false;
 
-local widget = require("widget");
+local widget = require("widgetLibrary.widget");
 
 -- ScrollView listener
 local lock_controlled = true;
@@ -43,8 +43,9 @@ end
 -- Create the widget
 local scrollView = widget.newScrollView(
   {
+    baseDir = "widgetLibrary",
     horizontalScrollDisabled = true,
-    isBounceEnabled = false,
+    isBounceEnabled = true,
     x = 0,
     y = 0,
     width = _SCREEN.width - _SCREEN.width * G_empty_space_from_sides,

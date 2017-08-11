@@ -65,7 +65,7 @@ local function handleSwipe( event )
                 local x = object.originalPosition.x + offsetX + swipeDistanceX
                 if ( ( _currentObjectIndex == 1 and swipeDistanceX > 0 ) or
                 ( _currentObjectIndex == #_slideshowObjects  and swipeDistanceX < 0) ) then
-                    x = object.originalPosition.x + offsetX + ( swipeDistanceX / 10 )
+                    x = object.originalPosition.x + offsetX + ( swipeDistanceX * 0.1 )
                     object.x = x
                 else
                     object.x = x
