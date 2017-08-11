@@ -126,7 +126,7 @@ function buttons.add_buttons_to_container()
   buttons_group:addEventListener("touch", buttons_group_ignore);
 
   local test_box = display.newRoundedRect(0, 0, _SCREEN.width - _SCREEN.width * G_empty_space_from_sides, buttons_group.height, 0);
-  test_box:setFillColor(0/255, 255/255, 0/255, 0.5);
+  test_box:setFillColor(87/255, 87/255, 87/255, 0.5);
   test_box.isHitTestable = true;
   buttons_group:insert(test_box);
 
