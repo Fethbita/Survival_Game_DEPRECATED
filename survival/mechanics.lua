@@ -138,8 +138,8 @@ end
 function mechanics.first_button_off(button_to_off, button_to_on)
   transition.cancel(button_to_off);
   transition.cancel(button_to_on);
-  transition.to(button_to_off, {delay=50, time=50, alpha=0, onComplete=button_visible_off});
-  transition.to(button_to_on, {delay=0, time=100, alpha=1.0, onStart=button_visible_on, onComplete=buttons_can_be_pressed});
+  transition.to(button_to_off, {delay=50, time=100, alpha=0, onComplete=button_visible_off, onComplete=buttons_can_be_pressed});
+  transition.to(button_to_on, {delay=0, time=150, alpha=1.0, onStart=button_visible_on});
 end
 
 function mechanics.pass_time(explore_group, rest_group, build_group, mine_group, pickup_group)
