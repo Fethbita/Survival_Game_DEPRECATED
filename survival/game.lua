@@ -66,7 +66,7 @@ TOP_CONTAINER.x = _SCREEN.CENTER.x;
 TOP_CONTAINER.y = G_top_container_size * _SCREEN.height / 2;
 
 local test_box = display.newRoundedRect(0, 0, _SCREEN.width - _SCREEN.width * G_empty_space_from_sides, TOP_CONTAINER.height, 15);
-test_box:setFillColor(200/255, 0/255, 0/255, 0.5);
+test_box:setFillColor(87/255, 87/255, 87/255, 0.5);
 TOP_CONTAINER:insert(test_box);
 
 HEALTHBAR = display.newRoundedRect(0, 0, 0, 0, 6);

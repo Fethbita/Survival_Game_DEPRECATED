@@ -1,7 +1,7 @@
 local inventory_container = display.newContainer(_SCREEN.width, _SCREEN.height * G_main_container_size);
 
 local test_box = display.newRoundedRect(0, 0, _SCREEN.width - _SCREEN.width * G_empty_space_from_sides, _SCREEN.height * G_main_container_size, 15);
-test_box:setFillColor(0/255, 255/255, 0/255, 0.5);
+test_box:setFillColor(87/255, 87/255, 87/255, 0.5);
 inventory_container:insert(test_box);
 
 -- local background = display.newImageRect("images/lbg.png", 800, 1200);

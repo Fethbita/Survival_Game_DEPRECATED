@@ -15,6 +15,8 @@ G_emphasized_font_size = 0.050; -- Text for emphasized numbers
 
 G_little_text_gap = 0.050;
 
+G_little_text_gap_from_header = 0.020;
+
 G_second_empty_space = 0.020; -- Between daytime and icons
 
 G_top_container_size = 0.160;
