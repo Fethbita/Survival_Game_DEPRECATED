@@ -14,10 +14,15 @@ mechanics.health = 1000;
 mechanics.energy = 1000;
 mechanics.inventory = {
   Branch = 0,
+  Branch_changed = false,
   Leaf = 0,
+  Leaf_changed = false,
   Stone = 0,
+  Stone_changed = false,
   Beeswax = 0,
-  Hemp = 0
+  Beeswax_changed = false,
+  Hemp = 0,
+  Hemp_changed = false,
 };
 --[[
 1 means nigttime
@@ -40,8 +45,13 @@ then with the prob_power given, creates a distribution.
 local function pickup(min_object, max_object, prob_power)
   prob_power = prob_power or 4;
   for key, value in pairs(mechanics.inventory) do
-    number_found = math.floor(min_object + ((max_object + 1) - min_object) * math.random() ^ prob_power);
-    mechanics.inventory[key] = mechanics.inventory[key] + number_found;
+    if (value ~= true and value ~= false) then
+      number_found = math.floor(min_object + ((max_object + 1) - min_object) * math.random() ^ prob_power);
+      mechanics.inventory[key] = mechanics.inventory[key] + number_found;
+      if (number_found > 0) then
+        mechanics.inventory[key .. "_changed"] = true;
+      end
+    end
   end
 end
 
@@ -77,15 +87,40 @@ local function update_bars()
   end
 end
 
+function emphasize_text(some_text)
+  transition.cancel(some_text);
+  transition.to(some_text, {time=100, size=_SCREEN.height * G_emphasized_font_size});
+  transition.to(some_text, {delay=100, time=100, size=_SCREEN.height * G_font_size});
+end
+
 local function update_texts()
   TIMETEXT.text = mechanics.time_text[mechanics.time];
   DAYTEXT.text = "Day " .. mechanics.day;
   TOP_CONTAINER[9].text = mechanics.inventory.Branch;
+  if (mechanics.inventory.Branch_changed) then
+    emphasize_text(TOP_CONTAINER[9]);
+    mechanics.inventory.Branch_changed = false;
+  end
   TOP_CONTAINER[11].text = mechanics.inventory.Leaf;
+  if (mechanics.inventory.Leaf_changed) then
+    emphasize_text(TOP_CONTAINER[11]);
+    mechanics.inventory.Leaf_changed = false;
+  end
   TOP_CONTAINER[13].text = mechanics.inventory.Stone;
+  if (mechanics.inventory.Stone_changed) then
+    emphasize_text(TOP_CONTAINER[13]);
+    mechanics.inventory.Stone_changed = false;
+  end
   TOP_CONTAINER[15].text = mechanics.inventory.Beeswax;
+  if (mechanics.inventory.Beeswax_changed) then
+    emphasize_text(TOP_CONTAINER[15]);
+    mechanics.inventory.Beeswax_changed = false;
+  end
   TOP_CONTAINER[17].text = mechanics.inventory.Hemp;
-  TOP_CONTAINER[17].size = _SCREEN.height * G_emphasized_font_size;
+  if (mechanics.inventory.Hemp_changed) then
+    emphasize_text(TOP_CONTAINER[17]);
+    mechanics.inventory.Hemp_changed = false;
+  end
 end
 
 local function button_visible_on(button)
