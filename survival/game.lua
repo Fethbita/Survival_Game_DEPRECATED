@@ -16,7 +16,7 @@ function createThumbnails()
 
   for i = 1, 3 do
     local thumb = display.newCircle((i - 1) * (thumbSize + thumbMargin), 0, thumbSize / 2, thumbSize / 2);
-    thumb:setFillColor(0/255, 0/255, 255/255, 0.5);
+    thumb:setFillColor(255/255, 255/255, 255/255, 0.5);
     thumb:setStrokeColor(1, 1, 1, 1.0);
     thumb.strokeWidth = 0;
     thumb.anchorX = 0;
