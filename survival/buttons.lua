@@ -13,13 +13,14 @@ add_buttons_to_container
 -- Button function
 local function create_button_group(button_text, button_group_center_plus_x, button_group_center_plus_y, button_width, button_height)
   local button_group = display.newGroup();
-  local button;
+  local button, button_pressed;
   if (button_group_center_plus_x < 0) then
     button = display.newImageRect("images/button_left.png", button_width, button_height);
+    button_pressed = display.newImageRect("images/button_over_left.png", button_width, button_height);
   else
     button = display.newImageRect("images/button_right.png", button_width, button_height);
+    button_pressed = display.newImageRect("images/button_over_right.png", button_width, button_height);
   end
-  local button_pressed = display.newImageRect("images/button_over.png", button_width, button_height);
   button_pressed.isVisible = false;
   button_pressed.alpha = 0;
   local button_text = display.newText(button_text, 0, 0, "Bellota-Regular", _SCREEN.height * G_font_size);
