@@ -13,16 +13,11 @@ mechanics.thoughts = List.new();
 mechanics.health = 1000;
 mechanics.energy = 1000;
 mechanics.inventory = {
-  Branch = 0,
-  Branch_changed = false,
-  Leaf = 0,
-  Leaf_changed = false,
-  Stone = 0,
-  Stone_changed = false,
-  Beeswax = 0,
-  Beeswax_changed = false,
-  Hemp = 0,
-  Hemp_changed = false,
+  0, false, -- Branch
+  0, false, -- Leaf
+  0, false, -- Stone
+  0, false, -- Beeswax
+  0, false, -- Hemp
 };
 --[[
 1 means nigttime
@@ -45,11 +40,11 @@ then with the prob_power given, creates a distribution.
 local function pickup(min_object, max_object, prob_power)
   prob_power = prob_power or 4;
   for key, value in pairs(mechanics.inventory) do
-    if (value ~= true and value ~= false) then
+    if (type(value) ~= "boolean") then
       number_found = math.floor(min_object + ((max_object + 1) - min_object) * math.random() ^ prob_power);
       mechanics.inventory[key] = mechanics.inventory[key] + number_found;
       if (number_found > 0) then
-        mechanics.inventory[key .. "_changed"] = true;
+        mechanics.inventory[key + 1] = true;
       end
     end
   end
@@ -96,30 +91,12 @@ end
 local function update_texts()
   TIMETEXT.text = mechanics.time_text[mechanics.time];
   DAYTEXT.text = "Day " .. mechanics.day;
-  TOP_CONTAINER[9].text = mechanics.inventory.Branch;
-  if (mechanics.inventory.Branch_changed) then
-    emphasize_text(TOP_CONTAINER[9]);
-    mechanics.inventory.Branch_changed = false;
-  end
-  TOP_CONTAINER[11].text = mechanics.inventory.Leaf;
-  if (mechanics.inventory.Leaf_changed) then
-    emphasize_text(TOP_CONTAINER[11]);
-    mechanics.inventory.Leaf_changed = false;
-  end
-  TOP_CONTAINER[13].text = mechanics.inventory.Stone;
-  if (mechanics.inventory.Stone_changed) then
-    emphasize_text(TOP_CONTAINER[13]);
-    mechanics.inventory.Stone_changed = false;
-  end
-  TOP_CONTAINER[15].text = mechanics.inventory.Beeswax;
-  if (mechanics.inventory.Beeswax_changed) then
-    emphasize_text(TOP_CONTAINER[15]);
-    mechanics.inventory.Beeswax_changed = false;
-  end
-  TOP_CONTAINER[17].text = mechanics.inventory.Hemp;
-  if (mechanics.inventory.Hemp_changed) then
-    emphasize_text(TOP_CONTAINER[17]);
-    mechanics.inventory.Hemp_changed = false;
+  for var = 9, 17, 2 do
+    TOP_CONTAINER[var].text = mechanics.inventory[var - 8];
+    if (mechanics.inventory[var - 7]) then
+      emphasize_text(TOP_CONTAINER[var]);
+      mechanics.inventory[var - 7] = false;
+    end
   end
 end
 
