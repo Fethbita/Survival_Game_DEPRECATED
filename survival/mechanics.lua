@@ -119,7 +119,7 @@ function mechanics.first_button_off(button_to_off, button_to_on)
   transition.to(button_to_on, {delay=0, time=150, alpha=1.0, onStart=button_visible_on});
 end
 
-function mechanics.pass_time(explore_group, rest_group, build_group, mine_group, pickup_group)
+function mechanics.pass_time(explore_group, cookneat_group, build_group, get_food_group, search_group)
   if (explore_group.is_pressed) then
     if (mechanics.energy < 100) then
       mechanics.energy = 0;
@@ -140,17 +140,17 @@ function mechanics.pass_time(explore_group, rest_group, build_group, mine_group,
     build_group.is_pressed = false;
   end
 
-  if (mine_group.is_pressed) then
+  if (get_food_group.is_pressed) then
     if (mechanics.energy < 100) then
       mechanics.energy = 0;
     else
       mechanics.energy = mechanics.energy - 100;
     end
-    mechanics.first_button_off(mine_group[2], mine_group[1]);
-    mine_group.is_pressed = false;
+    mechanics.first_button_off(get_food_group[2], get_food_group[1]);
+    get_food_group.is_pressed = false;
   end
 
-  if (pickup_group.is_pressed) then
+  if (search_group.is_pressed) then
     if (mechanics.time == 2) then
       pickup(1, 5);
     else
@@ -161,18 +161,18 @@ function mechanics.pass_time(explore_group, rest_group, build_group, mine_group,
     else
       mechanics.energy = mechanics.energy - 100;
     end
-    mechanics.first_button_off(pickup_group[2], pickup_group[1]);
-    pickup_group.is_pressed = false;
+    mechanics.first_button_off(search_group[2], search_group[1]);
+    search_group.is_pressed = false;
   end
 
-  if (rest_group.is_pressed) then
+  if (cookneat_group.is_pressed) then
     if (mechanics.energy > 850) then
       mechanics.energy = 1000;
     else
       mechanics.energy = mechanics.energy + 150;
     end
-    mechanics.first_button_off(rest_group[2], rest_group[1]);
-    rest_group.is_pressed = false;
+    mechanics.first_button_off(cookneat_group[2], cookneat_group[1]);
+    cookneat_group.is_pressed = false;
   end
 
 

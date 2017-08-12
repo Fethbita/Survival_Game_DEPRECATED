@@ -40,20 +40,20 @@ local explore_group = create_button_group("Explore", -_SCREEN.width / 2 + G_empt
 explore_group.anchorX = 0;
 explore_group.is_pressed = false;
 
-local pickup_group = create_button_group("Search", _SCREEN.width / 2 - G_empty_space_from_sides * _SCREEN.width / 2, -(G_button_container_size * _SCREEN.height) / 3,
+local search_group = create_button_group("Search", _SCREEN.width / 2 - G_empty_space_from_sides * _SCREEN.width / 2, -(G_button_container_size * _SCREEN.height) / 3,
                                          _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / 3 - (G_button_space * _SCREEN.height));
-pickup_group.anchorX = 1;
-pickup_group.is_pressed = false;
+search_group.anchorX = 1;
+search_group.is_pressed = false;
 
-local rest_group = create_button_group("Cook & Eat", -_SCREEN.width / 2 + G_empty_space_from_sides * _SCREEN.width / 2, 0, _SCREEN.width * G_button_width,
+local cookneat_group = create_button_group("Cook & Eat", -_SCREEN.width / 2 + G_empty_space_from_sides * _SCREEN.width / 2, 0, _SCREEN.width * G_button_width,
                                        (G_button_container_size * _SCREEN.height) / 3 - (G_button_space * _SCREEN.height));
-rest_group.anchorX = 0;
-rest_group.is_pressed = false;
+cookneat_group.anchorX = 0;
+cookneat_group.is_pressed = false;
 
-local mine_group = create_button_group("Get Food", _SCREEN.width / 2 - G_empty_space_from_sides * _SCREEN.width / 2, 0, _SCREEN.width * G_button_width,
+local get_food_group = create_button_group("Get Food", _SCREEN.width / 2 - G_empty_space_from_sides * _SCREEN.width / 2, 0, _SCREEN.width * G_button_width,
                                        (G_button_container_size * _SCREEN.height) / 3 - (G_button_space * _SCREEN.height));
-mine_group.anchorX = 1;
-mine_group.is_pressed = false;
+get_food_group.anchorX = 1;
+get_food_group.is_pressed = false;
 
 local build_group = create_button_group("Build", -_SCREEN.width / 2 + G_empty_space_from_sides * _SCREEN.width / 2, (G_button_container_size * _SCREEN.height) / 3,
                                         _SCREEN.width * G_button_width, (G_button_container_size * _SCREEN.height) / 3 - (G_button_space * _SCREEN.height));
@@ -103,7 +103,7 @@ end
 local function run_it(event)
   if (buttons.buttons_can_be_pressed and run_group.can_be_pressed) then
     buttons.buttons_can_be_pressed = false;
-    mechanics.pass_time(explore_group, rest_group, build_group, mine_group, pickup_group);
+    mechanics.pass_time(explore_group, cookneat_group, build_group, get_food_group, search_group);
     selected_buttons = 0;
     run_group.can_be_pressed = false;
     buttons.buttons_can_be_pressed = true;
@@ -131,10 +131,10 @@ function buttons.add_buttons_to_container()
   buttons_group:insert(test_box);
 
   buttons_group:insert(explore_group);
-  buttons_group:insert(rest_group);
+  buttons_group:insert(cookneat_group);
   buttons_group:insert(build_group);
-  buttons_group:insert(mine_group);
-  buttons_group:insert(pickup_group);
+  buttons_group:insert(get_food_group);
+  buttons_group:insert(search_group);
   buttons_group:insert(run_group);
 
   return buttons_group;
@@ -146,10 +146,10 @@ end
 -- Button event function listeners
 -- -----------------------------------------------------------------------------------
 explore_group:addEventListener("tap", handle_button_event);
-rest_group:addEventListener("tap", handle_button_event);
+cookneat_group:addEventListener("tap", handle_button_event);
 build_group:addEventListener("tap", handle_button_event);
-pickup_group:addEventListener("tap", handle_button_event);
-mine_group:addEventListener("tap", handle_button_event);
+search_group:addEventListener("tap", handle_button_event);
+get_food_group:addEventListener("tap", handle_button_event);
 run_group:addEventListener("tap", run_it);
 -- -----------------------------------------------------------------------------------
 
